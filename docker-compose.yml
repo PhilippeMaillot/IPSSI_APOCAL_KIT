@@ -67,14 +67,22 @@ services:
       sh -c "python manage.py migrate &&
              python manage.py runserver 0.0.0.0:8000"
 
-  # --------------------------------------------------------------------------
-  # K3 ajoutera :
-  #
-  # frontend:
-  #   build: { context: ./frontend, dockerfile: ../docker/frontend.Dockerfile }
-  #   ports: ["3000:3000"]
-  #   ...
-  # --------------------------------------------------------------------------
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../docker/frontend.Dockerfile
+    container_name: apocal-frontend
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    depends_on:
+      - backend
+    command: npm run dev -- --host 0.0.0.0
 
 volumes:
   postgres-data:

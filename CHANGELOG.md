@@ -7,6 +7,16 @@ Versioning : [SemVer](https://semver.org/lang/fr/).
 
 ---
 
+## [Non publié]
+
+### Documentation
+- README : remplacement du « 30 % du MVP déjà câblé » (chiffre qui sous-vendait la
+  base) par une description **canonique ✅ déjà là / 🔧 à recalibrer**, alignée mot
+  pour mot avec le site (pages d'accueil et Kit). La base est présentée comme
+  « fonctionnelle mais volontairement inégale, à reprendre ».
+
+---
+
 ## [1.2.0] — 2026-06-07
 
 🛠️ **Interface d'administration (hybride React + Django admin).**

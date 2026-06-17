@@ -10,8 +10,14 @@
 projet étudiant **EduTutor IA** : plateforme de révision personnalisée à base
 de LLM open source.
 
-> ⚡ **30 % du MVP déjà câblé.** Concentrez-vous sur la logique produit et
-> votre réactivité agile, pas sur la plomberie.
+> ⚡ **Une base fonctionnelle, mais volontairement inégale** — à reprendre, pas à admirer.
+> Concentrez-vous sur la logique produit et votre réactivité agile, pas sur la plomberie.
+>
+> - ✅ **Déjà là** : auth par email (validation, reset, profil), génération de quiz par LLM
+>   local, back-office d'administration, 3 démos produit (dashboard, révision, mode sombre).
+> - 🔧 **À compléter / recalibrer avec le PO** : finitions F1–F6, pages légales (RGPD),
+>   durcissement sécurité, choix du fournisseur LLM (ADR), 2–3 pistes Release 2,
+>   boucle de feedback utilisateur.
 
 > 🎓 **Nouveau sur le projet ? Commencez par le [Guide étudiant](./GUIDE-ETUDIANT.md)** —
 > de l'installation à votre première fonctionnalité, pas à pas.

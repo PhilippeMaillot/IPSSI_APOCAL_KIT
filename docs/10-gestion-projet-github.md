@@ -68,6 +68,17 @@ Créez un **Project** (onglet *Projects → New project → Board*) avec les col
 3. Quand une perturbation tombe : créez une **issue « perturbation »**, décidez (MoSCoW / ADR), repriorisez le board.
 4. Fin de journée : PR relues et fusionnées, board à jour.
 
+## 7. Auto-évaluation individuelle (obligatoire)
+
+Chaque membre dépose sa **propre** auto-évaluation dans
+[`docs/auto-evaluations/`](./auto-evaluations/README.md), à **deux échéances** :
+onglet **technique avant mercredi 17h**, onglet **oral avant jeudi 17h**.
+Convention de nommage : `NOM_Prenom_PROMO.xlsx`. Les auto-notes sont **formatives**
+(non évaluées), mais **un oubli = malus** : −1 par échéance manquée **sur chacune**
+de vos deux notes (jusqu'à −2 / −2). Tout est expliqué dans le
+[README du dossier](./auto-evaluations/README.md).
+
 ## 👉 Suite
+- [auto-evaluations/](./auto-evaluations/README.md) — auto-évaluation individuelle (mer. 17h / jeu. 17h)
 - [05-ci-cd.md](./05-ci-cd.md) — CI GitHub Actions & Conventional Commits
 - [07-bonnes-pratiques.md](./07-bonnes-pratiques.md) — INVEST, MoSCoW, ADR, post-mortem

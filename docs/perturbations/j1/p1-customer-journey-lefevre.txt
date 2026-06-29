@@ -17,7 +17,7 @@ Statut           : Draft
 Redacteur        : Ndiasse MBEGUERE
 Fichier          : p1-customer-journey-lefevre.txt
 Reference        : complete et fait evoluer docs/cadrage/artefact-3-customer-journey.txt
-                   Persona associee : docs/perturbation/p1-persona-lefevre.txt
+                   Persona associee : docs/perturbations/j1/p1-persona-lefevre.txt
 
 
 ================================================================================

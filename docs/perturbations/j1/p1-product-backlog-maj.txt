@@ -43,10 +43,10 @@ importante a integrer dans le cadrage Release 1.
 Decision produit :
 
 * Les fonctionnalites etudiantes F1-F6 restent en MUST.
-* Les besoins enseignants simples qui reutilisent les scores et l'historique
-  sont integres en SHOULD.
-* Les fonctionnalites plus lourdes, comme l'envoi de conseils personnalises
-  ou les statistiques avancees, sont repoussees en COULD / Release 2.
+* Les besoins enseignants essentiels passent en MUST Release 1,
+  car Mme Lefevre devient persona co-primaire.
+* Les fonctionnalites plus avancees, comme les filtres fins ou les statistiques
+  multi-criteres, restent en COULD / Release 2.
 
 Objectif :
 Integrer Mme Lefevre dans le Product Backlog sans casser le MVP initial
@@ -97,12 +97,12 @@ Analyse INVEST :
 * Testable     : on peut verifier que les stats correspondent aux scores reels.
 
 Priorite MoSCoW :
-SHOULD
+MUST
 
 Justification MoSCoW :
-Cette story repond a la perturbation J1 tout en preservant la nature
-auto-revision de l'outil et la conformite RGPD. Elle reutilise les scores
-et l'historique deja prevus dans le MVP sans exposer de donnees individuelles.
+Cette story devient essentielle car Mme Lefevre est persona co-primaire. Elle
+apporte une valeur enseignante visible des la Release 1 tout en preservant
+la conformite RGPD grace aux donnees agregees.
 
 Impact DoR / DoD :
 DoR :
@@ -141,12 +141,12 @@ Analyse INVEST :
 * Testable     : on peut verifier qu'un quiz sous le seuil apparait en alerte.
 
 Priorite MoSCoW :
-SHOULD
+MUST
 
 Justification MoSCoW :
-Cette story repond au besoin core de Mme Lefevre (reperer ce qui ne passe pas)
-tout en restant anonymisee. Elle preserve la logique auto-revision et reste
-compatible RGPD. Le seuil est a definir avec le PO.
+Cette story repond au besoin core de Mme Lefevre : reperer rapidement les
+notions qui ne passent pas. Elle est indispensable au parcours enseignant
+Release 1, avec un seuil a definir avec le PO.
 
 Impact DoR / DoD :
 DoR :
@@ -180,13 +180,12 @@ Analyse INVEST :
 * Testable     : on peut verifier qu'un conseil est associe a un etudiant.
 
 Priorite MoSCoW :
-COULD
+MUST
 
 Justification MoSCoW :
-Cette story a une forte valeur pedagogique, mais elle demande plus d'effort
-que l'affichage des scores. Elle implique un systeme de message, de notification
-ou d'email. Elle est donc placee en COULD et plutot orientee Release 2 afin de
-ne pas surcharger la Release 1.
+Cette story est conservee en MUST dans une version simple pour fermer le parcours
+enseignant Release 1 : repere un decrochage, puis envoie un conseil prive. Les
+options avancees de messagerie ou d'automatisation restent reportables.
 
 Impact DoR / DoD :
 DoR :
@@ -225,7 +224,7 @@ COULD
 Justification MoSCoW :
 Cette story complete le suivi enseignant mais elle est plus avancee que le
 simple affichage des scores. Elle est donc placee en COULD, pour Release 2 ou
-fin de Release 1 uniquement si les MUST et SHOULD sont termines.
+fin de Release 1 uniquement si les MUST enseignants sont termines.
 
 Impact DoR / DoD :
 DoR :
@@ -240,7 +239,7 @@ DoD :
 2. PRIORISATION MOSCOW ACTUALISEE
 =================================
 
-## MUST - Indispensable Release 1
+## MUST - Indispensable Release 1 (socle etudiant)
 
 * Inscription et connexion par email.
 * Depot d'un cours via PDF ou texte.
@@ -254,21 +253,21 @@ Justification :
 Ces elements correspondent au MVP initial F1-F6. Ils restent prioritaires car
 ils garantissent que le produit fonctionne pour l'utilisateur final.
 
-## SHOULD - Important pour integrer la perturbation J1
+## MUST - Parcours enseignant essentiel Release 1
 
-* Voir les scores des 28 etudiants.
-* Reperer les etudiants qui decrochent.
+* Voir les statistiques agregees de la classe.
+* Reperer les chapitres ou la classe decroche.
+* Envoyer un conseil personnalise simple.
 * Prevoir un rattachement simple etudiant / enseignante ou classe.
 * Afficher un indicateur simple de difficulte.
 
 Justification :
-Ces elements integrent la cible enseignante demandee par la perturbation J1.
-Ils apportent une valeur forte a Mme Lefevre tout en restant compatibles avec
-les donnees deja prevues dans le MVP : scores et historique.
+Ces elements integrent la cible enseignante devenue co-primaire. Ils donnent
+un parcours enseignant visible dans la Release 1, tout en s'appuyant sur les
+donnees deja prevues dans le MVP : scores et historique.
 
 ## COULD - Interessant mais reportable
 
-* Envoyer des conseils personnalises.
 * Filtrer les resultats par quiz.
 * Afficher des statistiques plus avancees.
 * Exporter un suivi ou un rapport de classe.
@@ -276,7 +275,7 @@ les donnees deja prevues dans le MVP : scores et historique.
 Justification :
 Ces elements sont utiles pour l'usage enseignant, mais ils ajoutent de la
 complexite. Ils peuvent etre envisages en Release 2 ou seulement si le MVP
-et les SHOULD sont termines.
+et les MUST enseignants sont termines.
 
 ## WON'T HAVE - Hors perimetre immediat
 
@@ -335,7 +334,7 @@ decrochent et, a terme, leur transmettre des conseils personnalises.
 La decision retenue est de ne pas casser le MVP :
 
 * les fonctionnalites F1-F6 restent en MUST ;
-* les besoins enseignants simples sont integres en SHOULD ;
+* les besoins enseignants essentiels sont integres en MUST Release 1 ;
 * les fonctionnalites plus ambitieuses sont placees en COULD / Release 2.
 
 Cette mise a jour permet de repondre a la perturbation J1 tout en conservant une

@@ -19,10 +19,10 @@ Fichier          : p1-sprint-backlog-maj.txt
 Reference        : complete et fait evoluer docs/cadrage/artefact-7-sprint-backlog.csv
                    Aligne avec : docs/cadrage/artefact-5-release-planning.csv
                    docs/cadrage/artefact-6-product-backlog.csv
-                   docs/perturbation/p1-persona-lefevre.txt
-                   docs/perturbation/p1-customer-journey-lefevre.txt
-                   docs/perturbation/p1-product-backlog-maj.txt
-                   docs/perturbation/p1-release-planning-lefevre.txt
+                   docs/perturbations/j1/p1-persona-lefevre.txt
+                   docs/perturbations/j1/p1-customer-journey-lefevre.txt
+                   docs/perturbations/j1/p1-product-backlog-maj.txt
+                   docs/perturbations/j1/p1-release-planning-lefevre.txt
 
 
 ================================================================================
@@ -41,8 +41,9 @@ Le MVP F1-F6 n'est pas remis en cause pour le Sprint 1. En revanche :
 * Les stories Must du Sprint 1 sont recentrees sur US-01, US-02 et US-07
   (authentification + upload PDF).
 * US-06 (saisie texte) est reportee au Sprint 2 si la capacite est insuffisante.
-* Les stories enseignant (US-J1-01 a US-J1-04, US-21 a US-25) sont planifiees
-  aux sprints 3 a 5 (cf. p1-release-planning-lefevre.txt) — hors perimetre Sprint 1.
+* Les stories enseignant essentielles sont planifiees progressivement :
+  US-J1-01 en Sprint 3, US-J1-02 en Sprint 4, US-J1-03 en Sprint 5.
+  US-J1-04 reste reportable Release 2. Elles restent hors perimetre Sprint 1.
 
 Decision produit Sprint 1 :
 
@@ -106,7 +107,7 @@ Par :
 
 Definition of Ready — Ajouter :
   « Impact perturbation P1 integre (persona enseignante Mme Lefevre —
-   cf. docs/perturbation/ et artefact-6) »
+   cf. docs/perturbations/j1/ et artefact-6) »
 
 
 ================================================================================
@@ -160,8 +161,8 @@ TASK-16 — Sprint Review / demo au PO
 ================================================================================
 
 Note P1 :
-  « Perturbation J1 (14h00) : Mme Lefevre devient persona co-primaire. US-21 a
-    US-25 ajoutees au Product Backlog (artefact-6). US-J1-01 a US-J1-04 dans
+  « Perturbation J1 (14h00) : Mme Lefevre devient persona co-primaire.
+    US-J1-01 a US-J1-04 ajoutees au Product Backlog dans
     artefact-6-product-backlog-maj.csv. MVP F1-F6 inchange. Sprint 1 recentre
     sur US-01/US-02/US-07. Stories enseignant planifiees Sprint 3-5
     (cf. p1-release-planning-lefevre.txt). »
@@ -194,7 +195,7 @@ Recapitulatif taches — Mettre a jour :
   Should   | TASK-13 (workflow Git)                    | Si capacite restante
   Should   | TASK-15 (fix bugs bloquants)              | Si bugs identifies
   Fait     | TASK-18 (livrables P1)                    | docs/perturbations/j1/
-  Hors S1  | US-J1-01 a 04, US-21 a 25 (enseignant)    | Sprint 3-5
+  Hors S1  | US-J1-01/02/03 (enseignant)              | Sprint 3-5
 
 >>> INVESTISSEMENT PRIORITAIRE SPRINT 1 : setup fonctionnel (TASK-01 a 06) +
     validation F1 (TASK-07/08) + test upload PDF (TASK-12).
@@ -213,7 +214,7 @@ GRILLE D'AUTO-EVALUATION
   Burn-down ajuste (8 pts au lieu de 10)                                   : [X] Oui
   Taches modifiees documentees (TASK-11, 14, 15, 16)                       : [X] Oui
   Nouvelle tache TASK-18 (livrables P1) ajoutee                            : [X] Oui
-  Alignement avec artefact-5, artefact-6 et docs/perturbation/             : [X] Oui
+  Alignement avec artefact-5, artefact-6 et docs/perturbations/j1/         : [X] Oui
   Stories enseignant hors perimetre Sprint 1 (planifiees Sprint 3-5)       : [X] Oui
   Document relu et valide par l'equipe complete                            : [ ] A valider
 

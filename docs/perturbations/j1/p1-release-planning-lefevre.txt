@@ -1,99 +1,99 @@
-MODIFICATIONS POST-PERTURBATION 1 — RELEASE PLANNING
+MODIFICATIONS POST-PERTURBATION 1 - RELEASE PLANNING
 
-1. SPRINT 1 — PERTURBATION
+1. SPRINT 1 - PERTURBATION
 Remplacer :
-« P1 — Lundi 14h00 : Perturbation Produit/Scope (persona enseignant·e J1 ajouté) »
+"P1 - Lundi 14h00 : Perturbation Produit/Scope (persona enseignant-e J1 ajoute)"
 
 Par :
-« P1 — Lundi 14h00 : Perturbation Produit/Scope — l’enseignante devient un persona primaire au même niveau que l’étudiant ; ses fonctionnalités essentielles passent en MUST pour la Release 1. »
+"P1 - Lundi 14h00 : Perturbation Produit/Scope - l'enseignante devient un persona primaire au meme niveau que l'etudiant ; ses fonctionnalites essentielles passent en MUST pour la Release 1."
 
-2. SPRINT 3 — SPRINT GOAL
+2. SPRINT 3 - SPRINT GOAL
 Remplacer :
-« F3 (génération 10 QCM) stable · F4 (passage + correction auto) · F5 (score /10 + détail) livrés »
+"F3 (generation 10 QCM) stable - F4 (passage + correction auto) - F5 (score /10 + detail) livres"
 
 Par :
-« F3 (génération 10 QCM) stable · F4 (passage + correction auto) · F5 (score /10 + détail) livrés · première vue enseignant opérationnelle pour consulter les scores de la classe. »
+"F3 (generation 10 QCM) stable - F4 (passage + correction auto) - F5 (score /10 + detail) livres - premiere vue enseignant operationnelle pour consulter les statistiques agregees de la classe."
 
-3. SPRINT 3 — STORIES / FEATURES
+3. SPRINT 3 - STORIES / FEATURES
 Ajouter :
-« US-E01 · En tant que Mme Lefèvre, je veux consulter les derniers scores de mes 28 étudiants afin de suivre leur progression. »
+"US-J1-01 - En tant que Mme Lefevre, je veux consulter les statistiques agregees de ma classe afin de suivre la progression du groupe."
 
-4. SPRINT 3 — RISQUES
+4. SPRINT 3 - RISQUES
 Ajouter :
-« Contrôle d’accès enseignant/classe incomplet → risque de fuite de résultats entre groupes. »
+"Controle d'acces enseignant/classe incomplet -> risque de fuite de resultats entre groupes."
 
-5. SPRINT 4 — SPRINT GOAL
+5. SPRINT 4 - SPRINT GOAL
 Remplacer :
-« F5 consolidé · sécurité prompt injection couverte · tests adversariaux passés »
+"F5 consolide - securite prompt injection couverte - tests adversariaux passes"
 
 Par :
-« F5 consolidé · sécurité prompt injection couverte · contrôle d’accès par rôle et par classe validé · détection des étudiants en difficulté opérationnelle. »
+"F5 consolide - securite prompt injection couverte - controle d'acces par role et par classe valide - detection des chapitres en difficulte operationnelle."
 
-6. SPRINT 4 — STORIES / FEATURES
+6. SPRINT 4 - STORIES / FEATURES
 Ajouter :
-« US-E02 · En tant que Mme Lefèvre, je veux identifier les étudiants dont le score est faible ou en baisse afin de cibler mon accompagnement. »
+"US-J1-02 - En tant que Mme Lefevre, je veux identifier les chapitres dont le score moyen est faible afin de cibler mon accompagnement."
 
-Ajouter également :
-« Tests d’accès croisé enseignant / classe / étudiant. »
+Ajouter egalement :
+"Tests d'acces croise enseignant / classe / etudiant."
 
-7. SPRINT 4 — RISQUES
+7. SPRINT 4 - RISQUES
 Ajouter :
-« Seuil de décrochage mal défini ou trop opaque → faux positifs et perte de confiance de l’enseignante. »
+"Seuil de decrochage mal defini ou trop opaque -> faux positifs et perte de confiance de l'enseignante."
 
-8. SPRINT 5 — SPRINT GOAL
+8. SPRINT 5 - SPRINT GOAL
 Remplacer :
-« F6 (historique quiz) livré · pages légales RGPD complétées · Release 1 déployée et démontrée au PO »
+"F6 (historique quiz) livre - pages legales RGPD completees - Release 1 deployee et demontree au PO"
 
 Par :
-« F6 (historique quiz) livré · parcours enseignant complet · pages légales RGPD complétées · Release 1 déployée et démontrée au PO. »
+"F6 (historique quiz) livre - parcours enseignant complet - pages legales RGPD completees - Release 1 deployee et demontree au PO."
 
-9. SPRINT 5 — STORIES / FEATURES
+9. SPRINT 5 - STORIES / FEATURES
 Ajouter :
-« US-E03 · En tant que Mme Lefèvre, je veux envoyer un conseil privé à un étudiant afin de l’aider à améliorer ses révisions. »
+"US-J1-03 - En tant que Mme Lefevre, je veux envoyer un conseil prive a un etudiant afin de l'aider a ameliorer ses revisions."
 
-Ajouter également :
-« Régression complète du parcours enseignant : consultation des scores → repérage d’un décrocheur → envoi d’un conseil privé. »
+Ajouter egalement :
+"Regression complete du parcours enseignant : consultation des statistiques agregees -> reperage d'un chapitre en difficulte -> envoi d'un conseil prive."
 
-10. SPRINT 5 — RISQUES
+10. SPRINT 5 - RISQUES
 Ajouter :
-« Confidentialité insuffisante des scores ou des conseils privés = Release 1 non validée. »
+"Confidentialite insuffisante des scores ou des conseils prives = Release 1 non validee."
 
-11. SPRINT 5 — RELEASE
+11. SPRINT 5 - RELEASE
 Remplacer :
-« RELEASE 1 (mercredi soir) : F1 à F6 — MVP must-have »
+"RELEASE 1 (mercredi soir) : F1 a F6 - MVP must-have"
 
 Par :
-« RELEASE 1 (mercredi soir) : F1 à F6 + parcours enseignant MUST — consultation des scores, repérage des décrocheurs et conseil privé. »
+"RELEASE 1 (mercredi soir) : F1 a F6 + parcours enseignant MUST - consultation des statistiques agregees, reperage des chapitres en difficulte et conseil prive."
 
-12. SPRINT 6 — STORIES / FEATURES
-Retirer des candidats Release 2 toute fonctionnalité correspondant au parcours enseignant essentiel, car elles sont désormais MUST en Release 1.
+12. SPRINT 6 - STORIES / FEATURES
+Retirer des candidats Release 2 toute fonctionnalite correspondant au parcours enseignant essentiel, car elles sont desormais MUST en Release 1.
 
-Conserver en Release 2 uniquement les améliorations avancées, par exemple :
-« graphiques de progression · filtres par période ou matière · export de bilan · gestion multi-classes · messages groupés. »
+Conserver en Release 2 uniquement les ameliorations avancees, par exemple :
+"graphiques de progression - filtres par periode ou matiere - export de bilan - gestion multi-classes - messages groupes."
 
-13. CALENDRIER — MERCREDI J3
+13. CALENDRIER - MERCREDI J3
 Remplacer :
-« Release 1 déployée et démontrée »
+"Release 1 deployee et demontree"
 
 Par :
-« Release 1 étudiant + enseignant déployée et démontrée. »
+"Release 1 etudiant + enseignant deployee et demontree."
 
-14. DÉFINITION DE LA RELEASE 1 — CONTENU MINIMAL
+14. DEFINITION DE LA RELEASE 1 - CONTENU MINIMAL
 Remplacer :
-« F1 · F2 · F3 · F4 · F5 · F6 tous fonctionnels · pages légales complétées · Tag Git v1.0.0-mvp · docker compose up fonctionnel »
+"F1 - F2 - F3 - F4 - F5 - F6 tous fonctionnels - pages legales completees - Tag Git v1.0.0-mvp - docker compose up fonctionnel"
 
 Par :
-« F1 · F2 · F3 · F4 · F5 · F6 tous fonctionnels · US-E01 consultation des scores · US-E02 repérage des décrocheurs · US-E03 conseil privé · contrôle d’accès par rôle et par classe · pages légales complétées · Tag Git v1.0.0-mvp · docker compose up fonctionnel. »
+"F1 - F2 - F3 - F4 - F5 - F6 tous fonctionnels - US-J1-01 statistiques agregees classe - US-J1-02 reperage chapitres en difficulte - US-J1-03 conseil prive - controle d'acces par role et par classe - pages legales completees - Tag Git v1.0.0-mvp - docker compose up fonctionnel."
 
-15. DÉFINITION DE LA RELEASE 1 — CRITÈRE DE VALIDATION PO
+15. DEFINITION DE LA RELEASE 1 - CRITERE DE VALIDATION PO
 Remplacer :
-« Démo live devant PO : inscription → upload cours → génération → quiz → score → historique · zéro bug bloquant · vidéo 5 min dans /docs/demos/ »
+"Demo live devant PO : inscription -> upload cours -> generation -> quiz -> score -> historique - zero bug bloquant - video 5 min dans /docs/demos/"
 
 Par :
-« Démo live devant PO des deux parcours primaires :
-Étudiant : inscription → upload cours → génération → quiz → score → historique.
-Enseignante : connexion → consultation des scores de la classe → identification d’un étudiant en difficulté → envoi d’un conseil privé.
-Zéro bug bloquant, aucun accès inter-classe ou inter-utilisateur, vidéo 5 min dans /docs/demos/. »
+"Demo live devant PO des deux parcours primaires :
+Etudiant : inscription -> upload cours -> generation -> quiz -> score -> historique.
+Enseignante : connexion -> consultation des statistiques agregees de la classe -> identification d'un chapitre en difficulte -> envoi d'un conseil prive.
+Zero bug bloquant, aucun acces inter-classe ou inter-utilisateur, video 5 min dans /docs/demos/."
 
-16. RISQUE GLOBAL À AJOUTER
-« L’ajout d’un second persona primaire augmente le périmètre MUST de la Release 1. Les fonctionnalités avancées de Release 2 doivent être réduites avant de retirer une fonctionnalité essentielle du parcours étudiant ou enseignant. »
+16. RISQUE GLOBAL A AJOUTER
+"L'ajout d'un second persona primaire augmente le perimetre MUST de la Release 1. Les fonctionnalites avancees de Release 2 doivent etre reduites avant de retirer une fonctionnalite essentielle du parcours etudiant ou enseignant."

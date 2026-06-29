@@ -10,7 +10,7 @@ Perturbation     : J1 - Produit / Scope (integration cible enseignante)
 Heure annoncee   : 14h00 - lundi 29/06/2026
 Livrable avant   : mardi 30/06/2026 09h00
 Redacteurs        : Mathieu PONNOU et Philippe MAILLOT 
-Fichier          : docs/perturbation/p1-decision-moscow.txt
+Fichier          : docs/perturbations/j1/p1-decision-moscow.txt
 Reference        : voir aussi p1-product-backlog-maj.txt
 
 
@@ -39,24 +39,23 @@ F2 - Upload PDF + saisie texte     | Must Have   | Must Have   | Mme Lefevre upl
 F3 - Generation 10 QCM            | Must Have   | Must Have   | Coeur produit, les 2 profils
 F4/F5 - Quiz + score + corrections | Must Have   | Must Have   | Parcours etudiant complet
 F6 - Historique quiz               | Must Have   | Must Have   | Persistance necessaire
-US-J1-01 - Stats agregees classe    | Won't Have  | Should Have | Anonymise, RGPD conforme, auto-revision preservee
-US-J1-02 - Chapitres sous le seuil | Won't Have  | Should Have | Indicateur par chapitre, pas par etudiant
-US-J1-03 - Conseils personnalises  | Won't Have  | Could Have  | Valeur forte mais complexe
+US-J1-01 - Stats agregees classe    | Won't Have  | Must Have   | Essentiel au persona co-primaire, anonymise RGPD
+US-J1-02 - Chapitres sous le seuil | Won't Have  | Must Have   | Essentiel pour reperer les decrochages groupe
+US-J1-03 - Conseils personnalises  | Won't Have  | Must Have   | Version simple attendue dans le parcours enseignant
 US-J1-04 - Filtrer par quiz        | Won't Have  | Could Have  | Utile mais reportable R2
 
 
 3. VERDICT POUR RELEASE 1 (mercredi 29/06 17h45 STRICT)
 =========================================================
 
-Mme Lefevre = CO-PRIMAIRE comme persona / SHOULD HAVE pour ses features specifiques
+Mme Lefevre = CO-PRIMAIRE comme persona / MUST HAVE pour ses features essentielles
 
 Note de coherence : la designation "Co-PRIMAIRE" signifie que Mme Lefevre est
 une cible aussi importante que l'etudiant(e) du point de vue produit. Cela ne
 signifie pas que toutes ses features sont Must Have. Les features Must Have
-(F1-F6) servent deja les deux profils simultanement. Ce sont ses features
-specifiques (dashboard classe, scores etudiants, reperage decrocheurs) qui sont
-Should Have car elles ne bloquent pas le MVP etudiant et necessitent un modele
-de donnees supplementaire (rattachement etudiant / classe / enseignant).
+(F1-F6) servent deja les deux profils simultanement. Ses features essentielles (dashboard classe, reperage des decrochages, conseil simple)
+passent en Must Have pour la Release 1. Les options avancees restent reportables
+car elles necessitent un modele de donnees plus complet ou des filtres supplementaires.
 
 Justification argumentee :
 
@@ -65,20 +64,18 @@ a) Les features Must Have (F1 a F6) sont identiques pour etudiant et enseignant.
    supplementaire : elle uploade son cours, obtient un quiz, le fait passer
    a ses etudiants. Le parcours exist deja dans le MVP.
 
-b) Les features SHOULD (US-J1-01, US-J1-02) reutilisent les scores et
-   l'historique deja prevus dans le MVP. Elles ne cassent pas le backlog
-   initial et apportent une valeur directe a Mme Lefevre en Release 1
-   si le temps le permet apres les MUST.
+b) Les features MUST enseignantes (US-J1-01, US-J1-02, US-J1-03) reutilisent
+   les scores, l'historique et un conseil simple. Elles donnent un impact visible
+   au persona co-primaire dans la Release 1 sans toucher au Sprint 1.
 
-c) Les features COULD (US-J1-03, US-J1-04) necessitent un systeme de
-   messagerie ou de rattachement classe qui depasse le perimetre Sprint 1-5.
-   Elles sont ciblees Release 2 (jeudi 17h45).
+c) La feature COULD (US-J1-04) correspond a un confort de filtrage avance.
+   Elle reste reportable en Release 2 si les MUST enseignants ne sont pas stabilises.
 
 
 4. IMPACT SUR LE SPRINT 1 (lundi 14h-18h, capacite 70%)
 ==========================================================
 Aucun impact : engagement Sprint 1 maintenu a 70%.
-Les stories US-J1-01 et US-J1-02 sont ciblees Sprint 5-6.
+Les stories enseignantes essentielles sont ciblees progressivement : US-J1-01 en Sprint 3, US-J1-02 en Sprint 4, US-J1-03 en Sprint 5. US-J1-04 reste reportable Release 2.
 Le perimetre Sprint 1 (US-01, US-02, US-06, US-07) ne change pas.
 
 

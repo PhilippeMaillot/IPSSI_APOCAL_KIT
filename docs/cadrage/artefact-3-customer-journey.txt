@@ -1,4 +1,4 @@
-APOCAL'IPSSI - ARTEFACT 3 SUR 7
+﻿APOCAL'IPSSI - ARTEFACT 3 SUR 7
 Customer Journey Maps - EduTutor IA
 
 Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
@@ -9,17 +9,22 @@ IDENTIFICATION DU DOCUMENT
 ==========================
 Equipe n         : 19
 Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
-                   Philippe MAILLOT, Aboubacar COUMARE
+                   Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
 Sprint concerne  : Cadrage
-Version          : v1.0 (initiale)
-Date de remise   : 29/06/2026 12h55
+Version          : v2.0 (suite perturbation J1)
+Date de remise   : 29/06/2026
 Statut           : Draft
 Redacteur        : Ndiasse MBEGUERE
-Fichier          : equipe-19-customer-journey-v1.0.txt
+Fichier          : equipe-19-customer-journey-v2.0.txt
+Evolution J1     : suite a la perturbation J1, le parcours enseignant (Mme Lefevre)
+                   devient CO-PRIMAIRE avec le parcours etudiant. Les deux points
+                   de decrochage (etudiant etape 3, enseignant etape 2) sont
+                   desormais des investissements PRIORITAIRES a egalite.
+                   Parcours etablissement (M. Chen) inchange. Cf. docs/perturbation/.
 
 
 ================================================================================
-1. PARCOURS ETUDIANT -- Lea Martin (cible primaire)
+1. PARCOURS ETUDIANT -- Lea Martin (cible co-primaire 1/2)
 ================================================================================
 
 Etape 1 - Decouverte
@@ -74,7 +79,7 @@ Etape 5 - Recommandation
 
 
 ================================================================================
-2. PARCOURS ENSEIGNANT -- Mme Lefevre (cible secondaire emergente J1)
+2. PARCOURS ENSEIGNANT -- Mme Lefevre (cible co-primaire 2/2, perturbation J1)
 ================================================================================
 
 Etape 1 - Decouverte

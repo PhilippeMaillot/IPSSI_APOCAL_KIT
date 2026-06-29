@@ -1,0 +1,139 @@
+APOCAL'IPSSI - PERTURBATION J1 (P1 SUR 5) - PRODUIT / SCOPE
+Fiche Persona - Mme Sophie Lefevre (enseignante) - EduTutor IA
+
+Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
+Auteur du modele : Mohamed Amine EL AFRIT - Licence CC BY-NC-SA 4.0
+
+
+IDENTIFICATION DU DOCUMENT
+==========================
+Equipe n         : 19
+Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
+                   Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
+Perturbation     : J1 - Produit / Scope (integration cible enseignante)
+Version          : v2.0 (suite perturbation J1)
+Date de remise   : 29/06/2026
+Statut           : Draft
+Redacteur        : Ndiasse MBEGUERE
+Fichier          : p1-persona-lefevre.txt
+Reference        : complete et fait evoluer docs/cadrage/artefact-2-personas.txt
+
+
+================================================================================
+0. DECISION DE CADRAGE - CIBLE PRIMAIRE
+================================================================================
+
+Suite a la perturbation J1 (le sponsor demande d'integrer la cible enseignante
+en Release 1), l'equipe 19 fait evoluer la segmentation :
+
+  AVANT (cadrage 9h-13h) :
+    * Primaire   : Lea Martin (etudiante)
+    * Secondaire : Mme Lefevre (enseignante)
+    * Tertiaire  : M. Chen (etablissement)
+
+  APRES (perturbation J1) :
+    * Co-PRIMAIRE : Lea Martin (etudiante)  ET  Mme Sophie Lefevre (enseignante)
+    * Tertiaire   : M. Chen (etablissement)  [inchange]
+
+Justification : l'etudiant reste la cible imposee et l'utilisateur final du MVP
+(F1-F6), mais l'enseignante devient une cible primaire car elle est la
+prescriptrice / acheteuse-relais en contexte B2B education et porte la valeur
+differenciante d'EduTutor (prompts metier enseignant, ancrage pedagogique).
+On ne retrograde donc PAS l'etudiant : les deux personas sont desormais primaires
+et co-pilotent les arbitrages produit. Les artefacts etudiant existants sont
+conserves (cf. CA-J1-7).
+
+
+================================================================================
+1. FICHE PERSONA - Mme Sophie Lefevre (cible PRIMAIRE - enseignante)
+================================================================================
+
+1.1. Identite
+  Nom / Prenom   : Mme Sophie Lefevre (persona officielle perturbation J1)
+  Age            : 42 ans
+  Profession     : Professeure de Communication, BTS, lycee prive sous contrat
+  Localisation   : Lyon 6e - trajet voiture 25 min
+  Situation      : Mariee, 2 enfants (12 et 15 ans), salaire ~2 700 EUR net/mois
+  Citation       : "Je veux suivre la progression de mes 28 etudiants et reperer
+                    ceux qui decrochent, sans y passer mes soirees - et sans que
+                    l'outil leur fasse reviser des betises."
+
+1.2. Role (dimension 1)
+  * Encadre 28 etudiants en BTS Communication 1re annee
+  * Concoit cours, evaluations et quiz de revision ; assure le suivi pedagogique
+  * Prescriptrice : c'est elle qui proposera l'outil au conseil pedagogique
+    et a la direction (relais vers la cible tertiaire M. Chen)
+
+1.3. Objectifs (dimension 2 - SMART)
+  * Generer 1 quiz personnalise en < 5 min sur n'importe quel chapitre
+  * Personnaliser : niveau (facile/moyen/difficile), nb de questions, type
+  * Suivre l'engagement de la classe : qui a repondu, score moyen, lacunes
+  * Reduire le temps de preparation des evaluations de ~90 min a < 10 min/quiz
+  * Reperer les etudiants en decrochage des la 1re semaine de baisse
+
+1.4. Besoins (dimension 3)
+  * Un compte enseignant auto-cree (sans attendre une validation manuelle)
+  * Un tableau de bord de classe : scores agreges + par etudiant, lacunes
+  * Des quiz ANCRES dans son cours (pas d'hallucination LLM)
+  * Un apercu/edition d'une question avant publication aux etudiants
+  * Un export (Word / PDF) pour imprimer ou presenter en salle des profs
+
+1.5. Contraintes (dimension 4)
+  * Temps tres limite : 6h cours + 3h prepa + 3h correction = 12h/semaine
+  * Reseau lent en salle informatique (4G partagee, 2-5 Mbps)
+  * Confiance uniquement dans les outils valides par l'etablissement (RGPD)
+  * Materiel etudiant heterogene (smartphones Android 2018-2023)
+  * Zero tolerance a l'erreur factuelle devant 28 etudiants
+
+1.6. Frustrations / pain points (dimension 5 - chiffres)
+  * Corrige 28 copies x 3 quiz/semaine = ~84 copies -> ~12h de correction/mois
+  * Creer 1 quiz coherent prend ~90 minutes (recherche + formulation + verif)
+  * Les etudiants se passent les reponses entre cours -> besoin de varier
+  * Peur des questions LLM non ancrees : "ils reviseraient faux"
+  * A teste ChatGPT 2 fois sans resultat satisfaisant pour son contexte BTS
+
+1.7. Niveau / competences numeriques (dimension 6)
+  * Power user Word + Excel, autonome sur Moodle et Pronote
+  * Pas developpeuse, allergique aux installations CLI ou parametrages techniques
+  * Decouvre l'IA generative, prudente, suit l'actu via le Cafe Pedagogique
+  * Travaille le soir depuis chez elle (PC fixe Windows, fibre 500 Mbps)
+
+1.8. Criteres de succes (point de vue persona)
+  * "Si je gagne 1h/semaine sur ma preparation, j'adopte definitivement."
+  * "Si ca plante 1 fois en cours devant 28 ados, je n'y reviens jamais."
+  * "Si je peux exporter en Word pour l'imprimer en salle des profs, c'est parfait."
+  * "Si je vois en 3 clics qui decroche, je peux agir avant qu'il soit trop tard."
+
+
+================================================================================
+2. CE QUE CELA IMPLIQUE POUR EDUTUTOR (impact produit)
+================================================================================
+
+  * Nouvel Epic "Suivi enseignant" : compte enseignant (role), classe/groupe,
+    tableau de bord de classe, reperage des decrocheurs, message a un etudiant.
+  * Point de decrochage n1 du parcours enseignant : l'auto-inscription
+    (pas de "compte enseignant" aujourd'hui = elle abandonne).
+  * Renforce les axes differenciants : prompts metier enseignant, ancrage
+    (RAG, cf. perturbation J4) et RGPD local-first.
+  * Mme Lefevre n'est pas jetable : elle revient en perturbation J4 (signalement
+    d'erreurs factuelles). La qualite de cette fiche sera reutilisee.
+
+
+================================================================================
+GRILLE D'AUTO-EVALUATION (CA-J1-1)
+================================================================================
+
+  Persona Mme Lefevre nommee : prenom + nom + age precis     : [X] Oui
+  6 dimensions completees (role, objectifs, besoins,
+    contraintes, frustrations, niveau tech)                  : [X] Oui
+  Contexte : volume horaire + environnement physique/reseau  : [X] Oui
+  Competences numeriques nuancees                            : [X] Oui
+  Frustrations chiffrees (>= 3)                              : [X] Oui
+  Objectifs au moins partiellement SMART                     : [X] Oui
+  Criteres de succes au "je", entre guillemets               : [X] Oui
+  Decision de cible primaire explicite et justifiee          : [X] Oui
+  Artefacts etudiant conserves (non ecrases, CA-J1-7)        : [X] Oui
+  Document relu et valide par l'equipe complete              : [ ] A valider
+
+
+Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

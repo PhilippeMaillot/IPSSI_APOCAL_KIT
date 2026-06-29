@@ -1,0 +1,127 @@
+APOCAL'IPSSI - PERTURBATION J1 (P1 SUR 5) - PRODUIT / SCOPE
+Customer Journey - Mme Sophie Lefevre (enseignante) - EduTutor IA
+
+Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
+Auteur du modele : Mohamed Amine EL AFRIT - Licence CC BY-NC-SA 4.0
+
+
+IDENTIFICATION DU DOCUMENT
+==========================
+Equipe n         : 19
+Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
+                   Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
+Perturbation     : J1 - Produit / Scope (integration cible enseignante)
+Version          : v2.0 (suite perturbation J1)
+Date de remise   : 29/06/2026
+Statut           : Draft
+Redacteur        : Ndiasse MBEGUERE
+Fichier          : p1-customer-journey-lefevre.txt
+Reference        : complete et fait evoluer docs/cadrage/artefact-3-customer-journey.txt
+                   Persona associee : docs/perturbation/p1-persona-lefevre.txt
+
+
+================================================================================
+0. CADRAGE
+================================================================================
+
+Suite a la perturbation J1, le parcours enseignant (Mme Lefevre) devient
+CO-PRIMAIRE avec le parcours etudiant (Lea). Ce document detaille le parcours
+de Mme Lefevre en 5 etapes : Decouverte -> Inscription -> 1re utilisation ->
+Usage regulier -> Recommandation a la direction.
+
+Pour chaque etape : Actions, Pensees (au "je"), Emotion, Friction, Opportunite.
+
+
+================================================================================
+1. PARCOURS ENSEIGNANT -- Mme Lefevre (cible co-primaire)
+================================================================================
+
+Etape 1 - Decouverte
+  Actions  : Lit un article du Cafe Pedagogique sur les outils IA pour
+             enseignants. Note le nom EduTutor IA. Va sur le site depuis son PC.
+  Pensees  : "Encore une promesse marketing ? Je veux voir des exemples concrets
+              BTS Communication avant de perdre du temps."
+  Emotion  : Curieuse / Prudente
+  Friction : Pas d'exemples sectoriels (BTS, lycee) - tous les exemples sont
+             "universite"
+  Opport.  : Galerie de demos par niveau scolaire + temoignages enseignants BTS
+
+Etape 2 - Inscription  [** POINT DE DECROCHAGE PRIORITAIRE **]
+  Actions  : Cherche un bouton "Compte enseignant". N'en trouve pas. Remplit
+             un formulaire de contact. Attend une reponse.
+  Pensees  : "48h pour repondre ? S'ils ne sont pas reactifs avant la vente,
+              comment seront-ils en SAV ? Je vais tester un autre outil."
+  Emotion  : Impatiente / Frustree
+  Friction : Pas d'auto-inscription enseignant -> elle doit attendre
+  Opport.  : Compte enseignant auto-cree en 30 s + onboarding guide 5 min
+
+Etape 3 - 1re utilisation
+  Actions  : Uploade un cours de Communication non-verbale (PDF 18 pages).
+             Genere 1 quiz de 10 QCM. Verifie chaque question une par une.
+  Pensees  : "Si les questions sont mal formulees ou factuellement fausses,
+              je n'y reviens pas. Ah, elles sont bien ancrees dans le cours !
+              C'est mieux que ce que j'esperais."
+  Emotion  : Vigilante -> Etonnee
+  Friction : Pas d'apercu rapide avant publication aux etudiants
+  Opport.  : Mode preview avant publication + edition manuelle d'1 question
+
+Etape 4 - Usage regulier
+  Actions  : Genere 3 quiz/semaine pour ses 28 etudiants. Score moyen monte
+             de 5,2/10 a 6,8/10 en 4 semaines. Partage en salle des profs.
+  Pensees  : "J'ai gagne 4h/semaine sur la preparation. Mais je veux voir d'un
+              coup d'oeil qui decroche, et corriger une question erronee sans
+              relancer tout le quiz."
+  Emotion  : Satisfaite / Productive
+  Friction : Pas de tableau de bord de classe ; pas d'edition manuelle d'une
+             question apres generation
+  Opport.  : Dashboard de classe (scores + lacunes) + editeur question par question
+
+Etape 5 - Recommandation a la direction
+  Actions  : Presente l'outil au conseil pedagogique. Demande un budget pour
+             passage en compte etablissement. Prepare un argumentaire RGPD.
+  Pensees  : "Si la direction signe, je veux pouvoir prouver le ROI :
+              4h/sem x 30 sem x 5 profs = 600h/an economisees."
+  Emotion  : Convaincue / Militante
+  Friction : Pas de dashboard ROI exportable pour la direction
+  Opport.  : Rapport mensuel auto-genere (usage, ROI) exportable en PDF
+
+>>> INVESTISSEMENT PRIORITAIRE : auto-inscription enseignant immediate (etape 2)
+    + tableau de bord de classe (etape 4).
+    Decrochage = etape 2 si delai de reponse > 24h.
+
+
+================================================================================
+2. SYNTHESE EMOTIONNELLE (co-primaire etudiant + enseignant)
+================================================================================
+
+  Etape                         | Lea (etudiante, co-prim.) | Mme Lefevre (co-prim.)
+  ------------------------------+---------------------------+-----------------------
+  1. Decouverte                 | Curieuse / Sceptique      | Curieuse / Prudente
+  2. Inscription [!]            | Vigilante                 | [!] IMPATIENTE
+  3. 1re utilisation [!]        | [!] Anxieuse -> OK        | Vigilante -> Etonnee
+  4. Usage regulier             | Confiante / Satisfaite    | Satisfaite / Productive
+  5. Recommandation             | Enthousiaste              | Convaincue / Militante
+
+>>> Deux points de decrochage desormais PRIORITAIRES A EGALITE :
+    - Etudiant : etape 3 (generation silencieuse > 60 s, ecran percu comme un bug)
+    - Enseignant : etape 2 (pas de compte enseignant -> abandon)
+>>> Effet de levier produit : fiabiliser l'inscription/onboarding (etudiant ET
+    enseignant) + rendre la generation visible et le suivi de classe lisible.
+
+
+================================================================================
+GRILLE D'AUTO-EVALUATION (CA-J1-2)
+================================================================================
+
+  Parcours Mme Lefevre decrit sur 5 etapes (Decouverte->Recommandation) : [X] Oui
+  Chaque "Actions" contient une action concrete observable               : [X] Oui
+  Chaque "Pensees" formulee au "je", entre guillemets                    : [X] Oui
+  Chaque "Emotion" avec au moins 1 transition                            : [X] Oui
+  Chaque etape : >= 1 friction ET 1 opportunite                          : [X] Oui
+  Moment de decrochage explicitement identifie                           : [X] Oui
+  Synthese emotionnelle reperant le point de levier                      : [X] Oui
+  Parcours etudiant conserve (non ecrase, CA-J1-7)                       : [X] Oui
+  Document relu et valide par l'equipe complete                          : [ ] A valider
+
+
+Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

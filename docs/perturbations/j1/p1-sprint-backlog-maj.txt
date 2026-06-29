@@ -1,0 +1,221 @@
+APOCAL'IPSSI - PERTURBATION J1 (P1 SUR 5) - PRODUIT / SCOPE
+Sprint Backlog actualise - EduTutor IA
+
+Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
+Auteur du modele : Mohamed Amine EL AFRIT - Licence CC BY-NC-SA 4.0
+
+
+IDENTIFICATION DU DOCUMENT
+==========================
+Equipe n         : 19
+Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
+                   Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
+Perturbation     : J1 - Produit / Scope (integration cible enseignante)
+Version          : v2.0 (suite perturbation J1)
+Date de remise   : 29/06/2026
+Statut           : Draft
+Redacteur        : Milane MEHALEBI
+Fichier          : p1-sprint-backlog-maj.txt
+Reference        : complete et fait evoluer docs/cadrage/artefact-7-sprint-backlog.csv
+                   Aligne avec : docs/cadrage/artefact-5-release-planning.csv
+                   docs/cadrage/artefact-6-product-backlog.csv
+                   docs/perturbation/p1-persona-lefevre.txt
+                   docs/perturbation/p1-customer-journey-lefevre.txt
+                   docs/perturbation/p1-product-backlog-maj.txt
+                   docs/perturbation/p1-release-planning-lefevre.txt
+
+
+================================================================================
+0. DECISION DE CADRAGE - IMPACT SUR LE SPRINT BACKLOG
+================================================================================
+
+Suite a la perturbation J1, le parcours enseignant (Mme Lefevre) devient
+CO-PRIMAIRE avec le parcours etudiant (Lea). Le Sprint Backlog initial
+(artefact-7 v1.0) reste la reference : ce document n'en remplace pas le contenu,
+il en decrit uniquement les MODIFICATIONS a integrer.
+
+Le MVP F1-F6 n'est pas remis en cause pour le Sprint 1. En revanche :
+
+* La capacite du sprint est reduite a 70% (~2h45 de dev effectif) pour absorber
+  le temps de cadrage post-perturbation.
+* Les stories Must du Sprint 1 sont recentrees sur US-01, US-02 et US-07
+  (authentification + upload PDF).
+* US-06 (saisie texte) est reportee au Sprint 2 si la capacite est insuffisante.
+* Les stories enseignant (US-J1-01 a US-J1-04, US-21 a US-25) sont planifiees
+  aux sprints 3 a 5 (cf. p1-release-planning-lefevre.txt) — hors perimetre Sprint 1.
+
+Decision produit Sprint 1 :
+
+* Setup (TASK-01 a TASK-06) : inchange, prioritaire.
+* Tests F1 (TASK-07, TASK-08) : Must.
+* Test F2 PDF (TASK-12) : Must.
+* Test F2 texte (TASK-11) : Should — non bloquant Sprint 1.
+* Livrables perturbation J1 : deposer dans docs/perturbations/j1/ avant mardi 9h.
+
+
+================================================================================
+1. MODIFICATIONS SPRINT GOAL ET ENGAGEMENT
+================================================================================
+
+Sprint Goal — Remplacer :
+  « L'equipe dispose d'un environnement local fonctionnel · F1 (authentification
+    email complete) validee par le PO · F2 (upload PDF + saisie texte) testee
+    et bugs documentes sur GitHub Issues. »
+
+Par :
+  « Environnement local operationnel · F1 (authentification email) validee par le
+    PO · premiers tests F2 (upload PDF) · bugs documentes sur GitHub Issues —
+    ENGAGEMENT A 70% UNIQUEMENT (~2h45 de dev effectif). »
+
+Duree Sprint 1 — Remplacer :
+  « 4h (Lundi 14h-18h) »
+
+Par :
+  « 4h (Lundi 14h-18h · capacite 70% = ~2h45 de dev effectif) »
+
+Stories engagees — Remplacer :
+  « US-01 · US-02 · US-06 · US-07 »
+
+Par :
+  « US-01 · US-02 · US-07 (Must) · US-06 si capacite restante (sinon report Sprint 2) »
+
+Points engages — Remplacer :
+  « 10 pts »
+
+Par :
+  « 8 pts (Must) · +2 pts si US-06 »
+
+Velocite estimee — Remplacer :
+  « 8-10 pts »
+
+Par :
+  « 5-8 pts (sous-engagement volontaire Sprint 1) »
+
+
+================================================================================
+2. MODIFICATIONS BURN-DOWN ET DEFINITION OF READY
+================================================================================
+
+Burn-down — Points restants ideaux — Remplacer :
+  « 10 · 8,8 · 7,5 · 6,3 · 5 · 3,8 · 2,5 · 1,3 · 0 »
+
+Par :
+  « 8 · 7 · 6 · 5 · 4 · 3 · 2 · 1 · 0 »
+
+  (La ligne « Points restants reels » reste a saisir pendant le sprint.)
+
+Definition of Ready — Ajouter :
+  « Impact perturbation P1 integre (persona enseignante Mme Lefevre —
+   cf. docs/perturbation/ et artefact-6) »
+
+
+================================================================================
+3. MODIFICATIONS DES TACHES EXISTANTES
+================================================================================
+
+TASK-11 (US-06) — Tester la saisie de cours en texte
+  Modification : ajouter en fin de description technique
+  « — NON BLOQUANT Sprint 1 (reporte Sprint 2 si capacite insuffisante,
+     cf. artefact-5 Sprint 2) »
+
+TASK-14 (US-01 US-06 US-07) — Documenter les bugs
+  User Story — Remplacer : « US-01 US-06 US-07 »
+  Par : « US-01 US-07 »
+
+TASK-15 (US-01 US-06) — Corriger les bugs bloquants F1/F2
+  User Story — Remplacer : « US-01 US-06 »
+  Par : « US-01 US-07 »
+
+TASK-16 — Sprint Review / demo au PO
+  Scenario de demo — Remplacer :
+  « inscription → upload cours → generation quiz → score »
+  Par :
+  « inscription → upload PDF → generation quiz si temps »
+
+  Verification DoD — Remplacer : « US-01 et US-06/07 »
+  Par : « US-01 et US-07 »
+
+
+================================================================================
+4. NOUVELLE TACHE — TASK-18 (PERTURBATION J1)
+================================================================================
+
+  TASK ID     : TASK-18
+  User Story  : Perturbation J1
+  Titre       : Livrer les documents post-P1
+  Description : Rediger et versionner les livrables perturbation J1 dans
+                docs/perturbations/j1/ avant mardi 9h (persona · customer journey
+                · product backlog maj · release planning maj · sprint backlog maj)
+  Type        : Perturbation
+  Assigne a   : Tous (redacteurs par document)
+  Estimation  : 30 min
+  Statut      : Fait
+  DoD         : Fichiers deposes dans docs/perturbations/j1/
+                Artefacts 5/6/7 actualises via fichiers de maj
+                Remis avant mardi 9h
+
+
+================================================================================
+5. NOTE ET RISQUE SPRINT 1 — A AJOUTER EN FIN D'ARTEFACT-7
+================================================================================
+
+Note P1 :
+  « Perturbation J1 (14h00) : Mme Lefevre devient persona co-primaire. US-21 a
+    US-25 ajoutees au Product Backlog (artefact-6). US-J1-01 a US-J1-04 dans
+    artefact-6-product-backlog-maj.csv. MVP F1-F6 inchange. Sprint 1 recentre
+    sur US-01/US-02/US-07. Stories enseignant planifiees Sprint 3-5
+    (cf. p1-release-planning-lefevre.txt). »
+
+Risque Sprint 1 :
+  « Sous-engagement volontaire a 70% — ne pas surcharger le Sprint 1 avec US-06
+    ni les stories enseignant (US-J1 / US-E). Le setup (TASK-01 a 06) peut
+    depasser 90 min : utiliser LLM_BACKEND=mock si besoin (cf. note existante
+    artefact-7). »
+
+Recapitulatif taches — Mettre a jour :
+  Ajouter : « Perturbation : 1 tache (TASK-18) · ~30 min »
+  Remplacer le total « 17 taches · ~320 min »
+  Par : « 18 taches · ~350 min (~5h50 — engagement reel 70% = ~2h45 dev) »
+
+
+================================================================================
+6. SYNTHESE — PRIORISATION SPRINT 1 POST-PERTURBATION
+================================================================================
+
+  Priorite | Taches / Stories                          | Statut attendu Sprint 1
+  ---------+-------------------------------------------+---------------------------
+  Must     | TASK-01 a 06 (Setup)                      | Environnement operationnel
+  Must     | TASK-07, TASK-08 (US-01, US-02)           | F1 validee PO
+  Must     | TASK-12 (US-07)                           | F2 PDF testee
+  Must     | TASK-14 (issues GitHub)                   | >= 3 issues creees
+  Must     | TASK-16 (Sprint Review)                   | Demo US-01 + US-07
+  Should   | TASK-09, TASK-10 (US-03, US-04)           | Si capacite restante
+  Should   | TASK-11 (US-06)                           | Report Sprint 2 sinon
+  Should   | TASK-13 (workflow Git)                    | Si capacite restante
+  Should   | TASK-15 (fix bugs bloquants)              | Si bugs identifies
+  Fait     | TASK-18 (livrables P1)                    | docs/perturbations/j1/
+  Hors S1  | US-J1-01 a 04, US-21 a 25 (enseignant)    | Sprint 3-5
+
+>>> INVESTISSEMENT PRIORITAIRE SPRINT 1 : setup fonctionnel (TASK-01 a 06) +
+    validation F1 (TASK-07/08) + test upload PDF (TASK-12).
+    Decrochage = setup > 90 min sans bascule mock LLM, ou surcharge avec US-06
+    et stories enseignant hors perimetre Sprint 1.
+
+
+================================================================================
+GRILLE D'AUTO-EVALUATION
+================================================================================
+
+  Document de modifications uniquement (artefact-7 v1.0 conserve)          : [X] Oui
+  Sprint Goal actualise avec engagement 70%                                : [X] Oui
+  Stories Must Sprint 1 identifiees (US-01, US-02, US-07)                  : [X] Oui
+  US-06 explicitement reportee Sprint 2 si capacite insuffisante         : [X] Oui
+  Burn-down ajuste (8 pts au lieu de 10)                                   : [X] Oui
+  Taches modifiees documentees (TASK-11, 14, 15, 16)                       : [X] Oui
+  Nouvelle tache TASK-18 (livrables P1) ajoutee                            : [X] Oui
+  Alignement avec artefact-5, artefact-6 et docs/perturbation/             : [X] Oui
+  Stories enseignant hors perimetre Sprint 1 (planifiees Sprint 3-5)       : [X] Oui
+  Document relu et valide par l'equipe complete                            : [ ] A valider
+
+
+Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

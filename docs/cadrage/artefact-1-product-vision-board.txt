@@ -1,251 +1,175 @@
-﻿APOCAL'IPSSI
-CADRAGE MATINAL Â· ARTEFACT 1 SUR 7
-Product Vision Board
-La direction du produit EduTutor IA en 6 sections
+APOCAL'IPSSI - ARTEFACT 1 SUR 7
+Product Vision Board - EduTutor IA
 
-Projet EduTutor IA Â· Ã‰dition 2026 Â· Semaine immersive Scrum
-Auteur : Mohamed Amine EL AFRIT Â· Licence CC BY-NC-SA 4.0
+Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
+Auteur : Mohamed Amine EL AFRIT - Licence CC BY-NC-SA 4.0
 
 
 IDENTIFICATION DU DOCUMENT
+==========================
+Equipe n         : 19
+Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
+                   Philippe MAILLOT, Aboubacar COUMARE
+Sprint concerne  : Cadrage
+Version          : v1.0 (initiale)
+Date de remise   : 29/06/2026 12h55
+Statut           : Draft
+Redacteur        : Mathieu PONNOU
+Fichier          : equipe-19-product-vision-board-v1.0.txt
 
-Ã‰quipe nÂ°        19
-Membres          Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO, Philippe MAILLOT, Aboubacar COUMARE
-Sprint concernÃ©  Cadrage
-Version          v1.0 (initiale)
-Date de remise   29/06/2026 12h55
-Statut           Draft
-RÃ©dacteur        Mathieu PONNOU
 
-Convention de nommage du fichier : equipe-19-product-vision-board-v1.0.txt
-
-
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+================================================================================
 1. VISION
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+================================================================================
 
-Notre vision finalisÃ©e :
+"Permettre a chaque etudiant(e) du superieur de transformer en moins de 5
+minutes n'importe quel cours en outil de revision personnalise et adaptatif,
+et a chaque enseignant(e) de gagner au moins 4 heures de preparation par
+semaine, tout en garantissant la souverainete des donnees scolaires grace a
+un LLM 100 % local."
 
-Â« Permettre Ã  chaque Ã©tudiantÂ·e du supÃ©rieur de transformer en moins de 5 minutes
-n'importe quel cours en outil de rÃ©vision personnalisÃ© et adaptatif, et Ã  chaque
-enseignantÂ·e de gagner au moins 4 heures de prÃ©paration par semaine, tout en
-garantissant la souverainetÃ© des donnÃ©es scolaires grÃ¢ce Ã  un LLM 100 % local. Â»
-
-â†’ Le produit survit aux releases : cette phrase s'applique Ã  la Release 1 comme
-  Ã  la Release 2 et au-delÃ . Elle est mÃ©morisable, orientÃ©e bÃ©nÃ©fice utilisateur,
-  sans jargon technique.
+-> Phrase memorisable, orientee benefice utilisateur, survit aux releases.
 
 
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-2. TARGET GROUP (cibles utilisateurs)
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+================================================================================
+2. TARGET GROUP
+================================================================================
 
-2.1. Cible primaire â€” Ã‰tudiantÂ·e du supÃ©rieur
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ Profil          â”‚ 18-25 ans Â· L1-M2 (Bac+1 Ã  Bac+5) Â· usage smartphone et â”‚
-â”‚                 â”‚ laptop quotidien                                          â”‚
-â”‚ Volume FR       â”‚ ~2,7 M d'Ã©tudiants dans le supÃ©rieur (MESR 2024)         â”‚
-â”‚ Pain point      â”‚ 5h Ã  15h/semaine consacrÃ©es Ã  chercher ou crÃ©er des      â”‚
-â”‚                 â”‚ supports de rÃ©vision                                      â”‚
-â”‚ CritÃ¨re clÃ©     â”‚ DisponibilitÃ© hors connexion (RER, transports) +          â”‚
-â”‚                 â”‚ gratuitÃ© Ã  l'usage + moins de 5 min pour obtenir un quiz  â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+2.1. Cible primaire -- Etudiant(e) du superieur
+  Profil      : 18-25 ans, L1-M2, usage smartphone + laptop quotidien
+  Volume FR   : ~2,7 M etudiants (MESR 2024)
+  Pain point  : 5h-15h/semaine a chercher/creer des supports de revision
+  Critere cle : Disponibilite hors connexion + gratuite + quiz en < 5 min
 
-2.2. Cible secondaire â€” EnseignantÂ·e (persona Ã©mergente J1)
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ Profil          â”‚ 35-55 ans Â· lycÃ©e privÃ© sous contrat / BTS / supÃ©rieur Â· â”‚
-â”‚                 â”‚ maÃ®trise modÃ©rÃ©e du numÃ©rique                             â”‚
-â”‚ Volume FR       â”‚ ~770 000 enseignants tous niveaux (Ã‰ducation nationale)   â”‚
-â”‚ Pain point      â”‚ ~12h/mois en correction et prÃ©paration de supports        â”‚
-â”‚                 â”‚ d'Ã©valuation variÃ©s                                       â”‚
-â”‚ CritÃ¨re clÃ©     â”‚ Interface simple sans installation Â· export Word/PDF Â·    â”‚
-â”‚                 â”‚ conformitÃ© RGPD claire pour l'Ã©tablissement               â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+2.2. Cible secondaire -- Enseignant(e) (persona emergente J1)
+  Profil      : 35-55 ans, lycee prive / BTS / superieur, maitrise moderee
+  Volume FR   : ~770 000 enseignants (Education nationale)
+  Pain point  : ~12h/mois en correction + preparation de supports d'evaluation
+  Critere cle : Interface simple sans installation, export Word/PDF, RGPD clair
 
-2.3. Cible tertiaire â€” Ã‰tablissement scolaire (acheteur B2B)
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ Profil          â”‚ Direction de lycÃ©e privÃ© Â· ENT scolaire Â· responsable    â”‚
-â”‚                 â”‚ pÃ©dagogique d'Ã©cole supÃ©rieure                            â”‚
-â”‚ Volume FR       â”‚ ~7 500 lycÃ©es + ~3 500 Ã©tablissements supÃ©rieurs          â”‚
-â”‚ Pain point      â”‚ Budget edtech contraint (< 5 â‚¬/Ã©lÃ¨ve/an) + obligation    â”‚
-â”‚                 â”‚ RGPD non nÃ©gociable                                       â”‚
-â”‚ CritÃ¨re clÃ©     â”‚ ConformitÃ© RGPD certifiÃ©e (local-first, aucun transfert  â”‚
-â”‚                 â”‚ hors UE) Â· tarification forfaitaire prÃ©visible Â·          â”‚
-â”‚                 â”‚ cycle d'achat B2B < 6 mois                               â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+2.3. Cible tertiaire -- Etablissement scolaire (acheteur B2B)
+  Profil      : Direction lycee prive, ENT scolaire, responsable pedagogique
+  Volume FR   : ~7 500 lycees + ~3 500 etablissements superieurs
+  Pain point  : Budget edtech contraint (< 5 EUR/eleve/an) + RGPD obligatoire
+  Critere cle : Local-first certifie, tarification forfaitaire, cycle achat < 6 mois
 
 
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-3. NEEDS (besoins rÃ©solus)
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+================================================================================
+3. NEEDS (besoins resolus)
+================================================================================
 
-3.1. Besoins de la cible primaire (Ã‰tudiant)
+3.1. Besoins Etudiant(e)
+  * Generer un quiz sur n'importe quel chapitre en < 5 min (PDF ou texte)
+  * Identifier ses lacunes par chapitre avant un examen, sans correcteur humain
+  * Reviser hors-ligne (RER, transports, lieu sans wifi)
+  * Repeter les chapitres ou les lacunes sont les plus fortes (mode erreurs)
+  * Savoir precisement quels chapitres necessitent une revision supplementaire
 
-  â˜… GÃ©nÃ©rer en moins de 5 min un quiz de rÃ©vision sur n'importe quel chapitre
-    d'un cours fourni (PDF ou texte)
-  â˜… Identifier ses lacunes par chapitre avant un examen (sans correcteur humain)
-  â˜… RÃ©viser hors-ligne (transports, lieu sans wifi)
-  â˜… RÃ©pÃ©ter les chapitres oÃ¹ ses lacunes sont les plus fortes via un quiz ciblÃ©
-    sur ses erreurs passÃ©es
-  â˜… Savoir prÃ©cisÃ©ment quels chapitres nÃ©cessitent une rÃ©vision supplÃ©mentaire
-    avant les partiels, sans perdre du temps Ã  chercher sur internet
+3.2. Besoins Enseignant(e)
+  * Preparer des supports d'evaluation varies en gain de temps (objectif -4h/sem)
+  * Adapter le niveau de difficulte au niveau de la classe automatiquement
+  * Suivre l'engagement de la classe (qui a repondu, score moyen, lacunes)
+  * Exporter les quiz au format Word/PDF pour distribution sans internet
 
-3.2. Besoins de la cible secondaire (Enseignant)
-
-  â˜… PrÃ©parer des supports d'Ã©valuation variÃ©s (quiz, QCM, questions ouvertes)
-    en gain de temps mesurable (objectif : -4h/semaine)
-  â˜… Adapter automatiquement le niveau de difficultÃ© au niveau de la classe
-  â˜… Suivre l'engagement de la classe : qui a rÃ©pondu, score moyen, lacunes
-    communes identifiÃ©es automatiquement
-  â˜… Exporter les quiz gÃ©nÃ©rÃ©s au format Word ou PDF pour distribution en classe
-    sans accÃ¨s internet obligatoire
-
-3.3. Besoins de la cible tertiaire (Ã‰tablissement)
-
-  â˜… Disposer d'un outil edtech RGPD conforme, sans transfert de donnÃ©es hors UE
-  â˜… Tarification prÃ©visible par Ã©lÃ¨ve / par an, sans surprise
-  â˜… Tableau de bord de suivi d'adoption pour justifier le budget devant le CA
-    (nombre d'utilisateurs actifs, quiz gÃ©nÃ©rÃ©s, engagement moyen)
-  â˜… Kit de dÃ©ploiement clÃ© en main pour onboarder les enseignants en < 1 journÃ©e
+3.3. Besoins Etablissement
+  * Outil RGPD conforme, sans transfert de donnees hors UE
+  * Tarification previsible par eleve/an, sans surprise de renouvellement
+  * Tableau de bord d'adoption mensuel pour justifier le budget au CA
+  * Kit de deploiement cle en main pour onboarder les enseignants en < 1 jour
 
 
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-4. PRODUCT (le produit en 3-5 traits)
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+================================================================================
+4. PRODUCT
+================================================================================
 
-4.1. CaractÃ©ristiques signature d'EduTutor IA
+4.1. Caracteristiques signature
+  1. Generation de 10 QCM en < 60 s (PDF <= 5 Mo ou texte >= 200 caracteres)
+  2. 100 % local via Ollama (Llama 3.1 8B) : aucune donnee ne quitte le serveur
+  3. Interface mobile-first, hors-ligne friendly, sans installation technique
+  4. Tableau de bord progression + mode revision des erreurs integre
+  5. Ancrage pedagogique : questions generees depuis le texte fourni uniquement
 
-  â‘  GÃ©nÃ©ration de 10 QCM en moins de 60 s Ã  partir d'un cours fourni (PDF
-    jusqu'Ã  5 Mo ou texte brut de 200 caractÃ¨res minimum)
-  â‘¡ Fonctionnement 100 % local via Ollama (Llama 3.1 8B / Phi-3-mini) :
-    aucune donnÃ©e ne quitte le serveur, souverainetÃ© totale garantie
-  â‘¢ Interface mobile-first et hors-ligne friendly (pas d'installation, aucun
-    paramÃ©trage technique requis de l'utilisateur)
-  â‘£ Tableau de bord de progression individuel par chapitre et par matiÃ¨re,
-    avec mode rÃ©vision des erreurs intÃ©grÃ©
-  â‘¤ Ancrage pÃ©dagogique : les questions sont gÃ©nÃ©rÃ©es exclusivement Ã  partir
-    du texte fourni, rÃ©duisant les hallucinations et garantissant la traÃ§abilitÃ©
+4.2. MVP must-have -- Release 1 (mercredi 17h45 STRICT)
+  F1 : Inscription + connexion par email (Django Auth)
+  F2 : Upload PDF <= 5 Mo OU saisie texte >= 200 caracteres
+  F3 : Generation auto de 10 QCM via LLM local (Ollama)
+  F4 : Soumission + correction automatique (1 bonne reponse/QCM)
+  F5 : Score /10 + detail bonnes/mauvaises reponses
+  F6 : Historique persiste par utilisateur (date, cours, score)
 
-4.2. MVP must-have (Release 1) â€” rappel imposÃ©
-
-  F1 : Inscription et connexion utilisateur (Django Auth standard)
-  F2 : Saisie d'un cours : upload PDF â‰¤ 5 Mo ou texte â‰¥ 200 caractÃ¨res
-  F3 : GÃ©nÃ©ration automatique d'un quiz de 10 QCM via LLM local
-  F4 : Soumission et correction automatique (une bonne rÃ©ponse par QCM)
-  F5 : Affichage du score /10 + dÃ©tail bonnes/mauvaises rÃ©ponses
-  F6 : Historique persistÃ© des quiz par utilisateur (date, cours, score)
-
-4.3. Pistes Release 2 envisagÃ©es (retenues par l'Ã©quipe)
-
-  â€¢ Candidate 1 : Niveaux de difficultÃ© (facile / moyen / difficile)
-    â†’ Justification : permet aux enseignants d'adapter le quiz au niveau de la
-      classe sans intervention manuelle, fort levier de valeur B2B.
-
-  â€¢ Candidate 2 : Explication des rÃ©ponses
-    â†’ Justification : transforme le quiz en outil d'apprentissage actif, pas
-      seulement d'Ã©valuation. Fort levier de rÃ©tention (NPS).
-
-  â€¢ Candidate 3 : Export RGPD des donnÃ©es utilisateur (droit Ã  la portabilitÃ©)
-    â†’ Justification : exigence lÃ©gale attendue par la cible tertiaire (B2B),
-      dÃ©montre la maturitÃ© RGPD du produit dÃ¨s la Release 2.
+4.3. Pistes Release 2 retenues
+  * Niveaux de difficulte (facile/moyen/difficile)
+    -> Adapter le quiz au niveau de la classe sans intervention manuelle
+  * Explication des reponses
+    -> Transformer le quiz en outil d'apprentissage actif (fort levier NPS)
+  * Export RGPD des donnees (droit a la portabilite Art. 20)
+    -> Exigence legale attendue par la cible B2B
 
 
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-5. BUSINESS GOALS (objectifs de succÃ¨s)
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+================================================================================
+5. BUSINESS GOALS
+================================================================================
 
-5.1. Objectifs d'adoption
+5.1. Adoption
+  * 1 000 etudiants actifs hebdomadaires (WAU) d'ici T+6 mois
+  * 60 % des utilisateurs reviennent dans la semaine apres inscription
+  * Temps moyen de generation < 60 s (surveille des la Release 1)
 
-  â€¢ Adoption    : atteindre 1 000 Ã©tudiants actifs hebdomadaires (WAU)
-                  d'ici T+6 mois
-  â€¢ RÃ©tention   : 60 % des utilisateurs reviennent dans la semaine aprÃ¨s
-                  inscription (WAU / inscriptions semaine prÃ©cÃ©dente)
-  â€¢ QualitÃ©     : temps moyen de gÃ©nÃ©ration de quiz < 60 s (indicateur
-                  performance produit, surveillÃ© dÃ¨s la Release 1)
+5.2. Satisfaction
+  * NPS > 30 d'ici T+9 mois (cible standard edtech)
+  * < 5 % de quiz signales "erreur factuelle"
+  * 0 bug bloquant sur le parcours inscription -> generation premier quiz
 
-5.2. Objectifs de satisfaction
-
-  â€¢ Satisfaction : NPS > 30 d'ici T+9 mois (cible standard edtech : NPS > 30)
-  â€¢ QualitÃ© contenu : < 5 % de quiz signalÃ©s "erreur factuelle" par les
-    utilisateurs (bouton de signalement intÃ©grÃ© dÃ¨s la Release 1)
-  â€¢ FacilitÃ© d'accÃ¨s : 0 bug bloquant sur le parcours d'inscription et de
-    gÃ©nÃ©ration du premier quiz (mesurÃ© via les logs d'erreur)
-
-5.3. Objectifs business (long terme)
-
-  â€¢ Conversion B2B : au moins 5 Ã©tablissements scolaires sous contrat
-    dans 12 mois (pilote gratuit 3 mois â†’ conversion)
-  â€¢ CoÃ»t acquisition : CAC < 10 â‚¬ par utilisateur converti (canal : bouche
-    Ã  oreille Ã©tudiant + articles pÃ©dagogiques ciblÃ©s)
-  â€¢ ModÃ¨le Ã©conomique : freemium (usage personnel gratuit, quota mensuel)
-    + licence B2B annuelle (5 â‚¬/Ã©lÃ¨ve/an, min. 100 Ã©lÃ¨ves)
+5.3. Business (long terme)
+  * 5 etablissements scolaires sous contrat dans 12 mois
+  * CAC < 10 EUR par utilisateur converti
+  * Modele : freemium personnel + licence B2B annuelle (5 EUR/eleve/an)
 
 
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-6. DIFFÃ‰RENCIATEURS VS CONCURRENTS
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+================================================================================
+6. DIFFERENCIATEURS VS CONCURRENTS
+================================================================================
 
-6.1. Cartographie des concurrents
+6.1. Cartographie
 
-â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
-â”‚ Concurrent      â”‚ Positionnement                           â”‚ Limite identifiÃ©e                        â”‚
-â”œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¼â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¤
-â”‚ Wilgo.ai        â”‚ Compagnon IA franÃ§ais pour Ã©tudiants     â”‚ Cloud, dÃ©pendance OpenAI, donnÃ©es hors UEâ”‚
-â”‚ Leo (iamleo.ai) â”‚ Tuteur IA Bac/sup ancrÃ© progs franÃ§ais   â”‚ Cible Ã©tudiants uniquement, pas d'angle  â”‚
-â”‚                 â”‚                                          â”‚ enseignant                               â”‚
-â”‚ Quizlet AI      â”‚ Cartes mÃ©moire et quiz IA, pionnier US   â”‚ Pas d'ancrage cours fourni, focus marchÃ© â”‚
-â”‚                 â”‚                                          â”‚ US                                       â”‚
-â”‚ Khanmigo        â”‚ Tuteur IA Khan Academy, lancÃ© 2023       â”‚ US-first, conformitÃ© RGPD UE floue       â”‚
-â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+  Concurrent       | Positionnement                    | Limite
+  -----------------+-----------------------------------+---------------------------
+  Wilgo.ai         | Compagnon IA francais etudiants   | Cloud OpenAI, donnees hors UE
+  Leo (iamleo.ai)  | Tuteur IA Bac/sup francais        | Etudiants seulement, pas enseignant
+  Quizlet AI       | Quiz IA, pionnier US               | Pas d'ancrage cours fourni
+  Khanmigo         | Tuteur IA Khan Academy            | US-first, RGPD UE floue
 
-6.2. Nos 3 diffÃ©renciateurs argumentÃ©s
+6.2. Nos 3 differenciateurs argumentes
 
-â‘  Enseignant-first (vs Ã©tudiant-first des concurrents)
-   Les concurrents positionnent l'Ã©tudiant comme seul acteur (l'Ã©lÃ¨ve cherche,
-   l'IA rÃ©sume). EduTutor inverse la logique : nos prompts mÃ©tier gÃ©nÃ¨rent des
-   Ã©valuations calibrÃ©es sur le niveau de la classe, exportables pour la salle
-   des profs, avec un suivi de l'engagement collectif. Aucun concurrent ne
-   propose de flux dÃ©diÃ© Ã  l'enseignant pour prÃ©parer ses Ã©valuations en < 5 min.
+  1. ENSEIGNANT-FIRST
+     Les concurrents sont "etudiant-first". EduTutor inverse : prompts metier
+     pour enseignants, exports Word/PDF, suivi engagement classe.
+     Aucun concurrent ne propose ce flux dedie.
 
-â‘¡ PÃ©dagogie ancrÃ©e â€” anti-hallucination par design
-   Les LLM bruts hallucinent sur les chiffres, dates et donnÃ©es spÃ©cifiques
-   (~20 % d'erreurs factuelles observÃ©es en tests). EduTutor oblige le modÃ¨le
-   Ã  ancrer chaque question dans le document fourni (prompt avec contrainte
-   explicite de traÃ§abilitÃ© source). Objectif : < 5 % de questions signalÃ©es.
-   Les concurrents utilisent des LLM sans ancrage â€” une classe peut rÃ©viser
-   des erreurs sans le savoir.
+  2. PEDAGOGIE ANCREE (anti-hallucination)
+     LLM bruts : ~20 % d'erreurs factuelles. EduTutor ancre chaque question
+     dans le document fourni. Objectif : < 5 % de questions signalee.
+     Les concurrents utilisent des LLM sans ancrage au cours.
 
-â‘¢ RGPD local-first â€” le seul outil sans cloud amÃ©ricain
-   Wilgo, Leo, Quizlet AI et Khanmigo utilisent tous OpenAI ou Anthropic :
-   les donnÃ©es des Ã©tudiants quittent l'UE. EduTutor tourne sur Ollama local,
-   hÃ©bergÃ© sur le serveur de l'Ã©tablissement. Les DPO scolaires ont un blocage
-   systÃ©matique sur les transferts hors UE. EduTutor est le seul outil
-   compatible avec une politique RGPD stricte â€” c'est un dealbreaker B2B que
-   les concurrents ne peuvent pas adresser sans refondre leur architecture.
+  3. RGPD LOCAL-FIRST (seul outil sans cloud americain)
+     Wilgo/Leo/Quizlet/Khanmigo -> donnees hors UE via OpenAI/Anthropic.
+     EduTutor tourne sur Ollama local heberge par l'etablissement.
+     Dealbreaker B2B imbattable pour les DPO scolaires.
 
 
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-GRILLE D'AUTO-Ã‰VALUATION
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+================================================================================
+GRILLE D'AUTO-EVALUATION
+================================================================================
 
-CritÃ¨re qualitÃ©                                                    Auto-Ã©valuation
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-La Vision tient en 1 phrase mÃ©morable et survit aux releases       [ ] Oui  [ ] Partiel  [ ] Non
-Les 3 niveaux de cibles sont dÃ©crits avec profil+volume+pain point [ ] Oui  [ ] Partiel  [ ] Non
-Au moins 3 besoins/cible formulÃ©s en verbes d'action mesurables    [ ] Oui  [ ] Partiel  [ ] Non
-Le produit est dÃ©crit en 3-5 caractÃ©ristiques signature            [ ] Oui  [ ] Partiel  [ ] Non
-Les 6 features F1-F6 rappelÃ©es + 2-3 pistes Release 2 identifiÃ©es [ ] Oui  [ ] Partiel  [ ] Non
-Les Business Goals comportent â‰¥3 KPI chiffrÃ©s et datÃ©s            [ ] Oui  [ ] Partiel  [ ] Non
-Les 4 concurrents cartographiÃ©s avec positionnement + limite       [ ] Oui  [ ] Partiel  [ ] Non
-Les 3 diffÃ©renciateurs EduTutor argumentÃ©s au-delÃ  du slogan      [ ] Oui  [ ] Partiel  [ ] Non
-Document relu et validÃ© par l'Ã©quipe complÃ¨te                      [ ] Oui  [ ] Partiel  [ ] Non
+  Vision en 1 phrase memorable + survit aux releases      : [X] Oui
+  3 cibles avec profil + volume + pain point               : [X] Oui
+  >= 3 besoins/cible en verbes d'action mesurables         : [X] Oui
+  Produit en 3-5 caracteristiques signature                : [X] Oui
+  F1-F6 rappeles + 2-3 pistes Release 2 identifiees        : [X] Oui
+  >= 3 KPI Business Goals chiffres et dates                : [X] Oui
+  4 concurrents avec positionnement + limite               : [X] Oui
+  3 differenciateurs argumentes au-dela du slogan          : [X] Oui
+  Document relu et valide par l'equipe complete            : [ ] A valider
 
 
-RÃ‰FÃ‰RENCES
-â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
-Cours Agile/Scrum : mohamedelafrit.com/teaching/Master_Classe_Agile/cours.html
-Scrum Guide FR    : scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-French.pdf
-Site APOCAL'IPSSI : mohamedelafrit.com/teaching/APOCALIPSSI
-Roman Pichler PVB : https://www.romanpichler.com/tools/product-vision-board/
-
-Mohamed Amine EL AFRIT Â· APOCAL'IPSSI 2026 Â· CC BY-NC-SA 4.0
+Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

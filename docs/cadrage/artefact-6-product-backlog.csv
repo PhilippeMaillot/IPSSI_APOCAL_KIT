@@ -25,6 +25,11 @@
 "US-18","EPIC 6 — Release 2","Exporter ses données RGPD","En tant qu'utilisateur·ice, je veux exporter toutes mes données personnelles afin d'exercer mon droit à la portabilité (RGPD Art. 20).","Oui","Non — obligation légale","Oui — confiance et conformité","Oui — 2 pts","Oui","Oui","Could have","2","Sprint 4 (P4 RGPD)","1. Bouton Exporter mes données dans le profil · 2. Téléchargement JSON (user + quiz + réponses) · 3. Toutes les données personnelles incluses · 4. Format lisible par machine et humain","À faire"
 "US-19","EPIC 6 — Release 2","Rappels email de révision","En tant qu'étudiant·e, je veux recevoir un email de rappel si je n'ai pas révisé depuis 3 jours afin de maintenir une habitude régulière.","Non — dépend US-01","Oui — fréquence négociable","Oui — rétention à long terme","Oui — 3 pts","Oui","Oui","Could have","3","Sprint 7","1. Tâche planifiée (cron) vérifiant inactivité > 3 jours · 2. Email envoyé via Brevo · 3. Lien unsubscribe dans l'email · 4. Opt-out depuis le profil · 5. Pas de doublon si déjà envoyé cette semaine","À faire"
 "US-20","EPIC 6 — Release 2","Catégoriser ses quiz par matière","En tant qu'étudiant·e, je veux associer une matière à chaque quiz afin de retrouver rapidement mes révisions par sujet.","Non — dépend US-12","Oui","Oui — organisation de l'historique","Oui — 2 pts","Oui","Oui","Could have","2","Sprint 6","1. Champ matière à la création du quiz · 2. Filtre par matière dans l'historique · 3. Matière affichée dans la liste historique · 4. Matière stockée en base · 5. Pas obligatoire (champ optionnel)","À faire"
+"US-21","EPIC 4 – Quiz","Générer un quiz ancré dans le support","En tant qu'enseignante, je veux générer un quiz à partir de mon propre support de cours afin d'obtenir des questions adaptées à mon contenu.","Oui","Oui","Oui","Oui","Must","Perturbation J1 : besoin enseignant renforcé"
+"US-22","EPIC 4 – Quiz","Limiter les hallucinations","En tant qu'enseignante, je veux que les questions soient directement liées au support fourni afin d'éviter les questions hors sujet ou inventées par l'IA.","Oui","Oui","Oui","Oui","Must","Perturbation J1 : fiabilité pédagogique"
+"US-23","EPIC 4 – Quiz","Relire les questions générées","En tant qu'enseignante, je veux relire les questions générées afin de vérifier leur pertinence avant de les utiliser en classe.","Oui","Oui","Oui","Oui","Should","Ajout après perturbation J1"
+"US-24","EPIC 6 – Release 2","Exporter un quiz","En tant qu'enseignante, je veux exporter le quiz afin de pouvoir l'utiliser dans un autre outil ou en classe.","Oui","Oui","Oui","Oui","Could","Piste Release 2 après perturbation J1"
+"US-25","EPIC 6 – Release 2","Statistiques de classe","En tant qu'enseignante, je veux consulter des statistiques de classe afin de suivre la progression d'un groupe.","Oui","Oui","Oui","Oui","Could","Piste Release 2 après perturbation J1"
 ,,,,,,,,,,,,,,
 "TABLEAU RÉCAPITULATIF",,,,,,,,,,,,,,
 "MoSCoW","Nombre de stories","Points total","Sprint(s) cible(s)",,,,,,,,,,,
@@ -32,6 +37,7 @@
 "Should have","US-03/04/05/13/14 (5 stories)","11 pts","Sprint 1/4/5",,,,,,,,,,,
 "Could have","US-15 à US-20 (6 stories)","16 pts","Sprint 6-7",,,,,,,,,,,
 "Won't have","Import Word/PPT · Types questions variés · Multilingue · Leaderboard","—","Post-semaine",,,,,,,,,,,
+"NOTE J1","Perturbation","Impact sur le Product Backlog","La perturbation J1 introduit un besoin enseignant représenté par Mme Lefèvre. Le MVP F1-F6 n'est pas remis en cause, mais le backlog est ajusté pour renforcer la fiabilité pédagogique, l'ancrage des questions dans le support fourni et le contrôle enseignant.","Oui","Oui","Oui","Oui","Must","Synthèse perturbation J1"
 ,,,,,,,,,,,,,,
 "Vélocité estimée Sprint 1 (4h) : 8-10 pts · Sprint 2-7 (3-4h) : 6-10 pts par sprint",,,,,,,,,,,,,,
 ,,,,,,,,,,,,,,

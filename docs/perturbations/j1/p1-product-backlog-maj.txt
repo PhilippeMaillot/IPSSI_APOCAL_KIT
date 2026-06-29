@@ -72,81 +72,90 @@ Chaque user story est analysee selon INVEST :
 
 ---
 
-## US-J1-01 - Voir les scores des etudiants
+## US-J1-01 - Voir les statistiques agregees de la classe
 
 Epic :
 EPIC 5 - Historique & statistiques
 
 User story :
 En tant qu'enseignante en BTS Communication,
-je veux consulter les scores de mes 28 etudiants,
-afin de suivre leur progression en revision d'examens.
+je veux consulter les statistiques agregees et anonymisees de ma classe
+(score moyen, pourcentage d'etudiants sous le seuil, quiz les plus rates),
+afin d'identifier les notions mal maitrisees par le groupe sans noter individuellement.
+
+Note produit : EduTutor est un outil d'auto-revision, pas un carnet de notes.
+Les scores individuels restent prives pour preserver l'honnestete de l'auto-evaluation
+et garantir la conformite RGPD. Mme Lefevre voit uniquement des donnees agregees.
 
 Analyse INVEST :
 
 * Independante : peut etre developpee a partir des scores deja calcules.
-* Negociable   : l'affichage peut commencer simplement avec le dernier score.
-* Valuable     : apporte une valeur directe a Mme Lefevre.
+* Negociable   : le niveau d'agregation (classe, quiz, chapitre) est discutable.
+* Valuable     : apporte une valeur directe sans exposer les donnees individuelles.
 * Estimable    : depend de l'historique et des scores deja prevus dans le MVP.
-* Small        : une premiere version peut afficher une liste simple.
-* Testable     : on peut verifier qu'un score est visible pour chaque etudiant.
+* Small        : premiere version : score moyen + % sous seuil par quiz.
+* Testable     : on peut verifier que les stats correspondent aux scores reels.
 
 Priorite MoSCoW :
 SHOULD
 
 Justification MoSCoW :
-Cette story repond directement a la perturbation J1. Elle est priorisee en
-SHOULD car elle apporte une valeur forte cote enseignante tout en reutilisant
-des elements deja prevus dans le MVP, notamment le score et l'historique.
-Elle ne doit cependant pas bloquer les MUST du MVP F1-F6.
+Cette story repond a la perturbation J1 tout en preservant la nature
+auto-revision de l'outil et la conformite RGPD. Elle reutilise les scores
+et l'historique deja prevus dans le MVP sans exposer de donnees individuelles.
 
 Impact DoR / DoD :
 DoR :
-* Definir comment les etudiants sont rattaches a une enseignante ou une classe.
-* Confirmer avec le PO si le suivi porte sur le dernier quiz ou tous les quiz.
+* Definir le seuil de difficulte avec le PO (ex : score moyen < 5/10).
+* Confirmer que seules des stats agregees sont exposees (pas de nom etudiant).
+* Valider la conformite RGPD avec le PO avant developpement.
 
 DoD :
-* L'enseignante peut voir une liste d'etudiants.
-* Chaque etudiant affiche au moins son dernier score.
-* Les donnees affichees correspondent bien aux quiz realises.
+* L'enseignante voit le score moyen de la classe par quiz.
+* L'enseignante voit le % d'etudiants sous le seuil defini.
+* Aucun score individuel n'est visible ni exportable.
+* Les donnees sont calculees cote backend et non stockees en clair.
 
 ---
 
-## US-J1-02 - Reperer les etudiants qui decrochent
+## US-J1-02 - Reperer les chapitres ou la classe decroche
 
 Epic :
 EPIC 5 - Historique & statistiques
 
 User story :
 En tant qu'enseignante,
-je veux identifier rapidement les etudiants qui decrochent,
-afin de pouvoir les accompagner avant l'examen.
+je veux voir quels chapitres ont un score moyen inferieur au seuil defini,
+afin de concentrer mes explications sur les notions les moins maitrisees.
+
+Note produit : l'indicateur porte sur les chapitres (agregat), pas sur les
+etudiants individuellement. Pas de nom, pas de score individuel expose.
 
 Analyse INVEST :
 
-* Independante : peut etre basee sur un indicateur simple.
-* Negociable   : le seuil de decrochage peut etre ajuste avec le PO.
-* Valuable     : aide l'enseignante a prioriser son accompagnement.
-* Estimable    : necessite un seuil et des scores.
-* Small        : premiere version avec un simple indicateur sous le seuil.
-* Testable     : on peut verifier qu'un etudiant sous le seuil est signale.
+* Independante : s'appuie sur US-J1-01 (stats agregees).
+* Negociable   : le seuil et l'affichage sont ajustables avec le PO.
+* Valuable     : aide l'enseignante a recentrer son cours sans noter les eleves.
+* Estimable    : necessite un seuil et les scores agregees par chapitre/quiz.
+* Small        : premiere version : liste des quiz sous le seuil avec score moyen.
+* Testable     : on peut verifier qu'un quiz sous le seuil apparait en alerte.
 
 Priorite MoSCoW :
 SHOULD
 
 Justification MoSCoW :
-Cette story correspond au besoin principal de Mme Lefevre : reperer les
-etudiants en difficulte. Elle reste en SHOULD car il faut d'abord definir une
-regle metier simple avec le Product Owner, par exemple un seuil de score ou
-une absence d'activite.
+Cette story repond au besoin core de Mme Lefevre (reperer ce qui ne passe pas)
+tout en restant anonymisee. Elle preserve la logique auto-revision et reste
+compatible RGPD. Le seuil est a definir avec le PO.
 
 Impact DoR / DoD :
 DoR :
-* Definir le seuil de decrochage avec le PO.
-* Preciser si le decrochage depend du score, de l'absence de quiz ou des deux.
+* Definir le seuil d'alerte avec le PO (ex : score moyen classe < 5/10).
+* Confirmer que l'indicateur porte sur les chapitres, pas les etudiants.
 
 DoD :
-* Un indicateur visible signale les etudiants sous le seuil defini.
+* Les quiz dont le score moyen classe est sous le seuil sont mis en evidence.
+* Aucun nom ou score individuel n'est affiche.
 * L'indicateur est comprehensible sans calcul manuel par l'enseignante.
 
 ---

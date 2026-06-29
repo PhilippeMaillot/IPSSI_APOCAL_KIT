@@ -39,8 +39,8 @@ F2 - Upload PDF + saisie texte     | Must Have   | Must Have   | Mme Lefevre upl
 F3 - Generation 10 QCM            | Must Have   | Must Have   | Coeur produit, les 2 profils
 F4/F5 - Quiz + score + corrections | Must Have   | Must Have   | Parcours etudiant complet
 F6 - Historique quiz               | Must Have   | Must Have   | Persistance necessaire
-US-J1-01 - Scores etudiants        | Won't Have  | Should Have | Besoin principal Mme Lefevre
-US-J1-02 - Reperer decrocheurs     | Won't Have  | Should Have | Valeur forte, seuil simple
+US-J1-01 - Stats agregees classe    | Won't Have  | Should Have | Anonymise, RGPD conforme, auto-revision preservee
+US-J1-02 - Chapitres sous le seuil | Won't Have  | Should Have | Indicateur par chapitre, pas par etudiant
 US-J1-03 - Conseils personnalises  | Won't Have  | Could Have  | Valeur forte mais complexe
 US-J1-04 - Filtrer par quiz        | Won't Have  | Could Have  | Utile mais reportable R2
 

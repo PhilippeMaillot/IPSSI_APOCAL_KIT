@@ -1,0 +1,53 @@
+﻿APOCAL'IPSSI - ARTEFACT 7/7 - Sprint Backlog - EduTutor IA - Équipe-19 - v1.0 - Remis le 29/06/2026 12h55
+"Décomposition technique du Sprint 1 d'EduTutor IA (Lundi 14h-18h)",,,,,,,,
+,,,,,,,,
+"Équipe 19 : Mathieu PONNOU · Ndiasse MBEGUERE · Ismael CEREZO · Philippe MAILLOT · Aboubacar COUMARE · Rédacteur : Mathieu PONNOU",,,,,,,,
+"Projet EduTutor IA · Édition 2026 · Semaine immersive Scrum",,,,,,,,
+,,,,,,,,
+"SPRINT GOAL : L'équipe dispose d'un environnement local fonctionnel · F1 (authentification email complète) validée par le PO · F2 (upload PDF + saisie texte) testée et bugs documentés sur GitHub Issues.",,,,,,,,
+,,,,,,,,
+"SPRINT","DURÉE","STORIES ENGAGÉES","POINTS ENGAGÉS","VÉLOCITÉ ESTIMÉE",,,,
+"Sprint 1","4h (Lundi 14h-18h)","US-01 · US-02 · US-06 · US-07","10 pts","8-10 pts",,,,
+,,,,,,,,
+"TASK ID","USER STORY","TITRE TÂCHE","DESCRIPTION TECHNIQUE","TYPE","ASSIGNÉ À","ESTIMATION (min)","STATUT","DÉFINITION OF DONE"
+"TASK-01","Setup","Forker le dépôt GitHub","Créer un fork du repo IPSSI_APOCAL_KIT dans le compte GitHub de l'équipe · nommer le repo equipe-19-edututor · inviter tous les membres en tant que Collaborators","Setup","Mathieu PONNOU","15","À faire","✓ Repo forké · ✓ Tous les membres ont accès en write · ✓ README lisible sur GitHub"
+"TASK-02","Setup","Cloner et configurer l'environnement","git clone du fork sur le poste de chaque membre · cp .env.example .env · vérifier les ports (3000 · 8000 · 5432 · 11434) disponibles · adapter .env si conflits","Setup","Tous","20","À faire","✓ .env créé · ✓ Aucun port en conflit · ✓ Chaque membre a le repo en local"
+"TASK-03","Setup","Lancer les conteneurs Docker","docker compose up -d · vérifier que les 4 services démarrent (backend · frontend · postgres · ollama) · docker ps pour confirmer · docker logs si erreur","Setup","Ndiasse MBEGUERE","20","À faire","✓ docker ps montre 4 conteneurs Running · ✓ http://localhost:3000 répond · ✓ http://localhost:8000/api/docs répond"
+"TASK-04","Setup","Télécharger le modèle Ollama","make pull-model (ou docker exec apocalipssi-2026-ollama ollama pull llama3.1:8b) · prévoir ~5 min de téléchargement · vérifier avec ollama list","Setup","Ismael CEREZO","30","À faire","✓ ollama list affiche llama3.1:8b · ✓ Taille ~4,7 Go confirmée · ✓ Pas d'erreur de réseau"
+"TASK-05","Setup","Insérer les données de démo","make seed · vérifier la création du compte de test (test / motdepasse123) · vérifier que des quiz de démo sont visibles dans http://localhost:8000/admin/","Setup","Philippe MAILLOT","10","À faire","✓ make seed sans erreur · ✓ Compte test opérationnel · ✓ Données visibles dans l'admin Django"
+"TASK-06","Setup","Créer le compte administrateur équipe","docker exec -it apocalipssi-2026-backend python manage.py createsuperuser · utiliser l'email de l'équipe · noter les credentials dans un fichier .passwords.local (gitignore)","Setup","Aboubacar COUMARE","10","À faire","✓ Compte superuser créé · ✓ Connexion sur http://localhost:8000/admin/ fonctionne · ✓ Credentials partagés sécurisé avec l'équipe"
+"TASK-07","US-01 US-02","Tester le flux d'inscription complet","Naviguer vers /signup · saisir email + mdp · vérifier l'envoi de l'email de validation (docker logs apocalipssi-2026-backend --tail 50) · cliquer sur le lien · vérifier activation","Test","Ndiasse MBEGUERE","20","À faire","✓ Compte créé après validation email · ✓ Email de validation visible dans les logs · ✓ Erreur si email déjà utilisé · ✓ Erreur si mdp < 8 car."
+"TASK-08","US-02","Tester le flux de connexion et déconnexion","Naviguer vers /login · saisir email + mdp corrects → accès au dashboard · tester mauvais mdp → message d'erreur non révélateur · tester déconnexion → retour /login","Test","Ndiasse MBEGUERE","15","À faire","✓ Connexion réussie → token JWT stocké · ✓ Mauvais mdp → erreur générique · ✓ Déconnexion → token supprimé · ✓ Page protégée inaccessible sans token"
+"TASK-09","US-03","Tester la réinitialisation de mot de passe","Naviguer vers /login → 'Mot de passe oublié' · saisir l'email · vérifier le lien dans les logs · cliquer le lien · saisir nouveau mdp · vérifier l'accès avec le nouveau mdp","Test","Ismael CEREZO","15","À faire","✓ Email de reset visible dans les logs · ✓ Lien valide 24h · ✓ Nouveau mdp fonctionne · ✓ Ancien mdp invalidé après reset"
+"TASK-10","US-04","Tester la modification de profil","Se connecter · naviguer vers /profile · modifier le nom d'affichage · modifier l'email (email unique requis) · modifier le mot de passe · vérifier chaque modification","Test","Ismael CEREZO","15","À faire","✓ Formulaire pré-rempli · ✓ Changement email avec confirmation mdp actuel · ✓ Toast de confirmation · ✓ Données mises à jour en base"
+"TASK-11","US-06","Tester la saisie de cours en texte","Naviguer vers /upload · coller < 200 car. → bouton désactivé ou erreur · coller 200+ car. → bouton actif · soumettre et vérifier la génération (mock ou LLM)","Test","Philippe MAILLOT","15","À faire","✓ Validation ≥200 car. fonctionne · ✓ Compteur de caractères visible · ✓ Erreur bloquante si trop court · ✓ Quiz généré depuis le texte fourni"
+"TASK-12","US-07","Tester l'upload de PDF","Naviguer vers /upload · uploader un PDF < 5 Mo → succès · uploader un PDF > 5 Mo → erreur · uploader un fichier non-PDF (.docx) → erreur · vérifier l'extraction texte","Test","Aboubacar COUMARE","20","À faire","✓ PDF ≤5 Mo accepté · ✓ PDF >5 Mo refusé (message d'erreur clair) · ✓ Fichier non-PDF refusé · ✓ Texte extrait transmis correctement au LLM"
+"TASK-13","Setup","Configurer le workflow Git équipe","Définir la convention de branches (feat/ · fix/ · docs/) · configurer les règles de protection main (PR obligatoire) · tester la création d'une PR factice · vérifier la CI GitHub Actions","Setup","Mathieu PONNOU","20","À faire","✓ Règle de protection sur main configurée · ✓ PR template présent · ✓ CI verte sur une PR de test · ✓ Convention Conventional Commits documentée dans un commentaire"
+"TASK-14","US-01 US-06 US-07","Documenter les bugs et améliorations trouvés","Créer des GitHub Issues pour chaque bug ou friction identifié lors des tests · utiliser le template bug_report.md · assigner à un membre · labeliser (bug · enhancement · RGPD)","Dev","Tous","20","À faire","✓ Au moins 3 issues créées · ✓ Template bug_report.md utilisé · ✓ Issues assignées et labelisées · ✓ Issues liées aux US correspondantes"
+"TASK-15","US-01 US-06","Corriger les bugs bloquants F1/F2 (si identifiés)","Corriger en priorité les bugs bloquants identifiés en TASK-07 à TASK-12 · créer une branche fix/ · ouvrir une PR · faire relire par un coéquipier · merger après CI verte","Dev","Ndiasse MBEGUERE ou Ismael CEREZO","40","À faire","✓ Bug bloquant corrigé · ✓ PR revue par ≥1 membre · ✓ CI verte · ✓ Issue GitHub fermée et liée au commit"
+"TASK-16","Scrum","Sprint Review — démo au PO","Préparer une démo live de 5 min (inscription → upload cours → génération quiz → score) · présenter au PO · noter le feedback · vérifier que la DoD est atteinte pour US-01 et US-06/07","Scrum","Mathieu PONNOU (Scrum Master)","20","À faire","✓ Démo live sans coupure · ✓ PO a noté son feedback · ✓ US-01 et US-06/07 marquées Done ou partiellement Done · ✓ Product Backlog mis à jour"
+"TASK-17","Scrum","Sprint Retrospective (15 min)","Format Start/Stop/Continue · chaque membre donne 1 Start · 1 Stop · 1 Continue · le Scrum Master synthétise · 1 action concrète pour le Sprint 2 identifiée","Scrum","Mathieu PONNOU (Scrum Master)","15","À faire","✓ Chaque membre a participé · ✓ 1 action d'amélioration documentée pour Sprint 2 · ✓ Durée ≤15 min"
+,,,,,,,,
+"DEFINITION OF READY (DoR) — vérifiée avant Sprint Planning",,,,,,,,
+"✓ Chaque US a des critères d'acceptation testables · ✓ Dépendances identifiées (US-08 dépend US-06 ou US-07) · ✓ Estimée en points · ✓ Priorité MoSCoW assignée · ✓ Pas de question ouverte côté PO",,,,,,,,
+,,,,,,,,
+"DEFINITION OF DONE (DoD) — vérifiée avant de marquer une US Done",,,,,,,,
+"✓ Tous les critères d'acceptation satisfaits · ✓ Code reviewé par ≥1 membre · ✓ Tests pertinents ajoutés (pytest/vitest) · ✓ Lint et CI verts · ✓ Documentation à jour · ✓ Démontrée et acceptée par le PO",,,,,,,,
+,,,,,,,,
+"BURN-DOWN CIBLE Sprint 1",,,,,,,,
+"Heure","14h00","14h30","15h00","15h30","16h00","16h30","17h00","17h30","18h00"
+"Points restants idéaux","10","8,8","7,5","6,3","5","3,8","2,5","1,3","0"
+"Points restants réels","[à saisir]","[à saisir]","[à saisir]","[à saisir]","[à saisir]","[à saisir]","[à saisir]","[à saisir]","[à saisir]"
+,,,,,,,,
+"RÉCAPITULATIF TÂCHES PAR TYPE",,,,,,,,
+"Type","Nombre de tâches","Durée totale estimée",,,,,,
+"Setup","7 tâches (TASK-01 à 06 · 13)","~125 min",,,,,,
+"Test","6 tâches (TASK-07 à 12)","~100 min",,,,,,
+"Dev","2 tâches (TASK-14 · 15)","~60 min",,,,,,
+"Scrum","2 tâches (TASK-16 · 17)","~35 min",,,,,,
+"TOTAL","17 tâches","~320 min (~5h20 — prévoir > 4h si setup long)",,,,,,
+,,,,,,,,
+"NOTE : Si le setup (TASK-01 à 06) prend > 90 min (LLM lent · port en conflit · Windows make), utiliser LLM_BACKEND=mock pour ne pas bloquer le front. Documenter dans ADR-0001.",,,,,,,,
+,,,,,,,,
+"Mohamed Amine EL AFRIT · APOCAL'IPSSI 2026 · CC BY-NC-SA 4.0",,,,,,,,
+

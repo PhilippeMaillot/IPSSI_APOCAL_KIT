@@ -1,0 +1,31 @@
+﻿APOCAL'IPSSI - ARTEFACT 5/7 - Release Planning - EduTutor IA - Équipe-19 - v1.0 - Remis le 29/06/2026 12h55
+"Planning des 7 sprints demi-journée et des 2 releases d'EduTutor IA",,,,,,,,
+,,,,,,,,
+"Équipe 19 : Mathieu PONNOU · Ndiasse MBEGUERE · Ismael CEREZO · Philippe MAILLOT · Aboubacar COUMARE · Rédacteur : Philippe MAILLOT",,,,,,,,
+"Projet EduTutor IA · Édition 2026 · Semaine immersive Scrum",,,,,,,,
+,,,,,,,,
+"SPRINT","JOUR","CRÉNEAU","DURÉE","SPRINT GOAL","STORIES / FEATURES","PERTURBATION","RELEASE","RISQUES"
+"CADRAGE","Lundi J1","09h-12h","3h","Aligner l'équipe sur la vision produit et produire les 7 artefacts de cadrage","Artefacts 1 à 7 : Product Vision Board · Personas · Customer Journey · Story Map · Release Planning · Product Backlog · Sprint Backlog","—","—","Temps limité — prioriser les artefacts les plus critiques si retard"
+"Sprint 1","Lundi J1","14h-18h","4h (capacité 70% = ~2h45 de dev effectif)","Environnement opérationnel · F1 (authentification email) validée · premiers tests F2 (upload cours) — ENGAGEMENT À 70% UNIQUEMENT","US-01 · US-02 · F1 : Inscription email + connexion email + validation | US-07 · F2 : Upload PDF ≤5 Mo — tests et corrections éventuelles · Livrables perturbation J1 dans /docs/perturbations/j1/ avant mardi 9h","P1 — Lundi 14h00 : Perturbation Produit/Scope (persona enseignant·e J1 ajouté) → note MoSCoW + sprint actualisé à déposer avant mardi 9h","—","LLM Ollama lent à démarrer (pull modèle ~5 min) · intégrer dans le planning Setup · sous-engagement volontaire Sprint 1"
+"Sprint 2","Mardi J2","09h-12h","3h","F2 (saisie cours texte + PDF) finalisée · F3 (génération LLM) en cours · choix LLM documenté (ADR)","US-06 · F2 texte ≥200 car. | US-08 · F3 génération 10 QCM | Rédaction ADR-0001 (choix modèle LLM)","P2 — Mardi 10h00 : Perturbation Technique (latence LLM → ADR choix modèle)","—","Latence LLM > 60s sur CPU : prévoir basculement vers llama3.2:3b ou mock LLM pour le front"
+"Sprint 3","Mardi J2","14h-18h","4h","F3 (génération 10 QCM) stable · F4 (passage + correction auto) · F5 (score /10 + détail) livrés","US-08 · F3 finalisation | US-09 · F4 : passage quiz + correction auto | US-10 · US-11 · F5 : score + détail réponses","—","—","Qualité des questions LLM insuffisante → test adversarial sur 5 cours réels avant demo"
+"Sprint 4","Mercredi J3","09h-12h","3h","F5 consolidé · sécurité prompt injection couverte · tests adversariaux passés","US-10 · US-11 (finalisation F5) | Sécurité : filtrage input prompt · tests injection | ADR-0002 (choix stratégie anti-injection)","P3 — Mercredi 10h00 : Perturbation Sécurité (prompt injection sur LLM)","—","Prompt injection peut faire sortir le LLM du scope cours → valider le prompt guard avant Release 1"
+"Sprint 5","Mercredi J3","14h-18h","4h","F6 (historique quiz) livré · pages légales RGPD complétées · Release 1 déployée et démontrée au PO","US-12 · F6 : historique persisté (date + cours + score) | Pages légales RGPD complétées | Bug fix Release 1 | Démo PO","P4 — Mercredi 14h00 : Perturbation RGPD (pages légales + données personnelles)","RELEASE 1 (mercredi soir) : F1 à F6 — MVP must-have","Pages légales incomplètes = Release 1 non validée par PO → les commencer dès Sprint 3"
+"Sprint 6","Jeudi J4","09h-12h","3h","2-3 features Release 2 démarrées selon priorisation PO · ADR crise rédigé (si P5 impacte l'archi)","US-15 · Niveau difficulté LLM | US-16 · Explication réponses | US-14 · Révision erreurs (déjà codé dans kit) | ADR-0003 si nécessaire","P5 — Jeudi 10h00 : Perturbation Livraison/Crise (incident à gérer en équipe)","—","P5 peut réduire le temps disponible → backlog Release 2 priorisé Must/Should uniquement"
+"Sprint 7","Jeudi J4","14h-18h","4h","Release 2 livrée · déploiement production stable · préparation soutenance finale","Finalisation features Release 2 | Bug fix | Déploiement VPS ou démo locale | Préparation slides soutenance","—","RELEASE 2 (jeudi soir) : features Release 2 retenues + Release 1 stable","Soutenance à préparer en parallèle du dev → répartir les rôles (démo vs slides)"
+,,,,,,,,
+"CALENDRIER SEMAINE",,,,,,,,
+"Jour","Créneau 1","Créneau 2","Événement clé","Livrable","Livrable","Livrable","",""
+"Lundi J1","Cadrage matinal (09h-12h)","Sprint 1 (14h-18h)","Perturbation P1 — 14h00 (Produit/Scope)","7 artefacts de cadrage remis au PO","Sprint 1 Review","Planif Sprint 2","",""
+"Mardi J2","Sprint 2 (09h-12h)","Sprint 3 (14h-18h)","Perturbation P2 — 10h00 (Technique/ADR)","ADR-0001 rédigé et soumis au PO","Sprint 2 Review","Sprint 3 Review","",""
+"Mercredi J3","Sprint 4 (09h-12h)","Sprint 5 (14h-18h)","Perturbation P3 — 10h00 (Sécurité) + P4 — 14h00 (RGPD)","Release 1 déployée et démontrée","Pages légales complétées","ADR-0002 sécurité","",""
+"Jeudi J4","Sprint 6 (09h-12h)","Sprint 7 (14h-18h)","Perturbation P5 — 10h00 (Livraison/Crise)","Release 2 déployée","Préparation soutenance","Post-mortem P5 rédigé","",""
+"Vendredi J5","Soutenance finale","—","Présentation équipe devant jury","Démo Release 2","Rétrospective semaine","—","",""
+,,,,,,,,
+"DÉFINITION DES RELEASES",,,,,,,,
+"Release","Contenu minimal","Critère de validation PO",,,,,,
+"Release 1 — MERCREDI 17h45 STRICT (0 tolérance)","F1 · F2 · F3 · F4 · F5 · F6 tous fonctionnels · pages légales complétées · Tag Git v1.0.0-mvp · docker compose up fonctionnel","Démo live devant PO : inscription → upload cours → génération → quiz → score → historique · zéro bug bloquant · vidéo 5 min dans /docs/demos/",,,,,,
+"Release 2 — JEUDI 17h45 STRICT (0 tolérance)","Release 1 stable + 2-3 features Could have retenues avec PO · Tag Git v1.1.0","Démo live devant PO des nouvelles features · Release 1 non régressée · vidéo déposée dans /docs/demos/",,,,,,
+,,,,,,,,
+"Mohamed Amine EL AFRIT · APOCAL'IPSSI 2026 · CC BY-NC-SA 4.0",,,,,,,,
+

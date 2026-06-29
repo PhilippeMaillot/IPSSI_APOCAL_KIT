@@ -1,0 +1,286 @@
+﻿APOCAL'IPSSI
+CADRAGE MATINAL Â· ARTEFACT 2 SUR 7
+Fiches Personas
+Les 3 utilisateurs cibles d'EduTutor IA, dimensions de rÃ©fÃ©rence
+
+Projet EduTutor IA Â· Ã‰dition 2026 Â· Semaine immersive Scrum
+Auteur : Mohamed Amine EL AFRIT Â· Licence CC BY-NC-SA 4.0
+
+
+IDENTIFICATION DU DOCUMENT
+
+Ã‰quipe nÂ°        19
+Membres          Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO, Philippe MAILLOT, Aboubacar COUMARE
+Sprint concernÃ©  Cadrage
+Version          v1.0 (initiale)
+Date de remise   29/06/2026 12h55
+Statut           Draft
+RÃ©dacteur        Ndiasse MBEGUERE
+
+Convention de nommage du fichier : equipe-19-personas-v1.0.txt
+
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+1. PERSONA PRIMAIRE â€” Ã‰tudiantÂ·e du supÃ©rieur
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+1.1. IdentitÃ©
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Nom / PrÃ©nom        â”‚ LÃ©a Martin (fictif â€” Ã  adapter selon votre Ã©quipe)  â”‚
+â”‚ Ã‚ge                 â”‚ 20 ans                                               â”‚
+â”‚ Profession          â”‚ Ã‰tudiante en L2 droit, Paris II PanthÃ©on-Assas       â”‚
+â”‚ Localisation        â”‚ Paris 5e Â· trajet quotidien RER B 35 min             â”‚
+â”‚ Situation           â”‚ BoursiÃ¨re Ã©chelon 4, colocation 3 personnes          â”‚
+â”‚ Photo / avatar      â”‚ [insÃ©rer image ou avatar fictif]                     â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+
+1.2. Contexte d'usage
+
+  â€¢ Smartphone Android personnel (Samsung A53), wifi domestique fluide, 4G dans
+    le RER (connexion instable en zone dense)
+  â€¢ Laptop empruntÃ© Ã  la BU 2 fois/semaine (pas d'ordinateur perso)
+  â€¢ Travaille en silence chez elle ou en BU, Ã©coute parfois Lo-Fi via Spotify
+  â€¢ RÃ©vise principalement en soirÃ©e 19h-22h et le dimanche aprÃ¨s-midi
+  â€¢ Volume horaire de rÃ©vision : ~10h/semaine dont ~3h perdues Ã  chercher
+    des fiches de qualitÃ© variable sur internet ou Ã  en crÃ©er manuellement
+
+1.3. CompÃ©tences numÃ©riques
+
+  â€¢ Power user smartphone (Instagram, TikTok, BlaBlaCar, Doctolib, ENT univ.)
+  â€¢ Autonome sur Moodle et l'ENT universitÃ©, importe fichiers PDF/Word sans souci
+  â€¢ A testÃ© ChatGPT 4-5 fois pour des rÃ©sumÃ©s, sans en faire un usage rÃ©gulier
+  â€¢ Allergique aux installations CLI ou paramÃ©trages techniques avancÃ©s
+  â€¢ Utilise Notion pour ses fiches de cours, Ã  l'aise avec les outils SaaS
+    simples ne nÃ©cessitant pas d'installation
+
+1.4. Frustrations / pain points (chiffrÃ©s)
+
+  â€¢ Perd ~3h/semaine Ã  chercher des fiches de rÃ©vision sur internet, qualitÃ©
+    alÃ©atoire et souvent non Ã  jour avec son cours
+  â€¢ Les fiches trouvÃ©es en ligne sont rarement Ã  jour avec sa promo (cours change
+    chaque annÃ©e â€” nouveau prof, nouveau programme)
+  â€¢ Se sent surchargÃ©e Ã  3 semaines des partiels, sans plan de rÃ©vision
+    personnalisÃ© sur ses lacunes rÃ©elles
+  â€¢ Ne sait pas mesurer si elle Â« connaÃ®t Â» un chapitre ou si elle Â« croit Â»
+    le connaÃ®tre (biais de familiaritÃ© : relire â‰  savoir)
+  â€¢ Frustration spÃ©cifique : le RER B n'a pas de wifi â€” elle perd ~70 min/jour
+    de trajet potentiellement rÃ©cupÃ©rables pour rÃ©viser hors-ligne
+
+1.5. Objectifs (jobs-to-be-done, SMART)
+
+  â€¢ GÃ©nÃ©rer un quiz de rÃ©vision sur n'importe quel chapitre de son cours en
+    moins de 5 minutes (vs. 30-60 min Ã  crÃ©er une fiche manuellement)
+  â€¢ Identifier ses lacunes par chapitre 2 semaines avant les partiels
+    (vs. 3 jours avant aujourd'hui â€” trop tard pour combler)
+  â€¢ Gagner ~2h/semaine sur la recherche de supports (vs. 3h aujourd'hui)
+  â€¢ Utiliser ses 35 min de trajet RER sans wifi pour rÃ©viser 3x/semaine
+
+1.6. CritÃ¨res de succÃ¨s personnels (du point de vue persona)
+
+  â€¢ Â« Si je gagne au moins 1h/semaine sur ma prÃ©paration, j'adopte. Â»
+  â€¢ Â« Si Ã§a plante 1 fois en bibliothÃ¨que devant mes amies, je n'y reviens
+    jamais. Â»
+  â€¢ Â« Si je peux l'utiliser dans le RER sans wifi, c'est un game changer. Â»
+  â€¢ Â« Si mes notes aux partiels progressent de 1 point en moyenne au semestre
+    suivant l'adoption, c'est la preuve que Ã§a marche vraiment. Â»
+
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+2. PERSONA SECONDAIRE â€” EnseignantÂ·e (persona Ã©mergente J1)
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+2.1. IdentitÃ©
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Nom / PrÃ©nom        â”‚ Mme Sophie LefÃ¨vre (persona officielle perturbation J1)â”‚
+â”‚ Ã‚ge                 â”‚ 42 ans                                               â”‚
+â”‚ Profession          â”‚ Professeure de Communication, BTS, lycÃ©e privÃ© sous  â”‚
+â”‚                     â”‚ contrat                                               â”‚
+â”‚ Localisation        â”‚ Lyon Â· trajet voiture 25 min Â· Ã©tablissement Lyon 6e  â”‚
+â”‚ Situation           â”‚ MariÃ©e, 2 enfants (12 et 15 ans), salaire ~2 700 â‚¬ netâ”‚
+â”‚ Photo / avatar      â”‚ [insÃ©rer image ou avatar fictif]                     â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+
+2.2. Contexte d'usage
+
+  â€¢ 28 Ã©tudiants dans sa classe BTS Communication 1re annÃ©e
+  â€¢ 6h de cours/semaine + ~3h de prÃ©paration + ~3h de correction = 12h/semaine
+  â€¢ Salle informatique disponible mais rÃ©seau lent (4G partagÃ©e pour les
+    Ã©tudiants, 2-5 Mbps effectifs en classe)
+  â€¢ Smartphones Android personnels chez les Ã©tudiants (mix de modÃ¨les 2018-2023)
+  â€¢ Travaille depuis chez elle le soir pour prÃ©parer ses cours (PC fixe Windows,
+    Ã©cran 24 pouces, connexion fibre 500 Mbps)
+
+2.3. CompÃ©tences numÃ©riques
+
+  â€¢ Power user Word + Excel, autonome sur Moodle et Pronote
+  â€¢ Pas dÃ©veloppeuse, allergique aux installations CLI
+  â€¢ DÃ©couvre l'IA gÃ©nÃ©rative (a testÃ© ChatGPT 2 fois, sans rÃ©sultat satisfaisant
+    sur des exercices pÃ©dagogiques spÃ©cifiques)
+  â€¢ Suit l'actualitÃ© edtech via Twitter/X et la newsletter CafÃ© PÃ©dagogique
+  â€¢ Confiance dans les outils validÃ©s par l'Ã©tablissement â€” mÃ©fiante envers les
+    outils "grand public" non vÃ©rifiÃ©s par le DPO
+
+2.4. Frustrations / pain points (chiffrÃ©s)
+
+  â€¢ Corrige 28 copies Ã— 3 quiz/semaine = ~84 copies/semaine â†’ ~12h de
+    correction/mois uniquement pour les quiz (sans compter les examens)
+  â€¢ PrÃ©paration chronophage : crÃ©er 1 quiz cohÃ©rent sur un chapitre prend ~90
+    minutes (recherche d'exemples, formulation, vÃ©rification des distracteurs)
+  â€¢ Pas de variation des questions : les Ã©tudiants se passent les rÃ©ponses entre
+    sessions â€” impossible de rÃ©gÃ©nÃ©rer rapidement un quiz diffÃ©rent sur le mÃªme
+    chapitre
+  â€¢ Frustration d'avoir des quiz "plats" alors qu'elle aimerait varier les types
+    (QCM, vrai/faux, questions ouvertes) et les niveaux de difficultÃ©
+  â€¢ Peur d'utiliser un outil IA dont les rÃ©ponses ne sont pas ancrÃ©es dans le
+    cours : Â« Si les questions viennent de nulle part, mes Ã©tudiants rÃ©visent
+    peut-Ãªtre des choses qu'on n'a pas vues. Â»
+
+2.5. Objectifs (jobs-to-be-done, SMART)
+
+  â€¢ GÃ©nÃ©rer 1 quiz personnalisÃ© en moins de 5 minutes sur n'importe quel
+    chapitre de ses cours de Communication
+  â€¢ Personnaliser le quiz : niveau (facile/moyen/difficile), nombre de questions
+    (5, 10, 15), type (QCM / vrai-faux / questions ouvertes)
+  â€¢ Suivre l'engagement de la classe : qui a rÃ©pondu, score moyen, lacunes
+    communes identifiÃ©es automatiquement pour adapter le cours suivant
+  â€¢ RÃ©duire le temps de prÃ©paration des Ã©valuations de 90 min Ã  < 10 min par
+    quiz, soit Ã©conomiser ~4h/semaine
+
+2.6. CritÃ¨res de succÃ¨s personnels (du point de vue persona)
+
+  â€¢ Â« Si je gagne 1h/semaine sur ma prÃ©paration, j'adopte dÃ©finitivement. Â»
+  â€¢ Â« Si Ã§a plante 1 fois en cours devant 28 ados, je n'y reviens jamais. Â»
+  â€¢ Â« Si je peux exporter en Word pour l'imprimer en salle des profs, c'est
+    parfait. Â»
+  â€¢ Â« Si le DPO de mon lycÃ©e valide les CGV en 30 min de lecture et ne trouve
+    pas de transfert hors UE, je peux le proposer Ã  la direction en confiance. Â»
+
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+3. PERSONA TERTIAIRE â€” Ã‰tablissement scolaire (acheteur B2B)
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+3.1. IdentitÃ©
+â”Œâ”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”¬â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”
+â”‚ Nom / PrÃ©nom        â”‚ M. David Chen (fictif â€” Ã  adapter)                   â”‚
+â”‚ Ã‚ge                 â”‚ 51 ans                                               â”‚
+â”‚ Profession          â”‚ Directeur des Ã©tudes d'un lycÃ©e privÃ© sous contrat   â”‚
+â”‚                     â”‚ (1 200 Ã©lÃ¨ves)                                        â”‚
+â”‚ Localisation        â”‚ Lyon 6e Â· mÃªme Ã©tablissement que Mme LefÃ¨vre          â”‚
+â”‚ Situation           â”‚ MariÃ©, enfants grands, 25 ans d'expÃ©rience enseignementâ”‚
+â”‚ Photo / avatar      â”‚ [insÃ©rer image ou avatar fictif]                     â”‚
+â””â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”´â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”˜
+
+3.2. Contexte d'achat
+
+  â€¢ Budget edtech ~12 000 â‚¬/an pour l'ensemble du lycÃ©e (10 â‚¬/Ã©lÃ¨ve Ã— 1 200)
+  â€¢ Cycle d'achat : 6 mois minimum (validation pÃ©dagogique + DPO + comptabilitÃ©)
+  â€¢ DÃ©cide en concertation avec 3 acteurs : conseil pÃ©dagogique, DPO mutualisÃ©
+    du rÃ©seau d'Ã©tablissements, gestionnaire financier
+  â€¢ Choisit les outils edtech 1 fois/an, en mai/juin pour la rentrÃ©e de septembre
+  â€¢ Signe rarement sans une pÃ©riode pilote (1 mois gratuit minimum, si possible
+    3 mois) pour mesurer l'adoption rÃ©elle avant engagement financier
+
+3.3. CompÃ©tences numÃ©riques
+
+  â€¢ Utilisateur courant ENT/Pronote, gÃ¨re les comptes profs et Ã©lÃ¨ves
+  â€¢ Pas technique, fait confiance au DSI mutualisÃ© du rÃ©seau d'Ã©tablissements
+  â€¢ Lit les CGV/CGU, exige des engagements RGPD Ã©crits et signÃ©s
+  â€¢ Demande toujours un contact support rÃ©actif (< 24h) â€” il n'a pas le temps
+    de gÃ©rer des bugs en pÃ©riode de cours
+
+3.4. Frustrations / pain points
+
+  â€¢ A dÃ©jÃ  signÃ© pour 2 outils edtech qui ont fermÃ© en cours d'annÃ©e (risque de
+    pÃ©rennitÃ© : startup en early-stage sans financement visible)
+  â€¢ DPO refuse systÃ©matiquement les outils utilisant OpenAI ou des LLM US
+    (transferts hors UE non conformes RGPD Art. 44-49)
+  â€¢ Pression du conseil d'administration pour dÃ©montrer une Â« stratÃ©gie IA
+    pÃ©dagogique Â» â€” sans compromis sur la sÃ©curitÃ© des donnÃ©es
+  â€¢ Les profs rÃ¢lent quand on impose un nouvel outil sans les consulter ni les
+    former â€” besoin d'adhÃ©sion et d'un champion interne (ici Mme LefÃ¨vre)
+  â€¢ Pas de KPI consolidÃ©s : il ne sait jamais si les outils achetÃ©s sont
+    vraiment utilisÃ©s â€” il a besoin de preuves d'adoption chiffrÃ©es
+
+3.5. Objectifs (jobs-to-be-done)
+
+  â€¢ Disposer d'un outil edtech IA RGPD conforme, signable sans risque juridique
+    et hÃ©bergÃ© sur infrastructure maÃ®trisÃ©e (local ou cloud FR/EU)
+  â€¢ Tarification prÃ©visible par Ã©lÃ¨ve / par an (pas de surprise au renouvellement,
+    modÃ¨le SaaS < 5 â‚¬/Ã©lÃ¨ve/an pour tenir dans le budget)
+  â€¢ AdhÃ©sion d'au moins 30 % des profs dÃ¨s la premiÃ¨re annÃ©e (seuil interne
+    pour justifier le renouvellement devant le CA)
+  â€¢ Tableau de bord d'adoption mensuel exportable pour prÃ©senter au CA sans
+    devoir interroger chaque enseignant manuellement
+
+3.6. CritÃ¨res de succÃ¨s personnels
+
+  â€¢ Â« Si le DPO valide les CGV en 30 min de lecture, c'est un signal trÃ¨s
+    positif. Â»
+  â€¢ Â« Si 5 profs me demandent spontanÃ©ment d'Ã©largir l'usage, je signe le
+    renouvellement sans hÃ©siter. Â»
+  â€¢ Â« Si je peux dire au CA 'on est en avance sur l'IA' sans mentir, c'est
+    gagnÃ©. Â»
+  â€¢ Â« Si le support rÃ©pond en moins de 4h quand un enseignant a un problÃ¨me
+    pendant ses cours, je peux dormir tranquille. Â»
+
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+4. ANTI-PERSONAS (qui n'est PAS cible)
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+4.1. Anti-persona du persona Ã‰tudiant
+
+Ã‰lÃ¨ve de primaire ou collÃ¨ge (< 15 ans). EduTutor exige un cours fourni au
+format PDF ou texte de niveau supÃ©rieur. L'autonomie nÃ©cessaire (uploader un
+document, contextualiser les questions, interprÃ©ter les rÃ©sultats) n'est pas
+alignÃ©e avec ce profil. De plus, les contraintes RGPD sur les mineurs (< 15 ans
+= consentement parental obligatoire) alourdiraient considÃ©rablement l'onboarding
+sans bÃ©nÃ©fice produit. Ne pas chercher Ã  les attirer.
+
+4.2. Anti-persona du persona Enseignant
+
+EnseignantÂ·e du primaire ou retraitÃ©Â·e en autoformation. Le besoin de gÃ©nÃ©rer
+des supports d'Ã©valuation Ã  grande Ã©chelle (28 Ã©tudiants Ã— 3 quiz) n'existe pas
+dans ces contextes. Le primaire travaille sur des objectifs pÃ©dagogiques trÃ¨s
+diffÃ©rents (lecture, numÃ©ration) incompatibles avec le format QCM sur cours
+fourni. Le retraitÃ©Â·e en autoformation est une cible de formation continue, pas
+d'EduTutor IA. Ne pas chercher Ã  Ã©largir l'offre Ã  ces profils.
+
+4.3. Anti-persona du persona Ã‰tablissement
+
+Ã‰cole internationale tournÃ©e vers OpenAI / Anthropic, sans contrainte RGPD
+stricte. Notre diffÃ©renciation est prÃ©cisÃ©ment le local-first et la souverainetÃ©
+des donnÃ©es. Une Ã©cole qui valorise un partenariat OpenAI n'achÃ¨tera jamais
+EduTutor IA, et inversement, ce n'est pas un marchÃ© Ã  courir â€” le coÃ»t de
+conviction dÃ©passe largement la valeur potentielle. De mÃªme, les universitÃ©s
+disposant d'une DSI ayant dÃ©jÃ  investi dans une solution IA propriÃ©taire ne
+constituent pas une cible : le cycle d'achat serait trop long et le ROI trop
+faible pour notre taille actuelle.
+
+
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+GRILLE D'AUTO-Ã‰VALUATION
+â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
+
+CritÃ¨re qualitÃ©                                                    Auto-Ã©valuation
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+Les 3 personas sont nommÃ©s concrÃ¨tement (prÃ©nom+nom+Ã¢ge prÃ©cis)    [ ] Oui  [ ] Partiel  [ ] Non
+Chaque persona comporte les 6 dimensions complÃ©tÃ©es                 [ ] Oui  [ ] Partiel  [ ] Non
+Le contexte prÃ©cise un volume horaire et un environnement physique  [ ] Oui  [ ] Partiel  [ ] Non
+Les compÃ©tences numÃ©riques sont nuancÃ©es (pas juste "bon en info")  [ ] Oui  [ ] Partiel  [ ] Non
+Les frustrations sont chiffrÃ©es â‰¥3 fois/5 par persona              [ ] Oui  [ ] Partiel  [ ] Non
+Les objectifs respectent au moins partiellement le format SMART     [ ] Oui  [ ] Partiel  [ ] Non
+Les critÃ¨res de succÃ¨s sont formulÃ©s au point de vue persona (jeÃ Å“) [ ] Oui  [ ] Partiel  [ ] Non
+Les 3 anti-personas sont dÃ©crits avec justification                 [ ] Oui  [ ] Partiel  [ ] Non
+Document relu et validÃ© par l'Ã©quipe complÃ¨te                      [ ] Oui  [ ] Partiel  [ ] Non
+
+
+RÃ‰FÃ‰RENCES
+â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+Cours Agile/Scrum     : mohamedelafrit.com/teaching/Master_Classe_Agile/cours.html
+Scrum Guide FR        : scrumguides.org/docs/scrumguide/v2020/2020-Scrum-Guide-French.pdf
+Roman Pichler Personas: https://www.romanpichler.com/blog/pragmatic-personas-and-personas-in-a-nutshell/
+Nielsen Norman Group  : https://www.nngroup.com/articles/persona/
+
+Mohamed Amine EL AFRIT Â· APOCAL'IPSSI 2026 Â· CC BY-NC-SA 4.0

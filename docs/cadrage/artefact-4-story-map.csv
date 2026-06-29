@@ -1,0 +1,32 @@
+﻿APOCAL'IPSSI - ARTEFACT 4/7 - Story Map - EduTutor IA - Équipe-19 - v1.0 - Remis le 29/06/2026 12h55
+"Carte 2D du produit EduTutor IA : activités utilisateur (colonnes) × niveaux MoSCoW (lignes)"
+,,,,,,
+"Équipe 19 : Mathieu PONNOU · Ndiasse MBEGUERE · Ismael CEREZO · Philippe MAILLOT · Aboubacar COUMARE · Rédacteur : Ismael CEREZO",,,,,,
+"Projet EduTutor IA · Édition 2026 · Semaine immersive Scrum",,,,,,
+,,,,,,
+"ACTIVITÉ UTILISATEUR →","S'inscrire & se connecter","Fournir un cours","Générer un quiz","Passer le quiz","Consulter ses résultats","Suivre sa progression","Gérer son compte"
+"EPIC →","EPIC 1 — Authentification","EPIC 3 — Saisie de cours","EPIC 4 — Génération quiz","EPIC 4 — Passage quiz","EPIC 4 — Résultats","EPIC 5 — Historique & stats","EPIC 2 — Profil utilisateur"
+,,,,,,
+"MUST HAVE (Release 1) ↓",,,,,,
+"Must have","US-01 · En tant qu'étudiant·e je veux m'inscrire avec mon email universitaire afin d'accéder à la plateforme | CA : formulaire email+mdp · email de validation envoyé · compte créé · F1","US-06 · En tant qu'étudiant·e je veux saisir mon cours sous forme de texte (≥200 car.) afin de générer un quiz dessus | CA : champ texte · validation ≥200 car. · erreur si trop court · F2","US-08 · En tant qu'étudiant·e je veux générer automatiquement 10 QCM à partir de mon cours afin de réviser sans effort | CA : bouton Générer · 10 questions · une seule bonne réponse · < 60 s · F3","US-09 · En tant qu'étudiant·e je veux répondre aux 10 QCM afin de tester mes connaissances | CA : 10 questions · navigation avant/arrière · soumission finale · F4","US-10 · En tant qu'étudiant·e je veux voir mon score sur 10 afin de mesurer mon niveau | CA : score /10 affiché · calcul correct · F5","US-12 · En tant qu'étudiant·e je veux consulter l'historique de mes quiz afin de suivre ma progression dans le temps | CA : liste quiz (date + cours + score) · ordre chronologique · F6",""
+"Must have","US-02 · En tant qu'étudiant·e je veux me connecter avec mon email et mot de passe afin d'accéder à mon espace personnel | CA : login email+mdp · token JWT · erreur si mauvais mdp · F1","US-07 · En tant qu'étudiant·e je veux uploader un PDF de mon cours (≤5 Mo) afin de ne pas avoir à saisir manuellement | CA : upload PDF · validation ≤5 Mo · extraction texte · erreur si dépasse · F2","","","US-11 · En tant qu'étudiant·e je veux voir le détail des corrections (bonnes et mauvaises réponses) afin d'identifier mes erreurs | CA : chaque question · ma réponse colorée · bonne réponse affichée · F5","",""
+,,,,,,
+"SHOULD HAVE (Release 1-2) ↓",,,,,,
+"Should have","US-03 · En tant qu'étudiant·e je veux réinitialiser mon mot de passe par email afin de ne pas être bloqué en cas d'oubli | CA : lien reset par email · expiration 24h · nouveau mdp validé","","","","","US-13 · En tant qu'étudiant·e je veux consulter un tableau de bord de ma progression afin de visualiser mon amélioration | CA : score moyen · nbre quiz passés · graphique évolution · /dashboard","US-04 · En tant qu'étudiant·e je veux modifier mon profil (email, nom, mdp) afin de maintenir mes informations à jour | CA : formulaire pré-rempli · validation email unique · confirmation mdp"
+"Should have","","","","","","US-14 · En tant qu'étudiant·e je veux réviser mes réponses incorrectes afin d'apprendre de mes erreurs | CA : liste questions ratées · ma réponse rouge · bonne réponse verte · /review","US-05 · En tant qu'étudiant·e je veux supprimer mon compte afin d'exercer mon droit à l'effacement (RGPD) | CA : confirmation · suppression data · déconnexion immédiate"
+,,,,,,
+"COULD HAVE (Release 2) ↓",,,,,,
+"Could have","","","US-15 · En tant qu'étudiant·e je veux choisir le niveau de difficulté (facile/moyen/difficile) afin d'adapter le quiz à mon niveau | CA : 3 niveaux · prompt adapté · qualité vérifiée","","US-16 · En tant qu'étudiant·e je veux voir une explication pour chaque réponse afin de comprendre mes erreurs en profondeur | CA : champ explication · généré par LLM · ancré dans le cours","US-20 · En tant qu'étudiant·e je veux catégoriser mes quiz par matière afin de retrouver rapidement mes révisions par sujet | CA : champ matière à la création · filtre par matière dans l'historique","US-18 · En tant qu'utilisateur·ice je veux exporter mes données personnelles afin d'exercer mon droit à la portabilité (RGPD) | CA : bouton exporter · JSON · toutes données user + quiz"
+"Could have","","","","","US-17 · En tant qu'étudiant·e je veux partager un quiz avec un lien afin de réviser en groupe avec mes camarades | CA : lien unique · quiz accessible sans compte · optionnel : accès privé/public","US-09b · En tant qu'étudiant·e je veux accéder à mes quiz hors connexion afin de réviser dans le RER sans wifi | CA : cache local quiz passés · mode lecture seule · synchronisation au retour","US-19 · En tant qu'étudiant·e je veux recevoir des rappels email afin de maintenir une habitude de révision régulière | CA : rappel si inactif 3 jours · optout depuis profil · template email personnalisé"
+,,,,,,
+"WON'T HAVE (this time) ↓",,,,,,
+"Won't have","","US-16b · Import Word / PowerPoint — complexité élevée pour un gain marginal sur la Release 2","US-06b · Types de questions variés (vrai/faux + questions ouvertes) — nécessite refonte modèle Question","","US-10b · Export PDF des résultats — priorisé après adoption mesurée","US-10c · Classement anonyme (leaderboard) — risque RGPD + charge serveur à évaluer d'abord","US-13b · Multilingue (i18n) FR/EN — hors scope semaine immersive"
+,,,,,,
+"LÉGENDE",,,,,,
+"Must have = Release 1 (mercredi soir) · US-01 à US-12",,,,,,
+"Should have = Release 1 ou Release 2 selon priorité PO · US-03 / US-04 / US-05 / US-13 / US-14",,,,,,
+"Could have = Release 2 (jeudi soir) · US-15 à US-20",,,,,,
+"Won't have = Décision explicite de ne PAS faire cette semaine · à revisiter en post-semaine",,,,,,
+,,,,,,
+"Mohamed Amine EL AFRIT · APOCAL'IPSSI 2026 · CC BY-NC-SA 4.0",,,,,,
+

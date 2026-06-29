@@ -1,0 +1,350 @@
+APOCAL'IPSSI - PERTURBATION J1 (P1 SUR 5) - PRODUIT / SCOPE
+Product Backlog actualise - EduTutor IA
+
+Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
+Auteur du modele : Mohamed Amine EL AFRIT - Licence CC BY-NC-SA 4.0
+
+# IDENTIFICATION DU DOCUMENT
+
+Equipe n         : 19
+Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
+Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
+Perturbation     : J1 - Produit / Scope (integration cible enseignante)
+Version          : v2.0 (suite perturbation J1)
+Date de remise   : 29/06/2026
+Statut           : Draft
+Redacteur        : Aboubacar COUMARE
+Fichier          : p1-product-backlog-maj.txt
+Reference        : complete et fait evoluer docs/cadrage/artefact-6-product-backlog.csv
+
+================================================================================
+0. DECISION DE CADRAGE - IMPACT SUR LE PRODUCT BACKLOG
+======================================================
+
+Suite a la perturbation J1, le sponsor demande d'integrer la cible enseignante
+en Release 1. Cette nouvelle cible est representee par Mme Sophie Lefevre,
+enseignante en BTS Communication a Lyon, qui souhaite suivre la progression de
+ses 28 etudiants, reperer ceux qui decrochent et leur envoyer des conseils.
+
+Le Product Backlog initial reste valable : le MVP F1-F6 n'est pas annule.
+
+MVP conserve :
+* F1 : inscription / connexion par email
+* F2 : saisie d'un cours par PDF ou texte
+* F3 : generation automatique de 10 QCM
+* F4 : soumission et correction automatique
+* F5 : affichage du score et du detail
+* F6 : historique persiste par utilisateur
+
+Cependant, la perturbation modifie la priorisation du backlog :
+l'etudiant reste utilisateur final du MVP, mais l'enseignante devient une cible
+importante a integrer dans le cadrage Release 1.
+
+Decision produit :
+
+* Les fonctionnalites etudiantes F1-F6 restent en MUST.
+* Les besoins enseignants simples qui reutilisent les scores et l'historique
+  sont integres en SHOULD.
+* Les fonctionnalites plus lourdes, comme l'envoi de conseils personnalises
+  ou les statistiques avancees, sont repoussees en COULD / Release 2.
+
+Objectif :
+Integrer Mme Lefevre dans le Product Backlog sans casser le MVP initial
+et sans reecrire les artefacts deja produits.
+
+================================================================================
+
+1. PRODUCT BACKLOG ACTUALISE - NOUVELLES USER STORIES J1
+   ================================================================================
+
+Les user stories ci-dessous sont ajoutees apres la perturbation J1.
+Elles respectent le format :
+"En tant que..., je veux..., afin de..."
+
+Chaque user story est analysee selon INVEST :
+
+* I : Independante
+* N : Negociable
+* V : Valuable
+* E : Estimable
+* S : Small
+* T : Testable
+
+---
+
+## US-J1-01 - Voir les scores des etudiants
+
+Epic :
+EPIC 5 - Historique & statistiques
+
+User story :
+En tant qu'enseignante en BTS Communication,
+je veux consulter les scores de mes 28 etudiants,
+afin de suivre leur progression en revision d'examens.
+
+Analyse INVEST :
+
+* Independante : peut etre developpee a partir des scores deja calcules.
+* Negociable   : l'affichage peut commencer simplement avec le dernier score.
+* Valuable     : apporte une valeur directe a Mme Lefevre.
+* Estimable    : depend de l'historique et des scores deja prevus dans le MVP.
+* Small        : une premiere version peut afficher une liste simple.
+* Testable     : on peut verifier qu'un score est visible pour chaque etudiant.
+
+Priorite MoSCoW :
+SHOULD
+
+Justification MoSCoW :
+Cette story repond directement a la perturbation J1. Elle est priorisee en
+SHOULD car elle apporte une valeur forte cote enseignante tout en reutilisant
+des elements deja prevus dans le MVP, notamment le score et l'historique.
+Elle ne doit cependant pas bloquer les MUST du MVP F1-F6.
+
+Impact DoR / DoD :
+DoR :
+* Definir comment les etudiants sont rattaches a une enseignante ou une classe.
+* Confirmer avec le PO si le suivi porte sur le dernier quiz ou tous les quiz.
+
+DoD :
+* L'enseignante peut voir une liste d'etudiants.
+* Chaque etudiant affiche au moins son dernier score.
+* Les donnees affichees correspondent bien aux quiz realises.
+
+---
+
+## US-J1-02 - Reperer les etudiants qui decrochent
+
+Epic :
+EPIC 5 - Historique & statistiques
+
+User story :
+En tant qu'enseignante,
+je veux identifier rapidement les etudiants qui decrochent,
+afin de pouvoir les accompagner avant l'examen.
+
+Analyse INVEST :
+
+* Independante : peut etre basee sur un indicateur simple.
+* Negociable   : le seuil de decrochage peut etre ajuste avec le PO.
+* Valuable     : aide l'enseignante a prioriser son accompagnement.
+* Estimable    : necessite un seuil et des scores.
+* Small        : premiere version avec un simple indicateur sous le seuil.
+* Testable     : on peut verifier qu'un etudiant sous le seuil est signale.
+
+Priorite MoSCoW :
+SHOULD
+
+Justification MoSCoW :
+Cette story correspond au besoin principal de Mme Lefevre : reperer les
+etudiants en difficulte. Elle reste en SHOULD car il faut d'abord definir une
+regle metier simple avec le Product Owner, par exemple un seuil de score ou
+une absence d'activite.
+
+Impact DoR / DoD :
+DoR :
+* Definir le seuil de decrochage avec le PO.
+* Preciser si le decrochage depend du score, de l'absence de quiz ou des deux.
+
+DoD :
+* Un indicateur visible signale les etudiants sous le seuil defini.
+* L'indicateur est comprehensible sans calcul manuel par l'enseignante.
+
+---
+
+## US-J1-03 - Envoyer des conseils personnalises
+
+Epic :
+EPIC 6 - Release 2 / accompagnement enseignant
+
+User story :
+En tant qu'enseignante,
+je veux envoyer des conseils personnalises aux etudiants en difficulte,
+afin de les aider a progresser dans leurs revisions.
+
+Analyse INVEST :
+
+* Independante : peut etre developpee apres l'identification des etudiants en difficulte.
+* Negociable   : le conseil peut etre manuel, semi-automatique ou base sur un modele.
+* Valuable     : ameliore l'accompagnement pedagogique.
+* Estimable    : necessite un canal d'envoi ou une zone de conseil.
+* Small        : premiere version limitee a un message simple.
+* Testable     : on peut verifier qu'un conseil est associe a un etudiant.
+
+Priorite MoSCoW :
+COULD
+
+Justification MoSCoW :
+Cette story a une forte valeur pedagogique, mais elle demande plus d'effort
+que l'affichage des scores. Elle implique un systeme de message, de notification
+ou d'email. Elle est donc placee en COULD et plutot orientee Release 2 afin de
+ne pas surcharger la Release 1.
+
+Impact DoR / DoD :
+DoR :
+* Choisir le canal d'envoi : message interne, email ou simple note visible.
+* Definir si les conseils sont rediges par l'enseignante ou proposes par l'IA.
+
+DoD :
+* L'enseignante peut rediger ou selectionner un conseil.
+* Le conseil peut etre associe a un etudiant identifie en difficulte.
+* L'action ne doit pas exposer les donnees d'autres etudiants.
+
+---
+
+## US-J1-04 - Filtrer les resultats par quiz
+
+Epic :
+EPIC 5 - Historique & statistiques
+
+User story :
+En tant qu'enseignante,
+je veux filtrer les resultats de mes etudiants par quiz,
+afin de reperer les notions les moins maitrisees.
+
+Analyse INVEST :
+
+* Independante : peut etre ajoutee au tableau de suivi des scores.
+* Negociable   : le filtre peut etre par quiz, par date ou par support.
+* Valuable     : aide a comprendre les difficultes du groupe.
+* Estimable    : depend de l'historique des quiz.
+* Small        : premiere version limitee au filtre par quiz.
+* Testable     : on peut verifier que les resultats changent selon le quiz choisi.
+
+Priorite MoSCoW :
+COULD
+
+Justification MoSCoW :
+Cette story complete le suivi enseignant mais elle est plus avancee que le
+simple affichage des scores. Elle est donc placee en COULD, pour Release 2 ou
+fin de Release 1 uniquement si les MUST et SHOULD sont termines.
+
+Impact DoR / DoD :
+DoR :
+* Definir les criteres de filtre retenus pour la premiere version.
+* Verifier que chaque resultat est bien rattache a un quiz.
+
+DoD :
+* L'enseignante peut selectionner un quiz.
+* Les resultats affiches correspondent uniquement au quiz selectionne.
+
+================================================================================
+2. PRIORISATION MOSCOW ACTUALISEE
+=================================
+
+## MUST - Indispensable Release 1
+
+* Inscription et connexion par email.
+* Depot d'un cours via PDF ou texte.
+* Generation automatique de 10 QCM.
+* Soumission et correction automatique.
+* Affichage du score /10 et du detail.
+* Historique persiste par utilisateur.
+* Parcours etudiant fonctionnel de bout en bout.
+
+Justification :
+Ces elements correspondent au MVP initial F1-F6. Ils restent prioritaires car
+ils garantissent que le produit fonctionne pour l'utilisateur final.
+
+## SHOULD - Important pour integrer la perturbation J1
+
+* Voir les scores des 28 etudiants.
+* Reperer les etudiants qui decrochent.
+* Prevoir un rattachement simple etudiant / enseignante ou classe.
+* Afficher un indicateur simple de difficulte.
+
+Justification :
+Ces elements integrent la cible enseignante demandee par la perturbation J1.
+Ils apportent une valeur forte a Mme Lefevre tout en restant compatibles avec
+les donnees deja prevues dans le MVP : scores et historique.
+
+## COULD - Interessant mais reportable
+
+* Envoyer des conseils personnalises.
+* Filtrer les resultats par quiz.
+* Afficher des statistiques plus avancees.
+* Exporter un suivi ou un rapport de classe.
+
+Justification :
+Ces elements sont utiles pour l'usage enseignant, mais ils ajoutent de la
+complexite. Ils peuvent etre envisages en Release 2 ou seulement si le MVP
+et les SHOULD sont termines.
+
+## WON'T HAVE - Hors perimetre immediat
+
+* Gestion complete d'un etablissement.
+* Messagerie avancee entre enseignants et etudiants.
+* Application mobile dediee.
+* Integration Moodle, Pronote ou Google Classroom.
+* Statistiques avancees multi-classes.
+
+Justification :
+Ces fonctionnalites depassent le besoin immediat de la perturbation J1 et
+risquent de faire exploser le scope de la Release 1.
+
+================================================================================
+3. EVOLUTION DE LA DOR / DOD
+============================
+
+## Definition of Ready - evolution apres perturbation J1
+
+Avant de developper les nouvelles user stories enseignantes, l'equipe doit
+clarifier :
+
+* comment un etudiant est rattache a une enseignante ou a une classe ;
+* ce que signifie "decrocher" dans le contexte de Mme Lefevre ;
+* le seuil minimum de score ou d'activite utilise pour signaler un risque ;
+* si le suivi enseignant concerne uniquement le dernier quiz ou l'historique ;
+* quelles donnees peuvent etre affichees a l'enseignante sans risque RGPD.
+
+## Definition of Done - evolution apres perturbation J1
+
+Une user story enseignante est consideree terminee si :
+
+* elle est testable avec un jeu de donnees representatif ;
+* elle affiche uniquement les etudiants rattaches a l'enseignante ;
+* les scores affiches correspondent aux resultats reels des quiz ;
+* les indicateurs sont compréhensibles sans explication technique ;
+* aucune donnee personnelle inutile n'est exposee ;
+* le comportement attendu est valide par l'equipe et par le Product Owner.
+
+================================================================================
+4. SYNTHESE DE L'IMPACT J1 SUR LE PRODUCT BACKLOG
+=================================================
+
+La perturbation J1 ne remet pas en cause le MVP initial F1-F6.
+Elle oblige cependant l'equipe 19 a integrer plus clairement la cible enseignante
+dans le Product Backlog.
+
+Avant perturbation, le backlog etait principalement centre sur l'etudiant :
+deposer un cours, generer un quiz, repondre, obtenir un score et consulter son
+historique.
+
+Apres perturbation, le backlog integre Mme Sophie Lefevre comme cible importante :
+elle doit pouvoir suivre les scores de ses 28 etudiants, reperer ceux qui
+decrochent et, a terme, leur transmettre des conseils personnalises.
+
+La decision retenue est de ne pas casser le MVP :
+
+* les fonctionnalites F1-F6 restent en MUST ;
+* les besoins enseignants simples sont integres en SHOULD ;
+* les fonctionnalites plus ambitieuses sont placees en COULD / Release 2.
+
+Cette mise a jour permet de repondre a la perturbation J1 tout en conservant une
+priorisation realiste et compatible avec le temps disponible.
+
+================================================================================
+GRILLE D'AUTO-EVALUATION - PRODUCT BACKLOG ACTUALISE
+====================================================
+
+Product Backlog actualise cree                                      : [X] Oui
+Au moins 3 nouvelles user stories ajoutees                          : [X] Oui
+User stories au format "En tant que..., je veux..., afin de..."      : [X] Oui
+Analyse INVEST presente pour chaque nouvelle story                   : [X] Oui
+Priorisation MoSCoW visible                                          : [X] Oui
+Priorisation MoSCoW argumentee                                       : [X] Oui
+Mention DoR / DoD si elles evoluent                                  : [X] Oui
+MVP F1-F6 conserve                                                   : [X] Oui
+Artefact initial conserve et non ecrase                              : [X] Oui
+Document relu et valide par l'equipe complete                        : [ ] A valider
+
+Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

@@ -1,0 +1,169 @@
+APOCAL'IPSSI - PERTURBATION J2 - ARTEFACT 4 / STORY MAP
+Validation Sprint 1 - EduTutor IA
+
+Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
+Auteur du modele : Mohamed Amine EL AFRIT - Licence CC BY-NC-SA 4.0
+
+
+IDENTIFICATION DU DOCUMENT
+==========================
+Equipe n         : 19
+Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
+                   Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
+Perturbation     : J2 - Livrable complementaire artefact 4
+Date de remise   : 30/06/2026
+Statut           : Valide
+Redacteur        : Ismael CEREZO
+Fichier          : docs/perturbations/j2/p2-story-map-validation.txt
+Reference        : docs/cadrage/artefact-4-story-map.csv (v1.0)
+
+
+================================================================================
+1. OBJET DU DOCUMENT
+================================================================================
+
+Ce document decrit les validations effectuees par l'equipe 19 sur les user
+stories de l'artefact 4 (Story Map) au terme du Sprint 1 (29/06/2026).
+
+Il complete l'artefact 4 en attestant quelles stories ont ete testees et
+validees, et lesquelles restent en attente. Les lignes "VALIDE 29/06" ajoutees
+dans l'artefact 4 CSV sont le reflet de ce document.
+
+
+================================================================================
+2. RESULTATS DE VALIDATION - MUST HAVE
+================================================================================
+
+US-01 - Inscription email
+  Statut    : VALIDE
+  Test      : Creation d'un compte avec email + mot de passe
+  Resultat  : Auto-login apres inscription, email de validation dans les logs
+  Date      : 29/06/2026
+
+US-02 - Connexion email / mot de passe
+  Statut    : VALIDE
+  Test      : Login avec email + mdp corrects, deconnexion
+  Resultat  : Token JWT stocke, pages protegees inaccessibles sans token
+  Date      : 29/06/2026
+
+US-06 - Saisie cours en texte (>= 200 car.)
+  Statut    : VALIDE
+  Test      : Saisie de 576 car. (Biologie - Cycle de Krebs), soumission
+  Resultat  : Validation 200 car. fonctionnelle, quiz genere avec succes
+  Date      : 29/06/2026
+
+US-07 - Upload PDF (<= 5 Mo)
+  Statut    : NON TESTE - Report Sprint 2
+  Motif     : Capacite Sprint 1 a 70% (post-perturbation P1)
+              Test PDF non prioritaire vs. validation F1 + saisie texte
+  Date      : -
+
+US-08 - Generation 10 QCM automatique
+  Statut    : VALIDE (avec reserve)
+  Test      : Generation via llama3.1:8b (LLM local)
+  Resultat  : 10 QCM generes avec succes - MAIS latence mesuree : ~3 min
+              Le critere d'acceptation "< 60 s" n'est pas respecte en local CPU
+              Decision prise : LLM_BACKEND=groq (2-5 s) - cf. ADR-0001
+  Date      : 29/06/2026
+
+US-09 - Repondre aux 10 QCM
+  Statut    : VALIDE
+  Test      : Navigation avant/arriere, soumission finale du quiz
+  Resultat  : Parcours complet fonctionnel
+  Date      : 29/06/2026
+
+US-10 - Voir son score /10
+  Statut    : VALIDE
+  Test      : Affichage score apres soumission
+  Resultat  : Score /10 affiche correctement
+  Date      : 29/06/2026
+
+US-11 - Detail des corrections
+  Statut    : VALIDE
+  Test      : Affichage bonnes/mauvaises reponses apres quiz
+  Resultat  : Corrections presentes sur la page de resultats
+  Date      : 29/06/2026
+
+US-12 - Historique des quiz
+  Statut    : VALIDE
+  Test      : Navigation vers /history apres quiz
+  Resultat  : Liste des quiz avec date et cours visible
+  Date      : 29/06/2026
+
+
+================================================================================
+3. RESULTATS DE VALIDATION - SHOULD HAVE
+================================================================================
+
+US-03 - Reinitialisation mot de passe
+  Statut    : VALIDE
+  Test      : Lien "Mot de passe oublie" sur /login, page /forgot-password
+  Resultat  : Formulaire email accessible et fonctionnel
+  Date      : 29/06/2026
+  Assigne a : Ismael CEREZO (TASK-09)
+
+US-04 - Modification profil
+  Statut    : VALIDE
+  Test      : Page /profile avec formulaire pre-rempli
+  Resultat  : Modification email / nom / mdp disponible
+  Date      : 29/06/2026
+  Assigne a : Ismael CEREZO (TASK-10)
+
+US-05 - Suppression compte (RGPD)
+  Statut    : VALIDE (bouton present)
+  Test      : Page /profile - presence du bouton de suppression
+  Resultat  : Bouton de suppression localise, flux RGPD disponible
+  Date      : 29/06/2026
+
+US-13 - Tableau de bord progression
+  Statut    : VALIDE
+  Test      : Navigation vers /dashboard
+  Resultat  : Page accessible avec stats (score moyen, nombre de quiz)
+  Date      : 29/06/2026
+
+US-14 - Revision des erreurs
+  Statut    : VALIDE
+  Test      : Navigation vers /review
+  Resultat  : Page accessible avec liste des reponses incorrectes
+  Date      : 29/06/2026
+
+
+================================================================================
+4. SYNTHESE
+================================================================================
+
+  Priorite    | US              | Stories validees | Non testees
+  ------------+-----------------+------------------+-------------
+  Must Have   | US-01 a US-12   | 7 / 8            | US-07 (PDF)
+  Should Have | US-03/04/05/    | 5 / 5            | -
+              | US-13/14        |                  |
+
+Point d'attention : US-08 validee fonctionnellement MAIS critere de
+performance "< 60 s" non respecte avec ollama local CPU (mediane 3 min).
+Traite par ADR-0001 : passage a LLM_BACKEND=groq pour respecter la DoD.
+
+
+================================================================================
+5. MODIFICATIONS APPORTEES A L'ARTEFACT 4
+================================================================================
+
+Deux lignes "VALIDE 29/06" ajoutees dans artefact-4-story-map.csv :
+  - Sous le bloc Must Have  : US-01 a US-12 avec statut individuel
+  - Sous le bloc Should Have : US-03/04/05/13/14 avec statut individuel
+
+Commit : b06fc81 - docs(sprint): mise a jour statuts Sprint 1 + validation Story Map
+
+
+================================================================================
+GRILLE D'AUTO-EVALUATION
+================================================================================
+
+  Tests Must Have effectues (US-01 a US-12)                       : [X] Oui
+  Tests Should Have effectues (US-03/04/05/13/14)                 : [X] Oui
+  US-07 (PDF) explicitement reportee avec motif                   : [X] Oui
+  Reserve US-08 documentee (latence > 60s) et adressee (ADR-0001) : [X] Oui
+  Artefact 4 CSV mis a jour avec lignes de validation             : [X] Oui
+  Document relu et valide par redacteur                           : [X] Oui
+
+
+Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

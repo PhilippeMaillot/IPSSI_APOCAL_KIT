@@ -179,6 +179,10 @@ Risque Sprint 2 :
    TASK-19 a TASK-22 depassent 45 min. Le pull llama3.2:3b (~1.9 Go) peut
    prendre 10-15 min selon la connexion : lancer en premier."
 
+Risque Sprint 3 (effet cumulé J1 + J2) :
+  "Sprint 3 cumule F3/F4/F5 (Must cadrage) + US-J1-01 (Must J1) + US-06 (Should J2).
+   Si surcharge : US-06 glisse en Sprint 4 en priorité (Should, non bloquant Release 1)."
+
 
 ================================================================================
 6. COMMUNICATION AU PRODUCT OWNER - BILAN PERTURBATION J2

@@ -82,7 +82,8 @@ Latence = generation complete d'un quiz (10 QCM) sur la machine de reference.
   - Les modeles 3B tiennent largement sous 16 Go (RAM ~2x moindre) : aucun
     risque CA-7.
   - Tous restent 100 % LOCAUX (Ollama) : differenciation RGPD local-first
-    preservee, contrairement a une bascule cloud (Groq/OpenAI).
+    preservee, contrairement a une bascule cloud (Groq/OpenAI)
+    (pour le dev — la prod cible Mistral EU, cf. ADR-0001).
 
 
 ================================================================================

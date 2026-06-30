@@ -163,7 +163,7 @@ TASK-16 — Sprint Review / demo au PO
 Note P1 :
   « Perturbation J1 (14h00) : Mme Lefevre devient persona co-primaire.
     US-J1-01 a US-J1-04 ajoutees au Product Backlog dans
-    artefact-6-product-backlog-maj.csv. MVP F1-F6 inchange. Sprint 1 recentre
+    p1-product-backlog-maj.txt. MVP F1-F6 inchange. Sprint 1 recentre
     sur US-01/US-02/US-07. Stories enseignant planifiees Sprint 3-5
     (cf. p1-release-planning-lefevre.txt). »
 

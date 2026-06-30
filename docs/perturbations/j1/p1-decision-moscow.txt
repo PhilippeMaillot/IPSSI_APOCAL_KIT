@@ -39,16 +39,16 @@ F2 - Upload PDF + saisie texte     | Must Have   | Must Have   | Mme Lefevre upl
 F3 - Generation 10 QCM            | Must Have   | Must Have   | Coeur produit, les 2 profils
 F4/F5 - Quiz + score + corrections | Must Have   | Must Have   | Parcours etudiant complet
 F6 - Historique quiz               | Must Have   | Must Have   | Persistance necessaire
-US-J1-01 - Stats agregees classe    | Won't Have  | Should Have | Valeur forte, anonymise RGPD, sans surcharger Sprint 3
-US-J1-02 - Chapitres sous le seuil | Won't Have  | Should Have | Depend de US-J1-01, capacite restante Sprint 3-4
-US-J1-03 - Conseils personnalises  | Won't Have  | Could Have  | Necessite messagerie, cible Release 2
-US-J1-04 - Filtrer par quiz        | Won't Have  | Could Have  | Utile mais reportable R2
+US-J1-01 - Stats agregees classe    | Won't Have  | Must Have   | Mme Lefevre co-primaire : valeur directe, donnees agregees RGPD-safe
+US-J1-02 - Chapitres sous le seuil | Won't Have  | Must Have   | Depend de US-J1-01, essentiel pour le parcours enseignant Release 1
+US-J1-03 - Conseils personnalises  | Won't Have  | Must Have   | Parcours enseignant complet : sans conseil, la boucle pedagogique est incomplete
+US-J1-04 - Filtrer par quiz        | Won't Have  | Could Have  | Utile mais reportable R2 — non bloquant pour le parcours enseignant minimal
 
 
 3. VERDICT POUR RELEASE 1 (mercredi 29/06 17h45 STRICT)
 =========================================================
 
-Mme Lefevre = CO-PRIMAIRE comme persona / SHOULD HAVE pour ses features specifiques
+Mme Lefevre = CO-PRIMAIRE comme persona / MUST HAVE pour ses features essentielles (US-J1-01, 02, 03)
 
 Note de coherence : la designation "Co-PRIMAIRE" signifie que Mme Lefevre est
 une cible aussi importante que l'etudiant(e) du point de vue produit. Cela ne

@@ -29,7 +29,7 @@
 "US-22","EPIC 4 – Quiz","Limiter les hallucinations","En tant qu'enseignante, je veux que les questions soient directement liées au support fourni afin d'éviter les questions hors sujet ou inventées par l'IA.","Oui","Oui","Oui","Oui","Must","Perturbation J1 : fiabilité pédagogique"
 "US-23","EPIC 4 – Quiz","Relire les questions générées","En tant qu'enseignante, je veux relire les questions générées afin de vérifier leur pertinence avant de les utiliser en classe.","Oui","Oui","Oui","Oui","Should","Ajout après perturbation J1"
 "US-24","EPIC 6 – Release 2","Exporter un quiz","En tant qu'enseignante, je veux exporter le quiz afin de pouvoir l'utiliser dans un autre outil ou en classe.","Oui","Oui","Oui","Oui","Could","Piste Release 2 après perturbation J1"
-"US-25","EPIC 6 – Release 2","Statistiques de classe","En tant qu'enseignante, je veux consulter des statistiques de classe afin de suivre la progression d'un groupe.","Oui","Oui","Oui","Oui","Could","Piste Release 2 après perturbation J1"
+"US-25","EPIC 5 — Historique & stats","Statistiques de classe","En tant qu'enseignante, je veux consulter des statistiques de classe afin de suivre la progression d'un groupe.","Oui","Oui","Oui","Oui","Must","Must Release 1 — Mme Lefèvre co-primaire (perturbation J1)"
 ,,,,,,,,,,,,,,
 "TABLEAU RÉCAPITULATIF",,,,,,,,,,,,,,
 "MoSCoW","Nombre de stories","Points total","Sprint(s) cible(s)",,,,,,,,,,,

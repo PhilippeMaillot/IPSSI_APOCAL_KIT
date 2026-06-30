@@ -24,7 +24,7 @@
 ,,,,,,,,
 "DÉFINITION DES RELEASES",,,,,,,,
 "Release","Contenu minimal","Critère de validation PO",,,,,,
-"Release 1 — MERCREDI 17h45 STRICT (0 tolérance)","F1 · F2 · F3 · F4 · F5 · F6 tous fonctionnels · pages légales complétées · Tag Git v1.0.0-mvp · docker compose up fonctionnel","Démo live devant PO : inscription → upload cours → génération → quiz → score → historique · zéro bug bloquant · vidéo 5 min dans /docs/demos/",,,,,,
+"Release 1 — MERCREDI 17h45 STRICT (0 tolérance)","F1 · F2 · F3 · F4 · F5 · F6 tous fonctionnels · US-J1-01 stats agrégées classe · US-J1-02 repérage chapitres en difficulté · US-J1-03 conseil privé enseignant · contrôle d'accès par rôle · pages légales complétées · Tag Git v1.0.0-mvp · docker compose up fonctionnel","Démo live devant PO des deux parcours primaires — Étudiant : inscription → upload cours → génération → quiz → score → historique · Enseignante : connexion → stats agrégées classe → chapitre en difficulté → conseil privé · zéro bug bloquant · vidéo 5 min dans /docs/demos/",,,,,,
 "Release 2 — JEUDI 17h45 STRICT (0 tolérance)","Release 1 stable + 2-3 features Could have retenues avec PO · Tag Git v1.1.0","Démo live devant PO des nouvelles features · Release 1 non régressée · vidéo déposée dans /docs/demos/",,,,,,
 ,,,,,,,,
 "Mohamed Amine EL AFRIT · APOCAL'IPSSI 2026 · CC BY-NC-SA 4.0",,,,,,,,

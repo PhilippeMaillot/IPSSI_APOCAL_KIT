@@ -97,13 +97,13 @@ Analyse INVEST :
 * Testable     : on peut verifier que les stats correspondent aux scores reels.
 
 Priorite MoSCoW :
-SHOULD
+MUST
 
 Justification MoSCoW :
-Cette story apporte une valeur forte a Mme Lefevre sans bloquer le MVP etudiant.
-Elle est SHOULD et non MUST car les features F1-F6 servent deja les deux profils,
-et ajouter un dashboard classe en Must surchargerait les Sprints 3-5 sans marge
-pour les stories etudiantes deja planifiees. A livrer si capacite disponible apres les MUST.
+Mme Lefevre est co-primaire : sans stats agregees, elle ne peut pas suivre
+sa classe et EduTutor n'a aucune valeur pour elle. Cette story est donc MUST
+Release 1. Les donnees restent agregees et anonymisees (conformite RGPD garantie).
+Sprint cible : Sprint 3.
 
 Impact DoR / DoD :
 DoR :
@@ -142,12 +142,12 @@ Analyse INVEST :
 * Testable     : on peut verifier qu'un quiz sous le seuil apparait en alerte.
 
 Priorite MoSCoW :
-SHOULD
+MUST
 
 Justification MoSCoW :
-Cette story complete US-J1-01 et apporte une valeur directe a Mme Lefevre.
-Elle est SHOULD car elle depend de US-J1-01 et ne peut etre developpee qu'apres
-les MUST etudiant (F3-F5) en Sprint 3. Livrable si capacite restante Sprint 3-4.
+Cette story complete US-J1-01 et est indispensable au parcours enseignant.
+Mme Lefevre doit pouvoir identifier les chapitres en difficulte pour adapter
+son cours. MUST Release 1, dependante de US-J1-01. Sprint cible : Sprint 4.
 
 Impact DoR / DoD :
 DoR :
@@ -181,12 +181,13 @@ Analyse INVEST :
 * Testable     : on peut verifier qu'un conseil est associe a un etudiant.
 
 Priorite MoSCoW :
-COULD
+MUST
 
 Justification MoSCoW :
-Cette story a une forte valeur pedagogique mais necessite un systeme de messagerie
-ou de notification qui depasse le scope Sprint 1-5. Elle est COULD car les
-sprints 3-5 sont deja charges avec les MUST etudiant. Ciblee Release 2.
+Le conseil personnalise complete la boucle pedagogique du parcours enseignant :
+sans cette feature, Mme Lefevre identifie les difficultes mais ne peut pas agir.
+MUST Release 1 dans sa version minimale (message simple, pas de messagerie
+avancee). Sprint cible : Sprint 5.
 
 Impact DoR / DoD :
 DoR :

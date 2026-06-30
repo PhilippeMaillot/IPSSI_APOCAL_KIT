@@ -87,8 +87,7 @@ Par :
   Type        : Migration
   Assigne a   : Ismael CEREZO
   Estimation  : 15 min
-  Statut      : Fait ✅
-  DoD         : ollama list affiche llama3.2:3b · aucune erreur de telechargement
+  Statut      : Fait   DoD         : ollama list affiche llama3.2:3b · aucune erreur de telechargement
 
   ---
 
@@ -101,8 +100,7 @@ Par :
   Type        : Migration
   Assigne a   : Ndiasse MBEGUERE
   Estimation  : 10 min
-  Statut      : Fait ✅
-  DoD         : .env mis a jour · backend redemoarre · API repond sans erreur
+  Statut      : Fait   DoD         : .env mis a jour · backend redemoarre · API repond sans erreur
 
   ---
 
@@ -115,8 +113,7 @@ Par :
   Type        : Test
   Assigne a   : Philippe MAILLOT
   Estimation  : 20 min
-  Statut      : Fait ✅
-  DoD         : p50 mesure <= 15 s · resultats notes dans p2-benchmark.txt
+  Statut      : Fait   DoD         : p50 mesure <= 15 s · resultats notes dans p2-benchmark.txt
 
   ---
 
@@ -128,8 +125,7 @@ Par :
   Type        : Perturbation
   Assigne a   : Mathieu PONNOU (Scrum Master)
   Estimation  : 10 min
-  Statut      : Fait ✅
-  DoD         : Fichiers presents dans docs/perturbations/j2/ sur le repo GitHub
+  Statut      : Fait   DoD         : Fichiers presents dans docs/perturbations/j2/ sur le repo GitHub
 
 
 ================================================================================
@@ -152,11 +148,8 @@ US-06 (F2 texte) -- Priorite
 
   Priorite | Taches / Stories                             | Statut Sprint 2
   ---------+----------------------------------------------+---------------------------
-  Must     | TASK-19 (pull llama3.2:3b)                   | Fait ✅
-  Must     | TASK-20 (maj .env + restart)                 | Fait ✅
-  Must     | TASK-21 (mesure latence post-migration)      | Fait ✅ p50=14 s
-  Must     | TASK-22 (livrables J2 deposes)               | Fait ✅
-  Must     | US-08 (generation 10 QCM)                    | En cours
+  Must     | TASK-19 (pull llama3.2:3b)                   | Fait   Must     | TASK-20 (maj .env + restart)                 | Fait   Must     | TASK-21 (mesure latence post-migration)      | Fait ✅ p50=14 s
+  Must     | TASK-22 (livrables J2 deposes)               | Fait   Must     | US-08 (generation 10 QCM)                    | En cours
   Should   | US-06 (saisie texte)                         | Report Sprint 3 si besoin
 
 >>> INVESTISSEMENT PRIORITAIRE SPRINT 2 : migration modele (TASK-19/20) +

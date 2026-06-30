@@ -8,7 +8,6 @@ Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
                    Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
 Perturbation     : J2 - Technique (latence generation QCM)
 Date             : 30/06/2026
-Redacteurs       : Mathieu PONNOU, Aboubacar COUMARE
 Fichier          : docs/perturbations/j2/p2-adr-0001.txt
 Format           : Architecture Decision Record (Michael Nygard)
 Reference        : docs/perturbations/j2/p2-benchmark.txt

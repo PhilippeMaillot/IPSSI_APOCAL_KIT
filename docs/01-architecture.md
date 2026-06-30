@@ -26,7 +26,7 @@ flowchart LR
 
     subgraph LLM["LLM"]
         ollama[Ollama<br/>:11434]
-        model[(Llama 3.1 8B)]
+        model[(Llama 3.2 3B)]
     end
 
     user -->|HTTPS| react
@@ -119,7 +119,7 @@ sequenceDiagram
     F->>B: POST /api/llm/generate-quiz/<br/>(multipart)
     B->>B: extract_text_from_pdf()
     B->>O: POST /api/generate<br/>(prompt + format=json)
-    Note over O: Llama 3.1 8B<br/>~30s-2min
+    Note over O: Llama 3.2 3B<br/>~30s-2min
     O-->>B: { "questions": [...] }
     B->>B: validate JSON structure<br/>(10 q, 4 options chacune)
     B->>DB: INSERT Quiz + 10 Questions<br/>(transaction)

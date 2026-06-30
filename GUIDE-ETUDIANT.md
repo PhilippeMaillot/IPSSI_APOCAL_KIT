@@ -53,10 +53,10 @@ aux perturbations de la semaine.
 |---|---|---|
 | Docker + Docker Compose | 24+ / v2 | Docker Desktop fait les deux |
 | Git | 2.30+ | |
-| RAM dispo | **≥ 8 Go** | Ollama charge ~5 Go |
-| Disque | **≥ 8 Go** | Modèle Llama + images |
+| RAM dispo | **≥ 8 Go** | Ollama charge ~2–3 Go (Llama 3.2 3B) |
+| Disque | **≥ 6 Go** | Modèle Llama 3.2 3B (~2 Go) + images |
 
-> 💡 Pas assez de RAM ? Utilisez un modèle plus léger (`OLLAMA_MODEL=llama3.2:3b`)
+> 💡 Besoin de plus de qualité ? Passez sur Llama 3.1 8B (`OLLAMA_MODEL=llama3.1:8b`)
 > ou un fournisseur cloud gratuit (voir [§6](#6-choisir-son-llm)).
 
 ### Étapes
@@ -73,7 +73,7 @@ cp .env.example .env
 docker compose up -d
 
 # 4. Téléchargez le modèle LLM (UNE seule fois, ~5 min)
-make pull-model      # ou : docker exec apocalipssi-2026-ollama ollama pull llama3.1:8b
+make pull-model      # ou : docker exec apocalipssi-2026-ollama ollama pull llama3.2:3b
 
 # 5. (Optionnel) Données de démo
 make seed

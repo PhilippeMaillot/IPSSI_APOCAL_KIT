@@ -51,7 +51,7 @@ export default function HomePage() {
           <div className="text-2xl mb-2">🤖</div>
           <h3 className="font-semibold text-slate-900 mb-2">10 QCM générés</h3>
           <p className="text-sm">
-            Llama 3.1 8B via Ollama. Aucune API payante, aucune fuite de données.
+            Llama 3.2 3B via Ollama. Aucune API payante, aucune fuite de données.
           </p>
         </div>
         <div className="card">

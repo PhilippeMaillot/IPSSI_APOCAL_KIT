@@ -94,7 +94,9 @@ LLM_BACKEND=ollama                       # gratuit, local (recommandé en dev)
 Le plus simple — éditer `.env` :
 
 ```bash
-OLLAMA_MODEL=llama3.2:3b      # plus léger (2 Go) si vous avez peu de RAM
+OLLAMA_MODEL=llama3.2:3b      # défaut recommandé (~2 Go)
+# ou
+OLLAMA_MODEL=llama3.1:8b       # plus lourd (4.7 Go) mais souvent plus précis
 # ou
 OLLAMA_MODEL=mistral:7b        # alternative
 # ou

@@ -1,0 +1,219 @@
+APOCAL'IPSSI - PERTURBATION J2 (P2 SUR 5) - TECHNIQUE / LLM
+Sprint Backlog actualise - EduTutor IA
+
+Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
+Auteur du modele : Mohamed Amine EL AFRIT - Licence CC BY-NC-SA 4.0
+
+
+IDENTIFICATION DU DOCUMENT
+==========================
+Equipe n         : 19
+Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
+                   Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
+Perturbation     : J2 - Technique (latence generation QCM)
+Version          : v2.0 (suite perturbation J2)
+Date de remise   : 30/06/2026
+Statut           : Draft
+Redactrice       : Milane MEHALEBI
+Fichier          : p2-sprint-backlog-maj.txt
+Reference        : complete et fait evoluer docs/cadrage/artefact-7-sprint-backlog.csv
+                   Aligne avec : docs/cadrage/artefact-5-release-planning.csv
+                   docs/perturbations/j2/p2-benchmark.txt
+                   docs/perturbations/j2/p2-adr-0001.txt
+
+
+================================================================================
+0. DECISION DE CADRAGE - IMPACT SUR LE SPRINT BACKLOG
+================================================================================
+
+La perturbation J2 est annoncee a 10h00 le mardi 30/06/2026, pendant le
+Sprint 2 (09h-12h, 3h). La beta-testeuse signale une latence de 45 s pour
+la generation de 10 QCM avec llama3.1:8b sur CPU.
+
+Impact immediat :
+* La capacite du Sprint 2 est reduite a ~2h de dev effectif (~60 min consommes
+  par la reponse a la perturbation : benchmark, ADR, migration).
+* US-08 (generation 10 QCM) reste engagee mais son estimation augmente
+  (migration modele incluse).
+* US-06 (saisie texte) reste Must si capacite suffisante, sinon reportee Sprint 3.
+
+Decision produit Sprint 2 post-perturbation :
+* Migration llama3.1:8b -> llama3.2:3b (OLLAMA_MODEL dans .env).
+* Benchmark et ADR-0001 rediges et deposes dans docs/perturbations/j2/.
+* Sprint Goal actualise pour integrer la contrainte de latence.
+
+
+================================================================================
+1. MODIFICATIONS SPRINT GOAL ET ENGAGEMENT
+================================================================================
+
+Sprint Goal -- Remplacer :
+  "F2 (saisie cours texte + PDF) finalisee · F3 (generation LLM) en cours ·
+   choix LLM documente (ADR)"
+
+Par :
+  "F2 (saisie cours texte + PDF) finalisee · F3 (generation QCM) demarree ·
+   latence LLM reduite (llama3.1:8b -> llama3.2:3b, p50=14 s) ·
+   ADR-0001 redige et valide par l'equipe -- CAPACITE REDUITE A ~2h."
+
+Duree Sprint 2 -- Remplacer :
+  "3h (Mardi 09h-12h)"
+
+Par :
+  "3h (Mardi 09h-12h · capacite ~2h de dev effectif apres perturbation 10h00)"
+
+Stories engagees -- Remplacer :
+  "US-06 · US-08 · Redaction ADR-0001"
+
+Par :
+  "US-08 (Must) · US-06 si capacite restante · TASK-19 a TASK-22 (migration J2)"
+
+Points engages -- Remplacer :
+  "estimatif sprint 2"
+
+Par :
+  "US-08 : re-estime 5 pts (etait 3 pts, +2 pts migration) · US-06 : 2 pts si capacite"
+
+
+================================================================================
+2. NOUVELLES TACHES - PERTURBATION J2
+================================================================================
+
+  TASK ID     : TASK-19
+  User Story  : Perturbation J2
+  Titre       : Telecharger llama3.2:3b via Ollama
+  Description : docker exec apocalipssi-2026-ollama ollama pull llama3.2:3b
+                Verifier avec ollama list · taille ~1.9 Go · ~5-10 min selon connexion
+  Type        : Migration
+  Assigne a   : Ismael CEREZO
+  Estimation  : 15 min
+  Statut      : Fait ✅
+  DoD         : ollama list affiche llama3.2:3b · aucune erreur de telechargement
+
+  ---
+
+  TASK ID     : TASK-20
+  User Story  : Perturbation J2
+  Titre       : Mettre a jour OLLAMA_MODEL dans .env
+  Description : Remplacer OLLAMA_MODEL=llama3.1:8b par OLLAMA_MODEL=llama3.2:3b
+                Redemarrer le backend : docker compose restart backend
+                Verifier que le service repond sur http://localhost:8000/api/docs
+  Type        : Migration
+  Assigne a   : Ndiasse MBEGUERE
+  Estimation  : 10 min
+  Statut      : Fait ✅
+  DoD         : .env mis a jour · backend redemoarre · API repond sans erreur
+
+  ---
+
+  TASK ID     : TASK-21
+  User Story  : Perturbation J2
+  Titre       : Mesurer la latence apres migration
+  Description : Soumettre un cours de ~500 mots via /upload · chronometrer la
+                generation de 10 QCM · repeter 3 fois · noter p50 et p95
+                Objectif : p50 <= 15 s
+  Type        : Test
+  Assigne a   : Philippe MAILLOT
+  Estimation  : 20 min
+  Statut      : Fait ✅
+  DoD         : p50 mesure <= 15 s · resultats notes dans p2-benchmark.txt
+
+  ---
+
+  TASK ID     : TASK-22
+  User Story  : Perturbation J2
+  Titre       : Deposer les livrables J2
+  Description : Versionner docs/perturbations/j2/ (p2-benchmark.txt · p2-adr-0001.txt
+                · p2-sprint-backlog-maj.txt) · commit et push avant fin Sprint 2
+  Type        : Perturbation
+  Assigne a   : Mathieu PONNOU (Scrum Master)
+  Estimation  : 10 min
+  Statut      : Fait ✅
+  DoD         : Fichiers presents dans docs/perturbations/j2/ sur le repo GitHub
+
+
+================================================================================
+3. MODIFICATIONS DES TACHES EXISTANTES
+================================================================================
+
+US-08 (F3 - Generation 10 QCM) -- Re-estimation
+  Avant perturbation : 3 pts (~45 min dev + test)
+  Apres perturbation : 5 pts (~45 min dev + 20 min migration + 20 min validation latence)
+  Justification : TASK-19 a TASK-21 s'ajoutent au perimetre de US-08
+
+US-06 (F2 texte) -- Priorite
+  Statut : Should Sprint 2 -- reporte Sprint 3 si TASK-19 a TASK-22 consomment
+           la capacite restante (~2h)
+
+
+================================================================================
+4. SYNTHESE -- PRIORISATION SPRINT 2 POST-PERTURBATION
+================================================================================
+
+  Priorite | Taches / Stories                             | Statut Sprint 2
+  ---------+----------------------------------------------+---------------------------
+  Must     | TASK-19 (pull llama3.2:3b)                   | Fait ✅
+  Must     | TASK-20 (maj .env + restart)                 | Fait ✅
+  Must     | TASK-21 (mesure latence post-migration)      | Fait ✅ p50=14 s
+  Must     | TASK-22 (livrables J2 deposes)               | Fait ✅
+  Must     | US-08 (generation 10 QCM)                    | En cours
+  Should   | US-06 (saisie texte)                         | Report Sprint 3 si besoin
+
+>>> INVESTISSEMENT PRIORITAIRE SPRINT 2 : migration modele (TASK-19/20) +
+    validation latence (TASK-21) + livrables J2 (TASK-22).
+    US-08 reste le livrable fonctionnel principal du sprint.
+
+
+================================================================================
+5. NOTE ET RISQUE SPRINT 2 -- A AJOUTER EN FIN D'ARTEFACT-7
+================================================================================
+
+Note P2 :
+  "Perturbation J2 (10h00) : latence LLM 45 s signalee par beta-testeuse.
+   Migration llama3.1:8b -> llama3.2:3b (p50=14 s, gain 3.2x).
+   ADR-0001 redige (cf. docs/perturbations/j2/).
+   En production : LLM_BACKEND=mistral (fournisseur europeen, cf. .env.prod.example)."
+
+Risque Sprint 2 :
+  "Capacite reduite a ~2h apres perturbation 10h00. Ne pas engager US-06 si
+   TASK-19 a TASK-22 depassent 45 min. Le pull llama3.2:3b (~1.9 Go) peut
+   prendre 10-15 min selon la connexion : lancer en premier."
+
+
+================================================================================
+6. COMMUNICATION AU PRODUCT OWNER - BILAN PERTURBATION J2
+================================================================================
+
+Message transmis au PO en fin de perturbation J2 (30/06/2026, ~11h00) :
+
+  "Perturbation J2 resolue. Aucune action requise de votre part.
+
+   Probleme : latence 45 s signalee par la beta-testeuse.
+   Solution appliquee : migration llama3.1:8b -> llama3.2:3b.
+   Resultat mesure : p50=14 s, objectif <= 15 s atteint.
+
+   Ajustements absorbes par l'equipe dans ce sprint :
+   - US-06 (saisie texte) decalee en Sprint 3 (non bloquant Release 1)
+   - US-08 (generation QCM) re-estimee 3 pts -> 5 pts, reste dans ce sprint
+
+   Sprint Goal inchange. Release 1 non impactee."
+
+Validation PO : [ ] A confirmer en Sprint 2 Review
+
+
+================================================================================
+GRILLE D'AUTO-EVALUATION
+================================================================================
+
+  Document de modifications uniquement (artefact-7 v1.0 conserve)          : [X] Oui
+  Sprint Goal actualise avec capacite reduite (~2h)                         : [X] Oui
+  Stories Must Sprint 2 identifiees (US-08 + TASK-19 a 22)                 : [X] Oui
+  US-06 explicitement reportee Sprint 3 si capacite insuffisante            : [X] Oui
+  Re-estimation US-08 documentee (3 pts -> 5 pts)                           : [X] Oui
+  Nouvelles taches migration ajoutees (TASK-19 a TASK-22)                   : [X] Oui
+  Alignement avec p2-benchmark.txt et p2-adr-0001.txt                       : [X] Oui
+  Note et risque Sprint 2 documentes                                         : [X] Oui
+  Document relu et valide par l'equipe complete                             : [ ] A valider
+
+
+Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

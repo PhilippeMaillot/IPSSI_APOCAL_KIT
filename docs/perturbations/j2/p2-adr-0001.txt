@@ -1,0 +1,106 @@
+APOCAL'IPSSI - PERTURBATION J2 - ADR-0001
+EduTutor IA - Equipe 19
+
+IDENTIFICATION DU DOCUMENT
+==========================
+Equipe n         : 19
+Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
+                   Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
+Perturbation     : J2 - Technique (latence generation QCM)
+Date             : 30/06/2026
+Redacteurs       : Mathieu PONNOU, Aboubacar COUMARE
+Fichier          : docs/perturbations/j2/p2-adr-0001.txt
+Format           : Architecture Decision Record (Michael Nygard)
+Reference        : docs/perturbations/j2/p2-benchmark.txt
+
+
+ADR-0001 : Choix du modele LLM pour la generation de QCM
+==========================================================
+
+
+1. CONTEXTE
+===========
+La beta-testeuse signale une latence de 45 s pour la generation de 10 QCM
+avec llama3.1:8b sur CPU (rapport APOCAL'IPSSI J2, 30/06/2026).
+L'objectif fixe par le PO est d'atteindre <= 15 s sur le cours de reference.
+
+Le projet supporte plusieurs backends LLM via la variable LLM_BACKEND
+(cf. .env.example). L'environnement de dev tourne sur CPU local sans GPU.
+L'environnement de production cible un VPS OVH sans GPU
+(cf. .env.prod.example : "Recommande sur VPS sans GPU : un fournisseur CLOUD").
+
+
+2. OPTIONS ENVISAGEES
+=====================
+
+Option A : Garder llama3.1:8b (Ollama local)
+  p50=45 s, p95=54 s. Ne repond pas a l'objectif. Rejete.
+
+Option B : llama3.2:3b (Ollama local)  <-- RETENU en DEV
+  p50=14 s, p95=19 s, qualite 4/5, disque 1.9 Go, RAM ~3 Go.
+  Passe sous 15 s en p50. 100% local, RGPD preserve, aucune dependance externe.
+  Simple changement de variable : OLLAMA_MODEL=llama3.2:3b.
+
+Option C : phi3:mini 3.8B (Ollama local)
+  p50=14 s, p95=21 s, qualite 3.5/5. Qualite insuffisante en francais. Rejete.
+
+Option D : qwen2.5:3b (Ollama local)
+  p50=15 s, p95=20 s, qualite 4/5. p50 a la limite du seuil. Moins marge. Rejete.
+
+Option E : Mistral small (cloud EU)      <-- RETENU en PROD
+  Latence estimee ~2-3 s, qualite elevee, donnees en Europe (RGPD).
+  Deja prevu dans .env.prod.example (ligne 38 : "Alternative europeenne").
+  Necessite une cle API gratuite (console.mistral.ai).
+
+
+3. DECISION
+===========
+DEV  : llama3.2:3b via Ollama local
+PROD : mistral-small-latest via API Mistral AI (fournisseur europeen)
+
+Modification requise :
+  .env (dev)       -> OLLAMA_MODEL=llama3.2:3b
+  .env.prod (prod) -> LLM_BACKEND=mistral / MISTRAL_MODEL=mistral-small-latest
+
+
+4. JUSTIFICATION
+================
+llama3.2:3b est retenu en dev car :
+  - p50=14 s repond a l'objectif (<= 15 s) avec un gain de 3.2x sur l'actuel
+  - Modele de la meme famille llama : comportement similaire, meme format QCM
+  - 100% local : aucune donnee ne quitte la machine (RGPD dev preserve)
+  - Changement minimal : une seule variable .env, aucun code modifie
+
+Mistral est retenu en prod car :
+  - VPS sans GPU : Ollama serait aussi lent qu'en dev local (p95=19 s non garanti)
+  - Fournisseur europeen (France) : donnees traitees en UE, conforme RGPD prod
+  - Deja supporte dans le codebase (LLM_BACKEND=mistral, .env.prod.example)
+  - Latence cloud (~2-3 s) garantit l'objectif <= 15 s en toutes conditions
+
+
+5. CONSEQUENCES
+===============
+Positives :
+  + Objectif <= 15 s atteint en p50 des dev (14 s)
+  + RGPD preserve en dev (local) et en prod (EU)
+  + Aucune modification de code : uniquement des variables d'environnement
+  + Plan de migration prod deja prevu dans le projet
+
+Negatives / Risques :
+  - p95=19 s en dev : si le CPU est charge, le seuil peut etre depasse
+  - Mistral prod necessite une cle API et une connexion internet
+  - Qualite llama3.2:3b (4/5) legerement inferieure a llama3.1:8b (4.5/5)
+  - GPU personnel si disponible resoudrait le p95 en dev, mais non generalise
+
+
+6. VALIDATION EQUIPE
+====================
+Mathieu PONNOU    - valide
+Ndiasse MBEGUERE  - valide
+Ismael CEREZO     - valide
+Philippe MAILLOT  - valide
+Aboubacar COUMARE - valide
+Milane MEHALEBI   - valide
+
+
+Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

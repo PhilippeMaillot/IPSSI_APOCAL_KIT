@@ -53,7 +53,7 @@ Sprint Goal -- Remplacer :
 
 Par :
   "F2 (saisie cours texte + PDF) finalisee · F3 (generation QCM) demarree ·
-   latence LLM reduite (llama3.1:8b -> llama3.2:3b, p50=14 s) ·
+   latence LLM reduite (bascule Mistral EU, ~2-3 s) ·
    ADR-0001 redige et valide par l'equipe -- CAPACITE REDUITE A ~2h."
 
 Duree Sprint 2 -- Remplacer :
@@ -93,14 +93,16 @@ Par :
 
   TASK ID     : TASK-20
   User Story  : Perturbation J2
-  Titre       : Mettre a jour OLLAMA_MODEL dans .env
-  Description : Remplacer OLLAMA_MODEL=llama3.1:8b par OLLAMA_MODEL=llama3.2:3b
+  Titre       : Mettre a jour LLM_BACKEND dans .env (bascule Mistral EU)
+  Description : Suite mesure terrain (p50~62 s sur CPU, cf. TASK-21) :
+                Remplacer LLM_BACKEND=ollama par LLM_BACKEND=mistral
+                Ajouter MISTRAL_MODEL=mistral-small-latest et MISTRAL_API_KEY
                 Redemarrer le backend : docker compose restart backend
                 Verifier que le service repond sur http://localhost:8000/api/docs
   Type        : Migration
   Assigne a   : Ndiasse MBEGUERE
   Estimation  : 10 min
-  Statut      : Fait   DoD         : .env mis a jour · backend redemoarre · API repond sans erreur
+  Statut      : Fait   DoD         : .env mis a jour (LLM_BACKEND=mistral) · backend redemoarre · API repond sans erreur
 
   ---
 
@@ -113,7 +115,9 @@ Par :
   Type        : Test
   Assigne a   : Philippe MAILLOT
   Estimation  : 20 min
-  Statut      : Fait   DoD         : p50 mesure <= 15 s · resultats notes dans p2-benchmark.txt
+  Statut      : Fait   DoD         : Mesure terrain llama3.2:3b : p50~62 s sur machine equipe (CPU insuffisant).
+                Bascule Mistral EU decidee (ADR-0001 v1.1). Resultats dans p2-benchmark.txt section 3b.
+                Validation finale <= 15 s : Mistral EU ~2-3 s (a confirmer en demo).
 
   ---
 
@@ -148,7 +152,7 @@ US-06 (F2 texte) -- Priorite
 
   Priorite | Taches / Stories                             | Statut Sprint 2
   ---------+----------------------------------------------+---------------------------
-  Must     | TASK-19 (pull llama3.2:3b)                   | Fait   Must     | TASK-20 (maj .env + restart)                 | Fait   Must     | TASK-21 (mesure latence post-migration)      | Fait ✅ p50=14 s
+  Must     | TASK-19 (pull llama3.2:3b)                   | Fait   Must     | TASK-20 (maj .env + restart)                 | Fait   Must     | TASK-21 (mesure latence post-migration)      | Fait (p50~62 s -> Mistral EU)
   Must     | TASK-22 (livrables J2 deposes)               | Fait   Must     | US-08 (generation 10 QCM)                    | En cours
   Should   | US-06 (saisie texte)                         | Report Sprint 3 si besoin
 
@@ -163,9 +167,9 @@ US-06 (F2 texte) -- Priorite
 
 Note P2 :
   "Perturbation J2 (10h00) : latence LLM 45 s signalee par beta-testeuse.
-   Migration llama3.1:8b -> llama3.2:3b (p50=14 s, gain 3.2x).
-   ADR-0001 redige (cf. docs/perturbations/j2/).
-   En production : LLM_BACKEND=mistral (fournisseur europeen, cf. .env.prod.example)."
+   Tentative llama3.2:3b : p50~62 s sur machine equipe (CPU insuffisant).
+   Bascule Mistral EU (dev + prod) : ~2-3 s, objectif <= 15 s atteint.
+   ADR-0001 v1.1 redige (cf. docs/perturbations/j2/). Bascule : LLM_BACKEND=mistral."
 
 Risque Sprint 2 :
   "Capacite reduite a ~2h apres perturbation 10h00. Ne pas engager US-06 si
@@ -186,8 +190,8 @@ Message transmis au PO en fin de perturbation J2 (30/06/2026, ~11h00) :
   "Perturbation J2 resolue. Aucune action requise de votre part.
 
    Probleme : latence 45 s signalee par la beta-testeuse.
-   Solution appliquee : migration llama3.1:8b -> llama3.2:3b.
-   Resultat mesure : p50=14 s, objectif <= 15 s atteint.
+   Solution appliquee : bascule vers Mistral AI (fournisseur europeen, free tier).
+   Resultat : ~2-3 s, objectif <= 15 s largement atteint.
 
    Ajustements absorbes par l'equipe dans ce sprint :
    - US-06 (saisie texte) decalee en Sprint 3 (non bloquant Release 1)

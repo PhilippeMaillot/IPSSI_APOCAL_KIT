@@ -87,6 +87,27 @@ Latence = generation complete d'un quiz (10 QCM) sur la machine de reference.
 
 
 ================================================================================
+3b. MESURE TERRAIN — MACHINE EQUIPE (post-migration)
+================================================================================
+
+Apres bascule OLLAMA_MODEL=llama3.2:3b sur la machine de l'equipe :
+  p50 mesure = ~62 s   p95 mesure = ~65 s
+
+Explication de l'ecart avec la machine de reference (14 s) :
+  La reference du benchmark est un "laptop 16 Go RAM, CPU 8 coeurs recent".
+  La machine de l'equipe dispose d'un CPU moins puissant. L'inferencer Ollama
+  (pur CPU, sans GPU) est tres sensible a la frequence et au nombre de coeurs.
+  Ce comportement est documente dans le projet lui-meme : "Sur CPU, un 3B met
+  souvent 1 a 3 min" (.env, commentaire Ollama, ligne 30).
+  La valeur 14 s s'applique a du materiel haut de gamme.
+
+Consequence :
+  L'objectif <= 15 s ne peut pas etre garanti en Ollama local sur notre materiel.
+  La solution retenue devient Mistral EU pour dev et prod (cf. ADR-0001 v1.1) :
+  bascule LLM_BACKEND=mistral dans .env, zero modification de code.
+
+
+================================================================================
 4. QUALITE (note /5) ET VERDICT
 ================================================================================
 
@@ -106,22 +127,21 @@ Latence = generation complete d'un quiz (10 QCM) sur la machine de reference.
   evaluation consolidee. Phi-3 est volontairement note plus bas : MMLU eleve mais
   reputation francophone plus faible, a risque pour un outil de QCM en francais.
 
-4.2. Verdict (trade-off explicite)
+4.2. Verdict (mis a jour apres mesure terrain — v1.1)
 
-  >>> RECOMMANDATION BENCHMARK : llama3.2:3b (= Option B retenue dans l'ADR-0001).
-      - Latence p50 14 s (< 15 s cible) et p95 19 s : gain ~3,2x sur le 8B.
-      - Qualite 4.0/5 et bon francais (mieux adapte que Phi-3 a des QCM FR).
-      - 100 % local : RGPD local-first preserve (axe de differenciation produit).
-      - Empreinte 1.9 Go / ~3 Go RAM : confortable sur laptop 16 Go.
-      Trade-off accepte : -0.5 pt de qualite vs 8B, contre un facteur 3 de
-      latence. Phi-3 mini est aussi rapide mais risque sur le francais ;
-      qwen2.5:3b est une alternative FR solide si la qualite 3B deçoit.
-      Bascule = simple changement de variable OLLAMA_MODEL=llama3.2:3b (deja
-      applique cote code), sans modifier l'architecture multi-fournisseurs.
+  >>> RECOMMANDATION BENCHMARK REVISEE : Mistral EU (Option E, cf. ADR-0001 v1.1).
+      - llama3.2:3b : p50=14 s sur machine ref, MAIS p50~62 s mesure sur machine equipe.
+      - CPU standard insuffisant : objectif <= 15 s intenable en Ollama local.
+      - Mistral EU : latence ~2-3 s (API cloud), largement sous le seuil (<= 15 s).
+      - RGPD EU preserve : Mistral AI est un fournisseur francais, donnees en UE.
+      - Free tier disponible (console.mistral.ai) : zero cout pour le dev et la demo.
+      Trade-off accepte : perte de la souverainete locale en dev (compensee par
+      la conformite RGPD EU), gain de fiabilite total sur l'objectif de latence.
+      Bascule = LLM_BACKEND=mistral + MISTRAL_API_KEY dans .env, zero modification
+      de code (architecture multi-fournisseurs deja en place).
 
-  >>> Seul point a verifier APRES bascule (CA-J2-6) : relancer le harness une
-      fois llama3.2:3b configure, pour confirmer le p50 <= 15 s sur la machine
-      de demonstration. C'est l'unique mesure qui depend du poste utilise.
+  >>> CA-J2-6 : validation en demo avec Mistral EU (~2-3 s attendu, largement
+      sous le seuil de 15 s). Le harness peut etre rejoue avec LLM_BACKEND=mistral.
 
 
 ================================================================================
@@ -151,7 +171,7 @@ GRILLE D'AUTO-EVALUATION (volet benchmark)
   Verdict avec trade-off explicite (latence vs qualite vs RGPD) : [X] Oui
   Harness reproductible fourni (scripts/benchmark_llm.py)       : [X] Oui
   Sources des chiffres publies citees                           : [X] Oui
-  Mesure <= 15 s reconfirmee apres bascule (CA-J2-6)            : [ ] A faire au moment de la demo (run du harness)
+  Mesure <= 15 s reconfirmee apres bascule (CA-J2-6)            : [ ] A valider en demo (Mistral EU : ~2-3 s attendu)
 
 
 Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

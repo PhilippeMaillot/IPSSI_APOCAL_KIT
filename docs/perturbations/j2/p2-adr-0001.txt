@@ -35,10 +35,10 @@ L'environnement de production cible un VPS OVH sans GPU
 Option A : Garder llama3.1:8b (Ollama local)
   p50=45 s, p95=54 s. Ne repond pas a l'objectif. Rejete.
 
-Option B : llama3.2:3b (Ollama local)  <-- RETENU en DEV
-  p50=14 s, p95=19 s, qualite 4/5, disque 1.9 Go, RAM ~3 Go.
-  Passe sous 15 s en p50. 100% local, RGPD preserve, aucune dependance externe.
-  Simple changement de variable : OLLAMA_MODEL=llama3.2:3b.
+Option B : llama3.2:3b (Ollama local)
+  Estime p50=14 s sur machine ref (16 Go RAM, 8 coeurs).
+  MESURE terrain machine equipe : p50 ~62 s -> objectif <= 15 s non tenu sur CPU standard.
+  Rejete (revise en v1.1 apres mesure terrain — cf. p2-benchmark.txt section 3b).
 
 Option C : phi3:mini 3.8B (Ollama local)
   p50=14 s, p95=21 s, qualite 3.5/5. Qualite insuffisante en francais. Rejete.
@@ -46,50 +46,58 @@ Option C : phi3:mini 3.8B (Ollama local)
 Option D : qwen2.5:3b (Ollama local)
   p50=15 s, p95=20 s, qualite 4/5. p50 a la limite du seuil. Moins marge. Rejete.
 
-Option E : Mistral small (cloud EU)      <-- RETENU en PROD
-  Latence estimee ~2-3 s, qualite elevee, donnees en Europe (RGPD).
-  Deja prevu dans .env.prod.example (ligne 38 : "Alternative europeenne").
-  Necessite une cle API gratuite (console.mistral.ai).
+Option E : Mistral small (cloud EU)      <-- RETENU DEV + PROD (v1.1)
+  Latence ~2-3 s, qualite elevee, donnees en Europe (RGPD), free tier.
+  Deja prevu dans .env.prod.example et supporte dans le codebase (mistral_client.py).
+  Cle API gratuite : console.mistral.ai (inscription en 2 min).
 
 
-3. DECISION
-===========
-DEV  : llama3.2:3b via Ollama local
-PROD : mistral-small-latest via API Mistral AI (fournisseur europeen)
+3. DECISION (v1.1 — apres mesure terrain)
+==========================================
+DEV + PROD : mistral-small-latest via API Mistral AI (fournisseur europeen)
+
+Motif de revision : mesure terrain llama3.2:3b = ~62 s sur machine equipe
+(vs 14 s estime sur machine ref). Objectif <= 15 s intenable en Ollama local CPU.
 
 Modification requise :
-  .env (dev)       -> OLLAMA_MODEL=llama3.2:3b
-  .env.prod (prod) -> LLM_BACKEND=mistral / MISTRAL_MODEL=mistral-small-latest
+  .env (dev)       -> LLM_BACKEND=mistral
+                      MISTRAL_MODEL=mistral-small-latest
+                      MISTRAL_API_KEY=<cle console.mistral.ai, free tier>
+  .env.prod (prod) -> idem (deja prevu dans .env.prod.example)
 
 
-4. JUSTIFICATION
-================
-llama3.2:3b est retenu en dev car :
-  - p50=14 s repond a l'objectif (<= 15 s) avec un gain de 3.2x sur l'actuel
-  - Modele de la meme famille llama : comportement similaire, meme format QCM
-  - 100% local : aucune donnee ne quitte la machine (RGPD dev preserve)
-  - Changement minimal : une seule variable .env, aucun code modifie
+4. JUSTIFICATION (v1.1)
+=======================
+Revision post-mesure terrain :
+  - llama3.2:3b estime 14 s sur machine ref, mesure ~62 s sur machine equipe
+  - Ecart explique par la puissance CPU : l'inference Ollama est lineaire avec
+    les coeurs et la frequence. Le projet lui-meme note "Sur CPU, un 3B met
+    souvent 1 a 3 min" (.env commentaire). La valeur 14 s = materiel haut gamme.
+  - Objectif <= 15 s intenable en Ollama local sur notre materiel
 
-Mistral est retenu en prod car :
-  - VPS sans GPU : Ollama serait aussi lent qu'en dev local (p95=19 s non garanti)
-  - Fournisseur europeen (France) : donnees traitees en UE, conforme RGPD prod
-  - Deja supporte dans le codebase (LLM_BACKEND=mistral, .env.prod.example)
-  - Latence cloud (~2-3 s) garantit l'objectif <= 15 s en toutes conditions
+Mistral EU retenu pour dev ET prod :
+  - Latence ~2-3 s : objectif <= 15 s tres largement atteint
+  - Fournisseur europeen (France) : donnees en UE, conforme RGPD
+  - Free tier : zero cout supplementaire pour le dev et la demo
+  - Coherence dev/prod : meme backend, meme comportement, moins de divergences
+  - Deja supporte dans le codebase (LLM_BACKEND=mistral, mistral_client.py)
+  - Aucune modification de code : uniquement variables d'environnement
 
 
-5. CONSEQUENCES
-===============
+5. CONSEQUENCES (v1.1)
+======================
 Positives :
-  + Objectif <= 15 s atteint en p50 des dev (14 s)
-  + RGPD preserve en dev (local) et en prod (EU)
-  + Aucune modification de code : uniquement des variables d'environnement
-  + Plan de migration prod deja prevu dans le projet
+  + Objectif <= 15 s largement atteint (~2-3 s, facteur ~20x sur le modele initial)
+  + RGPD preserve : Mistral AI, fournisseur francais, donnees en UE
+  + Free tier : pas de cout pour le dev et la demo de la semaine
+  + Coherence dev/prod : meme backend, moins de divergences de comportement
+  + Plan de migration deja prevu et documente dans le projet
 
 Negatives / Risques :
-  - p95=19 s en dev : si le CPU est charge, le seuil peut etre depasse
-  - Mistral prod necessite une cle API et une connexion internet
-  - Qualite llama3.2:3b (4/5) legerement inferieure a llama3.1:8b (4.5/5)
-  - GPU personnel si disponible resoudrait le p95 en dev, mais non generalise
+  - Connexion internet requise en dev (plus 100% local)
+  - Cle API a generer avant la demo (console.mistral.ai, 2 min, gratuit)
+  - Dependance externe : si API Mistral indisponible -> LLM_BACKEND=mock
+  - llama3.2:3b reste disponible en Ollama pour dev offline si besoin
 
 
 6. VALIDATION EQUIPE

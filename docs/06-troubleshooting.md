@@ -89,8 +89,8 @@ make pull-model
 
 Vous tournez sur CPU sans GPU. Solutions :
 
-1. **Modèle plus petit** : `OLLAMA_MODEL=llama3.2:3b` (2 Go vs 4.7 Go)
-2. **Phi-3 mini** : `OLLAMA_MODEL=phi3:mini` (2.3 Go, très rapide)
+1. **Vérifier le modèle** : le défaut est `llama3.2:3b` (~2 Go). Si la latence reste trop élevée, essayez `phi3:mini` (2.3 Go, très rapide) ou un backend cloud (Groq, Mistral).
+2. **Modèle plus lourd** : `OLLAMA_MODEL=llama3.1:8b` (4.7 Go, souvent plus lent sur CPU)
 3. **GPU NVIDIA disponible** : décommenter le bloc `deploy.resources.reservations.devices` dans `docker-compose.yml`
 4. **Mode mock pour dev** : `LLM_BACKEND=mock` (instantané, déterministe)
 5. **Centraliser Ollama** : 1 seul membre héberge, les autres consomment via le réseau local
@@ -100,7 +100,7 @@ Vous tournez sur CPU sans GPU. Solutions :
 Inspecter ce que renvoie Ollama directement :
 
 ```bash
-docker exec -it apocalipssi-2026-ollama ollama run llama3.1:8b "Génère 1 QCM en JSON sur les bases du HTTP"
+docker exec -it apocalipssi-2026-ollama ollama run llama3.2:3b "Génère 1 QCM en JSON sur les bases du HTTP"
 ```
 
 Si la qualité est mauvaise même en interactif :

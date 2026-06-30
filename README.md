@@ -161,7 +161,7 @@ make help          # Liste toutes les cibles
 make dev           # Lance tous les services
 make down          # Arrête tous les services
 make logs          # Logs en temps réel
-make pull-model    # Télécharge Llama 3.1 8B (1 fois)
+make pull-model    # Télécharge Llama 3.2 3B (1 fois)
 make test          # Lance pytest + vitest
 make lint          # black, ruff, eslint, prettier
 make ci            # lint + test (cible CI)
@@ -241,7 +241,7 @@ En mode console, l'email s'affiche dans la sortie ; avec Brevo, il part réellem
 |---|---|
 | F1 | Inscription / connexion **par email** (Django Auth) |
 | F2 | Saisie cours (PDF ≤ 5 Mo OU texte ≥ 200 caractères) |
-| F3 | Génération auto de 10 QCM via Llama 3.1 8B |
+| F3 | Génération auto de 10 QCM via Llama 3.2 3B |
 | F4 | Soumission + correction auto |
 | F5 | Affichage score /10 + détail |
 | F6 | Historique persisté par utilisateur |

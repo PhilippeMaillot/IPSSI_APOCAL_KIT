@@ -4,6 +4,8 @@ Endpoints LLM :
     POST /api/llm/generate-quiz/  — génère un quiz à partir d'un PDF ou d'un texte
 """
 
+import logging
+
 import requests
 from django.conf import settings
 from drf_spectacular.utils import OpenApiResponse, extend_schema
@@ -20,6 +22,9 @@ from .pdf_utils import PDFError, extract_text_from_pdf
 from .serializers import GenerateQuizSerializer
 from .services import get_llm_client
 from .services.base import LLMError
+from .services.quiz_prompt import detect_injection
+
+logger = logging.getLogger(__name__)
 
 
 class PingView(APIView):
@@ -133,6 +138,19 @@ class GenerateQuizView(APIView):
                 source_text = extract_text_from_pdf(pdf_file)
             except PDFError as exc:
                 return Response({"detail": str(exc)}, status=status.HTTP_400_BAD_REQUEST)
+
+        # 1bis. Audit sécurité (J3) : on JOURNALISE les tentatives d'injection
+        # détectées dans le texte source (audit trail). On ne bloque pas par
+        # mots-clés (contournable) : la neutralisation repose sur le Prompt Guard
+        # (délimiteurs + instruction défensive) et la validation post-LLM.
+        suspicious = detect_injection(source_text)
+        if suspicious:
+            logger.warning(
+                "Prompt injection suspectée (user=%s, quiz=%r) motifs=%s",
+                request.user.pk,
+                title,
+                suspicious,
+            )
 
         # 2. Appel LLM (Ollama ou Mock)
         try:

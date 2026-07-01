@@ -41,6 +41,22 @@ Commande         : docker compose exec backend pytest llm/tests/adversarial/ -v
 
 Synthese : 5/5 PASS - patch 4 couches valide (quiz_prompt.py + validate_quiz_questions dans views.py).
 
+SORTIE PYTEST REELLE
+====================
+$ docker compose exec backend pytest llm/tests/adversarial/ -v
+
+===================================================== test session starts =====================================================
+platform linux -- Python 3.11.15, pytest-8.3.4, pluggy-1.6.0
+django: version: 5.1.4, settings: apocal.settings (from ini)
+rootdir: /app
+configfile: pyproject.toml
+plugins: django-4.9.0, cov-6.0.0, Faker-33.1.0
+collected 5 items
+
+llm/tests/adversarial/test_prompt_injection.py .....                                                                    [100%]
+
+====================================================== 5 passed in 1.51s ======================================================
+
 
 ================================================================================
 PARTIE 1 BIS : RESULTATS PHASE 1 - AVANT PATCH (archive)

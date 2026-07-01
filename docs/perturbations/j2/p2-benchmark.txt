@@ -140,8 +140,10 @@ Consequence :
       Bascule = LLM_BACKEND=mistral + MISTRAL_API_KEY dans .env, zero modification
       de code (architecture multi-fournisseurs deja en place).
 
-  >>> CA-J2-6 : validation en demo avec Mistral EU (~2-3 s attendu, largement
-      sous le seuil de 15 s). Le harness peut etre rejoue avec LLM_BACKEND=mistral.
+  >>> CA-J2-6 : VALIDE en demo (01/07/2026) — Mistral EU mesure a 5.87 s
+      (DevTools Chrome, onglet Timing, "Waiting for server response").
+      Capture : docs/perturbations/j2/ca-j2-6-mistral-5.87s.png
+      Largement sous le seuil de 15 s. Le harness peut etre rejoue avec LLM_BACKEND=mistral.
 
 
 ================================================================================
@@ -171,7 +173,7 @@ GRILLE D'AUTO-EVALUATION (volet benchmark)
   Verdict avec trade-off explicite (latence vs qualite vs RGPD) : [X] Oui
   Harness reproductible fourni (scripts/benchmark_llm.py)       : [X] Oui
   Sources des chiffres publies citees                           : [X] Oui
-  Mesure <= 15 s reconfirmee apres bascule (CA-J2-6)            : [ ] A valider en demo (Mistral EU : ~2-3 s attendu)
+  Mesure <= 15 s reconfirmee apres bascule (CA-J2-6)            : [X] VALIDE — 5.87 s mesure en demo (01/07/2026)
 
 
 Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

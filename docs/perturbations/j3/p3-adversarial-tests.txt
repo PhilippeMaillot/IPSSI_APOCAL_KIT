@@ -25,8 +25,26 @@ docker compose exec backend pytest llm/tests/adversarial/ -v
 cd backend && python -m pytest llm/tests/adversarial/ -v -k "not api"
 
 
-RESULTATS PHASE 1 - AVANT PATCH (attendu : 5 FAIL)
+RESULTATS PHASE 2 - APRES PATCH (attendu : 5 PASS)
 ==================================================
+Date execution   : 01/07/2026
+Execute par      : Milane MEHALEBI
+Commande         : docker compose exec backend pytest llm/tests/adversarial/ -v
+
+| # | Test pytest                                               | Couche | Resultat | Observation |
+|---|-----------------------------------------------------------|--------|----------|-------------|
+| 1 | test_adversarial_rejects_uniform_correct_index            | 4      | PASS     | LLMError levee si 10x correct_index=0 |
+| 2 | test_adversarial_course_content_isolated_in_user_prompt   | 2      | PASS     | Delimiteurs <<<COURS_NON_FIABLE>>> presents ; injection filtree |
+| 3 | test_adversarial_strips_zero_width_characters_from_course | 1      | PASS     | U+200B supprime avant construction du prompt |
+| 4 | test_adversarial_system_prompt_contains_anti_injection_clause | 3  | PASS     | Clause anti-injection presente dans SYSTEM_PROMPT |
+| 5 | test_adversarial_api_rejects_compromised_llm_output       | 4+API  | PASS     | HTTP 502 + 0 Quiz en base (LLM compromis simule) |
+
+Synthese : 5/5 PASS - patch 4 couches valide (quiz_prompt.py + validate_quiz_questions dans views.py).
+
+
+================================================================================
+PARTIE 1 BIS : RESULTATS PHASE 1 - AVANT PATCH (archive)
+================================================================================
 
 | # | Test pytest                                               | Couche | Resultat | Observation |
 |---|-----------------------------------------------------------|--------|----------|-------------|
@@ -129,8 +147,8 @@ TEST-M05 - Injection subtile dans le cours
 PROCHAINES ETAPES (PHASE 2 - post-patch)
 ================================================================================
 
-  [ ] Patch quiz_prompt.py (4 couches - cf. p3-note-securite.txt Section 2)
-  [ ] Re-executer : pytest llm/tests/adversarial/ -v -> 5 PASS attendus
+  [X] Patch quiz_prompt.py (4 couches - cf. p3-note-securite.txt Section 2)
+  [X] Re-executer : pytest llm/tests/adversarial/ -v -> 5 PASS (01/07/2026, Milane)
   [ ] Executer tests manuels M01 a M05 -> tous PASS attendus
   [ ] Rediger ADR-0002-prompt-injection.md
   [ ] (bonus) Ajouter 1 test adversarial dans GitHub Actions CI

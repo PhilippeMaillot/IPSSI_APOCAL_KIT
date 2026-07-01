@@ -1,4 +1,4 @@
-APOCAL'YNOV - PERTURBATION J3bis (P4 SUR 5) - RGPD
+APOCAL'IPSSI - PERTURBATION J3-BIS (P4 SUR 5) - RGPD / SAR
 Note de decision MoSCoW - EduTutor IA
 
 Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
@@ -10,57 +10,165 @@ IDENTIFICATION DU DOCUMENT
 Equipe n         : 19
 Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
                    Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
-Perturbation     : J3bis P4 - RGPD (pages legales + donnees personnelles)
+Perturbation     : J3-bis P4 - RGPD / SAR (donnees personnelles)
 Heure annoncee   : Mercredi 01/07/2026 - 14h00
 Redacteur        : Ismael CEREZO
 Fichier          : docs/perturbations/j3bis/p3bis-decision-moscow.txt
-Reference        : p3bis-product-backlog-maj.txt · p3bis-sprint-backlog-maj.txt
+Reference        : p3bis-product-backlog-maj.txt
+                   p3bis-politique-retention.txt
+                   p3bis-sprint-backlog-maj.txt
+                   p3bis-reponse-hugo.txt
+                   docs/cadrage/artefact-6-product-backlog.csv
 
 
 ================================================================================
 1. CONTEXTE DE LA PERTURBATION
 ================================================================================
 
-Le PO signale en debut de Sprint 5 que la Release 1 (17h45 mercredi) doit etre
-conforme RGPD avant demonstration. Deux droits utilisateur sont obligatoires
-(reglement UE 2016/679) :
+Le mercredi apres-midi, en pleine livraison MVP (Release 1 a 17h45), le PO
+transmet une demande formelle de Hugo PETIT (M2 Droit numerique, Paris-Saclay),
+utilisateur testeur du compte hugo.petit@test.local.
 
-  - Art. 17 (droit a l'effacement) : l'utilisateur doit pouvoir supprimer
-    son compte et toutes ses donnees associees.
-  - Art. 20 (droit a la portabilite) : l'utilisateur doit pouvoir telecharger
-    ses donnees personnelles dans un format lisible.
-  - Art. 13 (obligation d'information) : des pages legales doivent etre
-    accessibles depuis le site (mentions legales, politique de confidentialite,
-    CGU, cookies).
+Demande recue (Art. 15 RGPD — droit d'acces) :
+  - export integral des donnees personnelles detenues par EduTutor IA ;
+  - format structure, couramment utilise et lisible par machine (JSON ou CSV) ;
+  - categories attendues : compte, cours uploades, quiz generes, reponses,
+    scores, signalements eventuels, logs d'audit ;
+  - delai legal 30 jours, sponsor exige une reponse sous 48 h.
 
-Ces obligations existaient deja dans le cadrage initial mais leur statut
-MoSCoW ne les rendait pas prioritaires. La perturbation P4 les rend MUST HAVE.
+Cette perturbation ne demande pas un sprint de code immediat : elle impose une
+DECISION de repriorisation (posture produit + conformite documentee). Elle
+s'appuie sur la politique de retention deja redigee
+(p3bis-politique-retention.txt) et sur les nouvelles user stories RGPD
+(p3bis-product-backlog-maj.txt).
+
+Articles RGPD mobilises :
+  - Art. 13 : information des personnes (pages legales)
+  - Art. 15 : droit d'acces (SAR — Subject Access Request)
+  - Art. 17 : droit a l'effacement
+  - Art. 20 : droit a la portabilite (format reutilisable)
 
 
 ================================================================================
 2. TABLEAU DE REPRIORISATION MOSCOW
 ================================================================================
 
-User Story / Element         | Avant P4     | Apres P4    | Justification
------------------------------+--------------+-------------+------------------
-US-05 - Supprimer son compte | Should Have  | Must Have   | Art. 17 RGPD
-US-18 - Exporter ses donnees | Could Have   | Must Have   | Art. 20 RGPD
-Pages legales (taches)       | Non planifie | Must Have   | Art. 13 RGPD
-Politique de retention       | Non planifie | Must Have   | Bonne pratique
+Element / User Story              | Avant P4      | Apres P4     | Justification
+----------------------------------+---------------+--------------+------------------------------
+US-05 Supprimer son compte        | Should Have   | Must Have    | Art. 17 — effacement
+  (= US-RGPD-02)                  |               |              | Kit deja present ; cascade a valider (TASK-28)
+US-18 Exporter ses donnees        | Could Have    | Must Have    | Art. 15 + Art. 20 — SAR Hugo
+  (= US-RGPD-01)                  |               |              | Endpoint a implementer (TASK-27)
+US-RGPD-03 Tracer demandes RGPD   | Non planifie  | Must Have    | CA-J3B-6 — audit trail DataRequest
+  (modele DataRequest / SAR)        |               |              | Preuve de traitement CNIL
+US-RGPD-04 Pages legales +        | Non planifie  | Must Have    | Art. 13 — obligation d'information
+  politique de retention visible  | (squelettes)  |              | 4 pages + lien politique (TASK-26)
+Politique de retention ecrite     | Non planifie  | Must Have    | CA-J3B-5 — 3 sections minimum
+  (p3bis-politique-retention.txt) |               |              | Durees, motifs, suppression
+US-RGPD-05 Repondre a Hugo Petit  | Non planifie  | Must Have    | CA-J3B-7 — email professionnel SAR
+  (reponse ecrite SAR)              |               |              | Accuse reception + droits Art. 16-20
+Bouton frontend « Exporter mes     | Non planifie  | Must Have    | CA-J3B-4 — declenchement export
+  donnees » (profil)                |               |              | Integre a US-RGPD-01 / TASK-27
+F1-F6 MVP etudiant (parcours      | Must Have     | Must Have    | Non remis en cause par P4
+  quiz)                           |               |              |
+US-J1-01/02/03 (Mme Lefevre)      | Must Have     | Should Have  | Report Sprint 6+ si capacite insuffisante
+US-13 Dashboard progression       | Should Have   | Should Have  | Deja livre (demo) — pas de regression
+US-15 a US-20 (Release 2)         | Could Have    | Won't Have   | Hors perimetre Release 1 post-P4
+Interface admin RGPD complete     | Non planifie  | Could Have   | Back-office avance — post-MVP
+Purge automatique planifiee       | Non planifie  | Could Have   | Politique documentee ; cron differe
+Export ZIP multi-fichiers         | Non planifie  | Could Have   | Bonus ; JSON + CSV suffisent pour MUST
+
+
+Correspondance backlog initial ↔ nouvelles stories RGPD :
+  US-05  →  US-RGPD-02  (suppression / effacement)
+  US-18  →  US-RGPD-01  (export JSON + CSV)
+  —      →  US-RGPD-03  (audit trail SAR — nouvelle)
+  —      →  US-RGPD-04  (transparence pages legales — nouvelle)
+  —      →  US-RGPD-05  (reponse SAR Hugo — nouvelle)
 
 
 ================================================================================
-3. VERDICT POUR RELEASE 1 (mercredi 17h45 STRICT)
+3. DECISION PRODUIT — ARBITRAGE MVP vs CONFORMITE
 ================================================================================
 
-La Release 1 est invalide sans ces trois elements :
-  1. US-05 fonctionnel (suppression compte + donnees)
-  2. US-18 fonctionnel (bouton export JSON)
-  3. 4 pages legales completes et accessibles
+Verdict equipe :
+  La Release 1 (mercredi 17h45) est INVALIDE sans les elements RGPD MUST.
+  Le MVP fonctionnel (F1-F6) reste livrable, mais la demonstration au PO
+  doit inclure la posture conformite minimale.
 
-Note : US-05 est deja code dans le kit EduTutor IA (backend + frontend).
-Note : US-18 necessite un endpoint backend a implementer (TASK-27).
-Note : Les pages legales sont des squelettes vides dans le frontend (TASK-26).
+Elements bloquants Release 1 (non negociables) :
+  1. US-RGPD-01 / US-18 : GET /api/accounts/me/export/ + JSON + CSV
+  2. US-RGPD-02 / US-05 : suppression compte + cascade donnees validee
+  3. US-RGPD-03 : modele DataRequest + trace export/suppression
+  4. US-RGPD-04 : 4 pages legales completees (plus de placeholders vides)
+  5. Politique de retention publiee (reference p3bis-politique-retention.txt)
+  6. US-RGPD-05 : reponse ecrite a Hugo Petit (p3bis-reponse-hugo.txt)
+
+Elements deja en place dans le kit (gain de temps) :
+  - Bouton suppression compte sur /profile (US-05 partiellement code)
+  - 4 pages legales squelettes (/mentions-legales, /confidentialite, /cgu, /cookies)
+  - Auth par token — filtrage request.user possible des la conception export
+
+Elements a implementer en priorite Sprint 5 :
+  - TASK-27 : endpoint export + bouton telechargement
+  - TASK-28 : validation suppression cascade
+  - TASK-26 : contenu pages legales + lien politique retention
+  - Modele DataRequest + creation auto a chaque export/suppression
+
+
+================================================================================
+4. ALIGNEMENT AVEC LA POLITIQUE DE RETENTION
+================================================================================
+
+La repriorisation MoSCoW s'appuie sur p3bis-politique-retention.txt :
+
+  Donnee              | Duree retenue        | Impact MoSCoW
+  --------------------+----------------------+----------------------------------
+  PDF originaux       | 30 jours max         | MUST documenter + SHOULD purger
+  Cours / quiz /      | 12 mois              | MUST inclure dans export SAR
+  scores / reponses   |                      |
+  Logs applicatifs    | 30 jours             | MUST inclure si disponibles (Hugo)
+  Audit trail SAR     | 3 ans (minimal)      | MUST — US-RGPD-03
+  Compte actif        | Tant que compte      | MUST export + effacement
+
+Decision : les durees de retention ne remettent pas en cause le MUST des
+droits utilisateur ; elles contraignent le CONTENU de l'export et les pages
+legales (US-RGPD-04).
+
+
+================================================================================
+5. IMPACT SUR LE SPRINT 5 (mercredi apres-midi)
+================================================================================
+
+Capacite disponible : ~4 h (Sprint 5, apres perturbation P3 securite matin).
+
+Ordre de priorite retenu :
+  1. TASK-27 — export JSON/CSV (US-RGPD-01) — bloquant SAR Hugo
+  2. TASK-28 — validation suppression (US-RGPD-02)
+  3. TASK-26 — pages legales (US-RGPD-04)
+  4. DataRequest + trace (US-RGPD-03) — en parallele backend
+  5. Reponse Hugo (US-RGPD-05) — documentaire, des que export testable
+  6. US-J1-01/02/03 — SHOULD, seulement si capacite residuelle
+
+Stories reportees en COULD / Won't Have Sprint 5 :
+  - Admin RGPD avance, purge cron, export ZIP, stats enseignantes etendues.
+
+
+================================================================================
+6. VERDICT POUR RELEASE 1 (mercredi 17h45 STRICT)
+================================================================================
+
+La Release 1 est validee par le PO si et seulement si :
+  [ ] Export SAR fonctionnel (JSON + CSV, filtre strict request.user)
+  [ ] Suppression compte cascade verifiee
+  [ ] DataRequest persiste en base
+  [ ] Pages legales accessibles et completees
+  [ ] Politique de retention referencee
+  [ ] Reponse a Hugo Petit deposee
+  [ ] F1-F6 MVP toujours demonstrables
+
+Risque identifie : fuite inter-comptes a l'export (Quiz.objects.all()).
+Mitigation : tests unitaires user A ≠ donnees user B (cf. page perturbation J3-bis).
 
 Validation equipe :
   Mathieu PONNOU    - valide
@@ -75,10 +183,12 @@ Validation equipe :
 GRILLE D'AUTO-EVALUATION
 ================================================================================
 
-  Contexte RGPD et articles de loi documentes                     : [X] Oui
-  Tableau MoSCoW avec avant/apres et justification                 : [X] Oui
-  Verdict Release 1 clair                                          : [X] Oui
-  Distinction code existant vs a implementer                       : [X] Oui
+  Contexte SAR Hugo Petit et articles RGPD documentes              : [X] Oui
+  Tableau MoSCoW avant/apres avec justification                    : [X] Oui
+  Correspondance US-05/US-18 ↔ US-RGPD-01 a 05                   : [X] Oui
+  Alignement avec p3bis-politique-retention.txt                   : [X] Oui
+  Verdict Release 1 et arbitrage MVP vs conformite                 : [X] Oui
+  Impact Sprint 5 explicite                                        : [X] Oui
   Document valide par l'equipe                                     : [X] Oui
 
 

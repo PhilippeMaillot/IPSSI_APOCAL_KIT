@@ -9,357 +9,400 @@ Auteur du modele : Mohamed Amine EL AFRIT - Licence CC BY-NC-SA 4.0
 Equipe n         : 19
 Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
 Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
-Perturbation     : J3-bis - RGPD / demande SAR / droit d'acces
-Version          : v1.0
+Perturbation     : J3-bis P4 - RGPD / demande SAR / droit d'acces
+Version          : v1.1 (alignee politique retention + CA-J3B officiels)
 Date de remise   : 01/07/2026
 Statut           : Draft
 Redacteur        : Aboubacar COUMARE
 Fichier          : docs/perturbations/j3bis/p3bis-product-backlog-maj.txt
-Reference        : complete docs/cadrage/artefact-6-product-backlog.csv
-complete docs/perturbations/j1/p1-product-backlog-maj.txt
+Reference        : docs/cadrage/artefact-6-product-backlog.csv
+                   docs/perturbations/j3bis/p3bis-politique-retention.txt
+                   docs/perturbations/j3bis/p3bis-decision-moscow.txt
+                   https://mohamedelafrit.com/teaching/APOCALIPSSI/pages/perturbations/j3bis-rgpd.php
+
 
 ================================================================================
 0. CONTEXTE DE LA MISE A JOUR
-=============================
-
-La perturbation J3-bis introduit une contrainte RGPD forte : l'application doit
-etre capable de repondre a une demande d'acces aux donnees personnelles et de
-permettre a l'utilisateur d'exercer ses droits.
-
-Le Product Backlog doit donc etre actualise avec de nouvelles user stories RGPD.
-
-Objectifs :
-
-* permettre a un utilisateur de recuperer ses donnees ;
-* permettre a un utilisateur de supprimer ses donnees ;
-* tracer les demandes RGPD dans un audit trail ;
-* rendre visible la politique de retention et les mentions legales ;
-* maintenir le MVP livrable sans faire exploser le perimetre.
-
-Decision produit :
-Les stories RGPD liees aux droits fondamentaux de l'utilisateur passent en MUST.
-Les fonctionnalites plus avancees d'administration ou d'automatisation passent
-en SHOULD ou COULD.
-
 ================================================================================
 
-1. NOUVELLES USER STORIES RGPD
-   ================================================================================
+La perturbation J3-bis (P4) introduit une demande SAR de Hugo PETIT (Art. 15
+RGPD) en pleine livraison MVP. Le Product Backlog est actualise avec 5 nouvelles
+user stories RGPD (US-RGPD-01 a 05), alignees sur :
+
+  - la politique de retention (p3bis-politique-retention.txt) ;
+  - les criteres d'acceptation officiels CA-J3B-1 a CA-J3B-7 ;
+  - la note MoSCoW (p3bis-decision-moscow.txt).
+
+Correspondance avec le backlog initial (artefact-6) :
+  US-RGPD-01  remplace / etend  US-18  (export portabilite)
+  US-RGPD-02  remplace / etend  US-05  (effacement compte)
+  US-RGPD-03  nouvelle           —     (audit trail SAR)
+  US-RGPD-04  nouvelle           —     (pages legales Art. 13)
+  US-RGPD-05  nouvelle           —     (reponse SAR Hugo Petit)
+
+
+================================================================================
+1. TABLEAU DE CORRESPONDANCE CA-J3B ↔ USER STORIES
+================================================================================
+
+Critere officiel | Points | User story    | Tache sprint
+-----------------+--------+---------------+-------------
+CA-J3B-1         | 1 pt   | US-RGPD-01    | TASK-27
+  Endpoint 200 + donnees structurees
+CA-J3B-2         | 1 pt   | US-RGPD-01    | TASK-27
+  6 categories exportees (user, quiz, reponses, signalements, logs, demandes RGPD)
+CA-J3B-3         | 1 pt   | US-RGPD-01    | TASK-27
+  >= 2 formats (JSON + CSV)
+CA-J3B-4         | 1 pt   | US-RGPD-01    | TASK-27
+  Bouton « Exporter mes donnees » (frontend authentifie)
+CA-J3B-5         | 1 pt   | US-RGPD-04    | TASK-26 + p3bis-politique-retention.txt
+  Politique retention >= 3 sections
+CA-J3B-6         | 1 pt   | US-RGPD-03    | backend DataRequest
+  Audit trail SAR persiste en base
+CA-J3B-7         | 1 pt   | US-RGPD-05    | p3bis-reponse-hugo.txt
+  Reponse ecrite professionnelle a Hugo Petit
+
+
+================================================================================
+2. NOUVELLES USER STORIES RGPD (CRITERES D'ACCEPTATION DETAILLES)
+================================================================================
 
 ---
 
-## US-RGPD-01 - Exporter ses donnees personnelles
+## US-RGPD-01 - Exporter ses donnees personnelles (SAR Art. 15 / portabilite Art. 20)
 
-Epic :
-EPIC RGPD - Droits utilisateur
+Epic : EPIC RGPD — Droits utilisateur
+Backlog initial : US-18 (Could → Must P4)
+Priorite MoSCoW : MUST
+Sprint cible : Sprint 5 (TASK-27)
+Points : 3
 
 User story :
 En tant qu'utilisateur authentifie,
-je veux recuperer mes donnees personnelles au format JSON et CSV,
-afin d'exercer mon droit d'acces et de portabilite.
+je veux recuperer l'integralite de mes donnees personnelles au format JSON et CSV,
+afin d'exercer mon droit d'acces (Art. 15) et de portabilite (Art. 20).
 
 Analyse INVEST :
+  I — Endpoint dedie, independant des autres features.
+  N — Premiere version : JSON + CSV ; ZIP en bonus (COULD).
+  V — Repond directement a la demande Hugo PETIT.
+  E — Modeles User, Quiz, Question deja identifies.
+  S — Limite a l'utilisateur connecte (request.user).
+  T — Tests anti-fuite inter-comptes possibles.
 
-* Independante : peut etre developpee via un endpoint dedie.
-* Negociable   : le premier export peut contenir les donnees principales.
-* Valuable     : repond directement au droit d'acces et de portabilite.
-* Estimable    : les donnees exportees sont identifiables dans les modeles.
-* Small        : premiere version limitee a l'utilisateur connecte.
-* Testable     : on peut verifier le contenu du JSON et du CSV.
+Criteres d'acceptation (CA-J3B-1, CA-J3B-2, CA-J3B-3, CA-J3B-4) :
 
-Priorite MoSCoW :
-MUST
+  CA-01  GET /api/accounts/me/export/ retourne HTTP 200 pour un user authentifie.
+  CA-02  Endpoint protege : 401/403 si non authentifie.
+  CA-03  Filtrage strict request.user sur TOUTES les tables (anti-leak).
+         Test : user A exporte → zero donnee de user B (quiz, reponses, logs).
+  CA-04  Export JSON structure et valide (Content-Type application/json).
+  CA-05  Export CSV ou second format tabulaire equivalent (query param ?format=csv
+         ou header Accept).
+  CA-06  Categories obligatoires dans l'export (6) :
+         (1) donnees de compte (email, dates inscription/connexion) ;
+         (2) cours / textes uploades (source_text des quiz) ;
+         (3) quiz generes (titre, date, questions) ;
+         (4) reponses utilisateur et scores ;
+         (5) signalements emis (QuestionReport si modele present ; sinon cle vide
+             documentee) ;
+         (6) logs / demandes RGPD lies a l'utilisateur (DataRequest).
+  CA-07  Aucun mot de passe, token, hash ou secret technique dans l'export.
+  CA-08  Header Content-Disposition: attachment ; nom de fichier horodate
+         edututor_export_<YYYY-MM-DD>.json (ou .csv).
+  CA-09  Bouton « Exporter mes donnees » visible sur /profile (utilisateur connecte).
+  CA-10  Telechargement declenche sans envoi asynchrone par email.
+  CA-11  Une entree DataRequest (type=export, statut=completed) est creee
+         automatiquement (cf. US-RGPD-03).
+  CA-12  Durees de retention documentees dans l'export ou pages legales
+         (reference p3bis-politique-retention.txt : PDF 30 j, quiz 12 mois).
 
-Justification MoSCoW :
-Cette story est indispensable car elle repond a une exigence RGPD centrale.
-L'utilisateur doit pouvoir recuperer ses donnees dans un format lisible par
-machine. Elle doit etre integree au MVP ou documentee comme contrainte critique
-a livrer immediatement.
-
-Criteres d'acceptation :
-
-* L'utilisateur authentifie peut acceder a un export de ses donnees.
-* L'export contient uniquement ses propres donnees.
-* L'export est disponible en JSON.
-* L'export est disponible en CSV ou dans un format tabulaire equivalent.
-* L'export ne contient aucun mot de passe, token ou secret technique.
-* Une trace de la demande est creee dans l'audit trail SAR.
-
-Impact DoR / DoD :
 DoR :
-* Lister les donnees exportables.
-* Valider le format JSON et CSV attendu.
-* Verifier les droits d'acces de l'utilisateur.
+  Lister les modeles Django exportables (User, Profile, Quiz, Question).
+  Valider le format JSON (schema) et CSV (colonnes minimales).
+  Definir le comportement si signalements absents (J4 non livre).
 
 DoD :
-* Endpoint GET /api/accounts/me/export/ fonctionnel.
-* Export limite a l'utilisateur connecte.
-* Tests effectues sur le contenu de l'export.
-* Audit trail cree apres demande.
+  Endpoint fonctionnel + tests anti-fuite.
+  Bouton frontend operationnel.
+  DataRequest cree a chaque export.
+  Demo PO : export du compte hugo.petit@test.local reproductible.
+
 
 ---
 
-## US-RGPD-02 - Supprimer ses donnees personnelles
+## US-RGPD-02 - Supprimer ses donnees personnelles (effacement Art. 17)
 
-Epic :
-EPIC RGPD - Droits utilisateur
+Epic : EPIC RGPD — Droits utilisateur
+Backlog initial : US-05 (Should → Must P4)
+Priorite MoSCoW : MUST
+Sprint cible : Sprint 5 (TASK-28)
+Points : 2
 
 User story :
 En tant qu'utilisateur authentifie,
-je veux supprimer mon compte et mes donnees personnelles,
-afin d'exercer mon droit a l'effacement.
+je veux supprimer definitivement mon compte et toutes mes donnees personnelles,
+afin d'exercer mon droit a l'effacement (Art. 17).
 
 Analyse INVEST :
-
-* Independante : peut etre developpee comme action compte separee.
-* Negociable   : la premiere version peut supprimer ou anonymiser selon le cas.
-* Valuable     : repond a un droit utilisateur fondamental.
-* Estimable    : les donnees a supprimer sont liees au compte utilisateur.
-* Small        : premiere version limitee aux donnees personnelles directes.
-* Testable     : on peut verifier que les donnees ne sont plus accessibles.
-
-Priorite MoSCoW :
-MUST
-
-Justification MoSCoW :
-Cette story est prioritaire car elle repond au droit a l'effacement. Elle est
-critique pour la conformite et pour la confiance utilisateur. Elle doit couvrir
-au minimum le compte, les cours, les quiz, les reponses, les scores et
-l'historique.
+  I — Action compte separee de l'export.
+  N — Suppression immediate en base ; anonymisation partielle si contrainte legale.
+  V — Droit fondamental ; demande aussi par Hugo PETIT.
+  E — Tables identifiees : User, Quiz, Question, Token.
+  S — Bouton deja present dans le kit.
+  T — Verification post-suppression en base.
 
 Criteres d'acceptation :
 
-* L'utilisateur peut demander la suppression de ses donnees.
-* Une confirmation explicite est demandee avant suppression.
-* Le compte utilisateur est supprime ou desactive.
-* Les cours, quiz, reponses, scores et historiques associes sont supprimes ou
-  anonymises.
-* Les donnees de l'utilisateur ne sont plus visibles dans les vues enseignantes.
-* Une trace minimale de la demande est conservee dans l'audit trail SAR.
+  CA-01  Bouton « Supprimer mon compte » accessible depuis /profile.
+  CA-02  Confirmation explicite requise (mot de passe ou dialogue de confirmation).
+  CA-03  Suppression en cascade : compte + quiz + questions + scores + reponses.
+  CA-04  Token d'authentification invalide apres suppression.
+  CA-05  Reconnexion impossible avec les memes identifiants.
+  CA-06  Donnees plus accessibles via l'API (GET historique → 404 ou liste vide).
+  CA-07  Donnees personnelles retirees des vues enseignantes (US-J1) si presentes.
+  CA-08  Trace minimale conservee dans DataRequest (type=delete, sans recopie
+         des donnees supprimees) — cf. politique retention section 3.6.
+  CA-09  Email de confirmation de suppression envoye (best-effort Brevo).
+  CA-10  Delai de suppression effective documente : immediate en base ;
+         alignement Art. 17 al. 3 (30 jours max si backup — mention pages legales).
 
-Impact DoR / DoD :
 DoR :
-* Definir les tables impactees par la suppression.
-* Definir ce qui est supprime et ce qui est anonymise.
-* Valider la conservation minimale de l'audit trail SAR.
+  Cartographier les FK User → Quiz → Question.
+  Valider avec PO : conservation audit trail SAR seul (3 ans, donnees minimales).
 
 DoD :
-* Suppression testee sur un compte de test.
-* Les donnees ne sont plus accessibles via l'API.
-* Les donnees ne sont plus visibles cote frontend.
-* Audit trail SAR cree sans recopier les donnees supprimees.
+  TASK-28 execute : zero orphelin en base apres suppression test.
+  DataRequest cree a chaque suppression.
+  Test manuel : compte supprime → export impossible.
+
 
 ---
 
-## US-RGPD-03 - Tracer les demandes RGPD
+## US-RGPD-03 - Tracer les demandes RGPD (audit trail SAR)
 
-Epic :
-EPIC RGPD - Audit trail SAR
+Epic : EPIC RGPD — Audit trail SAR
+Priorite MoSCoW : MUST
+Sprint cible : Sprint 5
+Points : 2
 
 User story :
-En tant qu'administrateur,
-je veux conserver une trace minimale des demandes RGPD,
-afin de prouver que l'equipe a traite les demandes d'acces ou d'effacement.
+En tant qu'administrateur / responsable de traitement,
+je veux conserver une trace minimale des demandes RGPD (export, suppression),
+afin de prouver le traitement d'une SAR conformement aux attentes CNIL (CA-J3B-6).
 
 Analyse INVEST :
+  I — Modele DataRequest autonome.
+  N — V1 : champs minimaux ; pas de back-office admin complet.
+  V — Preuve de conformite pour Hugo PETIT et futurs SAR.
+  E — 1 modele + 2 hooks (export, delete).
+  S — Pas d'interface admin obligatoire pour MVP.
+  T — Assertion ORM : 1 export → 1 DataRequest.
 
-* Independante : peut etre implementee avec un modele DataRequest.
-* Negociable   : premiere version limitee a type, statut, date et utilisateur.
-* Valuable     : permet de prouver le traitement d'une demande.
-* Estimable    : necessite un modele simple et quelques statuts.
-* Small        : pas besoin d'un back-office complet pour le MVP.
-* Testable     : on peut verifier qu'une demande cree une entree en base.
+Criteres d'acceptation (CA-J3B-6) :
 
-Priorite MoSCoW :
-MUST
+  CA-01  Modele DataRequest persiste en base (migration Django).
+  CA-02  Champs obligatoires : user (FK), request_type (export | delete),
+         status (received | in_progress | completed | failed),
+         created_at, completed_at (nullable), export_file_hash (nullable).
+  CA-03  Chaque export (US-RGPD-01) cree une entree status=completed.
+  CA-04  Chaque suppression (US-RGPD-02) cree une entree status=completed.
+  CA-05  L'audit trail NE contient PAS le contenu integral des donnees exportees.
+  CA-06  Conservation 3 ans (politique retention section 3.6).
+  CA-07  hash du fichier exporte stocke pour integrite (SHA-256 du JSON genere).
+  CA-08  Accessible en lecture admin Django (optionnel MVP) ou via shell.
 
-Justification MoSCoW :
-Cette story est liee a la capacite de repondre proprement aux demandes SAR.
-Elle est en MUST car l'equipe doit pouvoir demontrer que la demande a ete prise
-en compte, sans stocker inutilement toutes les donnees personnelles.
-
-Criteres d'acceptation :
-
-* Un modele DataRequest existe.
-* Une demande d'export cree une entree d'audit.
-* Une demande de suppression cree une entree d'audit.
-* L'entree contient au minimum : utilisateur, type de demande, date, statut.
-* L'audit trail ne contient pas les donnees personnelles exportees en clair.
-
-Impact DoR / DoD :
 DoR :
-* Definir les statuts possibles : pending, completed, failed.
-* Definir les types de demande : export, delete.
+  Schema DataRequest valide par l'equipe.
+  Statuts et types enumeres documentes.
 
 DoD :
-* DataRequest cree en base.
-* Creation automatique d'une trace lors d'un export ou d'une suppression.
-* Verification que les donnees sensibles ne sont pas dupliquees inutilement.
+  Migration appliquee.
+  Creation automatique verifiee par test unitaire.
+  Mention dans politique retention section 3.6 coherente.
+
 
 ---
 
-## US-RGPD-04 - Consulter les mentions legales et la politique de retention
+## US-RGPD-04 - Pages legales et politique de retention visible (Art. 13)
 
-Epic :
-EPIC RGPD - Transparence
+Epic : EPIC RGPD — Transparence
+Priorite MoSCoW : MUST (repriorise P4 — etait SHOULD en v1.0)
+Sprint cible : Sprint 5 (TASK-26)
+Points : 2
 
 User story :
 En tant qu'utilisateur,
-je veux consulter les mentions legales et la politique de retention des donnees,
-afin de comprendre comment EduTutor IA traite mes donnees personnelles.
+je veux consulter les mentions legales, la politique de confidentialite et la
+politique de retention des donnees,
+afin de comprendre comment EduTutor IA traite mes donnees personnelles (Art. 13).
 
 Analyse INVEST :
+  I — Pages statiques React, independantes du backend.
+  N — Contenu minimal acceptable ; detail juridique dans p3bis-politique-retention.txt.
+  V — Transparence ; prerequis CA-J3B-5.
+  E — 4 pages deja squelettes dans le kit.
+  S — Remplacement des placeholders vides.
+  T — Navigation footer + contenu non vide.
 
-* Independante : peut etre developpee comme page statique.
-* Negociable   : contenu minimal acceptable pour le MVP.
-* Valuable     : renforce la transparence et la confiance.
-* Estimable    : faible complexite technique.
-* Small        : une page simple suffit pour la premiere version.
-* Testable     : on peut verifier que la page est accessible.
+Criteres d'acceptation (CA-J3B-5) :
 
-Priorite MoSCoW :
-SHOULD
+  CA-01  4 pages accessibles : /mentions-legales, /politique-confidentialite,
+         /cgu, /cookies.
+  CA-02  Liens presents dans le footer de toutes les pages.
+  CA-03  Politique de retention >= 3 sections visibles :
+         (1) durees par type de donnee (cf. tableau politique retention section 2) ;
+         (2) motifs legaux / bases Art. 6 (contrat, consentement, interet legitime) ;
+         (3) modalites de suppression Art. 17 (compte, export, delais).
+  CA-04  Durees alignees sur p3bis-politique-retention.txt :
+         PDF 30 j · cours/quiz/scores 12 mois · logs 30 j · audit SAR 3 ans.
+  CA-05  Droits utilisateur expliques : acces, rectification, effacement,
+         portabilite, opposition.
+  CA-06  Formats d'export JSON / CSV mentionnes.
+  CA-07  Contact DPO fictif ou email privacy@edututor.local indique.
+  CA-08  Aucun texte « Lorem ipsum » ou placeholder vide en production.
+  CA-09  Responsable de traitement identifie (EduTutor IA / Equipe 19).
 
-Justification MoSCoW :
-Cette story est importante pour la transparence RGPD, mais elle peut etre livree
-sous forme simple. Elle accompagne les stories MUST d'export, de suppression et
-d'audit trail.
-
-Criteres d'acceptation :
-
-* Une page mentions legales est accessible depuis l'application.
-* La politique de retention est visible ou referencee.
-* Les droits utilisateur sont expliques simplement.
-* Les formats d'export JSON / CSV sont mentionnes.
-* Le contact ou canal de demande RGPD est indique si disponible.
-
-Impact DoR / DoD :
 DoR :
-* Valider le contenu minimal avec le PO.
-* Verifier les liens vers les pages legales.
+  Contenu valide par PO.
+  Synchronisation avec p3bis-politique-retention.txt.
 
 DoD :
-* Page accessible depuis le frontend.
-* Contenu relu par l'equipe.
-* Aucun texte placeholder vide ne reste en production.
+  4 pages completees et navigables.
+  Politique retention referencee depuis /politique-confidentialite.
+
+
+---
+
+## US-RGPD-05 - Repondre a une demande SAR (Hugo PETIT)
+
+Epic : EPIC RGPD — Traitement des demandes
+Priorite MoSCoW : MUST
+Sprint cible : Sprint 5
+Points : 1
+
+User story :
+En tant qu'equipe EduTutor IA,
+je veux repondre par ecrit a Hugo PETIT dans un delai de 48 h,
+afin de demontrer notre capacite a traiter une SAR Art. 15 de maniere
+professionnelle (CA-J3B-7).
+
+Analyse INVEST :
+  I — Livrable documentaire, pas de code obligatoire.
+  N — Email structure ; piece jointe ou lien securise selon export disponible.
+  V — Demonstration maturite produit face au jury.
+  E — 1 page maximum.
+  S — Redaction une fois export testable.
+  T — Checklist CA-J3B-7 verifiee.
+
+Criteres d'acceptation (CA-J3B-7) :
+
+  CA-01  Fichier depose : docs/perturbations/j3bis/p3bis-reponse-hugo.txt
+         (ou .md / email format texte).
+  CA-02  Accuse de reception de la demande (date, reference SAR).
+  CA-03  Explication des categories de donnees transmises (6 categories).
+  CA-04  Lien de telechargement ou procedure d'export depuis /profile.
+  CA-05  Mention des droits Art. 16 (rectification), 17 (effacement),
+         18 (limitation), 20 (portabilite).
+  CA-06  Contact DPO / privacy@edututor.local.
+  CA-07  Ton professionnel, structuree, sans jargon excessif.
+  CA-08  Delai de reponse < 48 h (scenario perturbation) documente.
+  CA-09  Coherent avec politique retention et endpoint reel (pas de promesse
+         non implementee).
+
+DoR :
+  Export US-RGPD-01 testable (ou procedure manuelle documentee si retard technique).
+
+DoD :
+  Fichier versionne sur GitHub avant echeance perturbation.
+  Relu par au moins 2 membres de l'equipe.
+
 
 ================================================================================
-2. PRIORISATION MOSCOW ACTUALISEE
-=================================
+3. PRIORISATION MOSCOW ACTUALISEE (SYNTHESE)
+================================================================================
 
-## MUST - Indispensable
+MUST — Indispensable Release 1 (post-P4) :
+  * US-RGPD-01 — export JSON + CSV (US-18)
+  * US-RGPD-02 — suppression compte cascade (US-05)
+  * US-RGPD-03 — audit trail DataRequest
+  * US-RGPD-04 — pages legales + politique retention visible
+  * US-RGPD-05 — reponse ecrite Hugo PETIT
+  * F1-F6 MVP etudiant (inchangé)
 
-* US-RGPD-01 : exporter ses donnees personnelles en JSON / CSV.
-* US-RGPD-02 : supprimer ses donnees personnelles.
-* US-RGPD-03 : tracer les demandes RGPD avec un audit trail SAR.
-* Maintenir le parcours MVP : compte, upload, generation, correction, score,
-  historique.
+SHOULD — Important, negociable si retard :
+  * US-J1-01/02/03 — suivi enseignant Mme Lefevre
+  * US-13/14 — dashboard et revision (deja livres, pas de regression)
+  * Email confirmation suppression (US-RGPD-02 CA-09)
 
-Justification :
-Ces stories repondent aux droits fondamentaux de l'utilisateur. Elles sont
-critiques pour eviter un MVP fonctionnel mais non conforme.
+COULD — Reportable Release 2 :
+  * Interface admin suivi SAR
+  * Purge automatique planifiee (cron retention)
+  * Export ZIP multi-fichiers
+  * Historique detaille des exports telecharges
 
-## SHOULD - Important mais negociable
+WON'T HAVE — Hors perimetre immediat :
+  * Workflow DPO multi-etablissements
+  * Connecteurs export tiers (Google Drive, etc.)
+  * Anonymisation statistique avancee multi-classes
 
-* US-RGPD-04 : consulter les mentions legales et la politique de retention.
-* Ajouter un bouton export visible dans le frontend.
-* Ajouter une confirmation explicite avant suppression.
-* Documenter les limites de retention dans le depot.
+Reference detaillee : p3bis-decision-moscow.txt
 
-Justification :
-Ces elements renforcent la transparence et l'utilisabilite, mais une premiere
-version simple peut suffire pour le MVP.
-
-## COULD - Interessant mais reportable
-
-* Interface admin complete de suivi des demandes RGPD.
-* Purge automatique planifiee.
-* Export avance par periode ou par type de donnee.
-* Historique detaille des exports telecharges.
-
-Justification :
-Ces elements apportent de la maturite mais ne sont pas indispensables pour
-repondre a la perturbation dans le temps disponible.
-
-## WON'T HAVE - Hors perimetre immediat
-
-* Gestion juridique complete multi-etablissements.
-* Workflow avance de validation DPO.
-* Connecteurs externes pour exporter vers d'autres plateformes.
-* Anonymisation statistique avancee multi-classes.
-
-Justification :
-Ces fonctionnalites depassent le perimetre du MVP et risquent de faire exploser
-le scope de la livraison.
 
 ================================================================================
-3. IMPACT SUR LE PRODUCT BACKLOG EXISTANT
-=========================================
+4. IMPACT SUR LE PRODUCT BACKLOG EXISTANT
+================================================================================
 
 Stories existantes impactees :
 
-* Inscription / connexion : verifier que l'utilisateur authentifie est bien le
-  proprietaire des donnees exportees.
-* Profil utilisateur : ajouter un acces a l'export ou a la suppression.
-* Historique des quiz : rendre les donnees exportables.
-* Score et detail des corrections : inclure dans l'export.
-* Suivi enseignant : retirer ou anonymiser les donnees d'un etudiant supprime.
+  US-05  → fusionnee dans US-RGPD-02 ; Must Have confirme ; TASK-28
+  US-18  → fusionnee dans US-RGPD-01 ; Must Have confirme ; TASK-27
+  US-04  → profil : ajouter acces export + suppression (US-RGPD-01/02)
+  US-12  → historique : donnees incluses dans export SAR
+  US-J1-* → anonymisation etudiant supprime dans vues enseignantes
 
-Nouvelles dependances :
+Nouvelles dependances techniques :
 
-* Endpoint REST GET /api/accounts/me/export/
-* Modele DataRequest pour audit trail SAR
-* Bouton export frontend
-* Action ou demande de suppression des donnees
-* Page mentions legales / politique de retention
+  GET  /api/accounts/me/export/     (JSON + CSV)
+  POST /api/accounts/me/delete/     (existant — valider cascade)
+  Modele DataRequest                (accounts ou administration app)
+  Pages legales frontend            (TASK-26)
+  docs/perturbations/j3bis/p3bis-politique-retention.txt (reference)
+  docs/perturbations/j3bis/p3bis-reponse-hugo.txt
 
-================================================================================
-4. CRITERES D'ACCEPTATION GLOBAUX
-=================================
-
-Le Product Backlog RGPD actualise est accepte si :
-
-* au moins une user story couvre l'export des donnees ;
-* au moins une user story couvre la suppression des donnees ;
-* les formats JSON et CSV sont mentionnes ;
-* les criteres d'acceptation sont testables ;
-* les priorites MoSCoW sont visibles et justifiees ;
-* les impacts DoR / DoD sont explicites ;
-* les stories ne cassent pas le MVP principal ;
-* les taches techniques correspondantes peuvent etre reprises dans le Sprint
-  Backlog.
 
 ================================================================================
-5. SYNTHESE
-===========
+5. CRITERES D'ACCEPTATION GLOBAUX (CHECKLIST LIVRABLE P4)
+================================================================================
 
-La perturbation J3-bis ajoute une exigence de conformite au Product Backlog.
+Le Product Backlog RGPD v1.1 est accepte si :
 
-Le MVP ne peut pas seulement etre fonctionnel : il doit aussi permettre a
-l'utilisateur d'exercer ses droits sur ses donnees.
+  [X] 5 user stories RGPD documentees (US-RGPD-01 a 05)
+  [X] Correspondance US-05 / US-18 explicite
+  [X] Criteres CA-J3B-1 a CA-J3B-7 couverts
+  [X] Formats JSON + CSV exiges
+  [X] 6 categories de donnees export listees
+  [X] Anti-fuite inter-comptes mentionne (request.user)
+  [X] Alignement durees retention avec p3bis-politique-retention.txt
+  [X] Priorites MoSCoW visibles et justifiees
+  [X] DoR / DoD par story
+  [ ] Stories implementees et testees (Sprint 5 — en cours)
 
-Les stories d'export, de suppression et d'audit trail passent en MUST, car elles
-sont directement liees a la demande RGPD. Les pages legales et la politique de
-retention sont importantes et classees en SHOULD si elles sont livrees sous forme
-simple. Les fonctions avancees d'administration et d'automatisation sont repoussees
-en COULD ou WON'T HAVE.
-
-Cette mise a jour permet de traiter la perturbation sans remettre en cause le
-MVP, mais en ajoutant les exigences minimales de conformite et de transparence.
 
 ================================================================================
-GRILLE D'AUTO-EVALUATION - PRODUCT BACKLOG RGPD
-===============================================
+GRILLE D'AUTO-EVALUATION - PRODUCT BACKLOG RGPD v1.1
+================================================================================
 
-Nouvelles user stories RGPD ajoutees                         : [X] Oui
-Story export des donnees presente                             : [X] Oui
-Story suppression / effacement presente                        : [X] Oui
-Audit trail SAR pris en compte                                : [X] Oui
-Format JSON / CSV mentionne                                   : [X] Oui
-Criteres d'acceptation ajoutes                                 : [X] Oui
-Priorisation MoSCoW visible                                    : [X] Oui
-Priorisation MoSCoW argumentee                                 : [X] Oui
-DoR / DoD mises a jour                                         : [X] Oui
-Document relu et valide par l'equipe complete                  : [ ] A valider
+Nouvelles user stories RGPD ajoutees (5)                      : [X] Oui
+Correspondance CA-J3B-1 a CA-J3B-7                            : [X] Oui
+Alignement p3bis-politique-retention.txt                        : [X] Oui
+Alignement p3bis-decision-moscow.txt                            : [X] Oui
+Story export (JSON + CSV, 6 categories)                       : [X] Oui
+Story suppression / effacement                                  : [X] Oui
+Audit trail DataRequest                                         : [X] Oui
+Pages legales + retention (MUST)                              : [X] Oui
+Reponse Hugo PETIT                                              : [X] Oui
+Criteres d'acceptation testables par story                      : [X] Oui
+Document relu et valide par l'equipe complete                   : [ ] A valider
 
 Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

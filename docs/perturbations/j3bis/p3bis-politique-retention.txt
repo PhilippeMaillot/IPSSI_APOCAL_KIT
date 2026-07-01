@@ -1,72 +1,318 @@
-﻿APOCAL'IPSSI - PERTURBATION J3bis (P4) - RGPD
+APOCAL'IPSSI - PERTURBATION J3-BIS - RGPD / SAR
 Politique de retention des donnees - EduTutor IA
 
 Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
 Auteur du modele : Mohamed Amine EL AFRIT - Licence CC BY-NC-SA 4.0
 
+# IDENTIFICATION DU DOCUMENT
 
-IDENTIFICATION DU DOCUMENT
+Equipe n         : 19
+Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
+Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
+Perturbation     : J3-bis - RGPD / demande SAR / droit d'acces
+Version          : v1.0
+Date de remise   : 01/07/2026
+Statut           : Draft
+Redacteur        : Aboubacar COUMARE
+Fichier          : docs/perturbations/j3bis/p3bis-politique-retention.txt
+Reference        : complete les artefacts RGPD, le Product Backlog et le Sprint Backlog
+
+================================================================================
+0. OBJECTIF DU DOCUMENT
+=======================
+
+Cette politique de retention definit quelles donnees EduTutor IA conserve,
+pendant combien de temps, pour quelle finalite, et comment elles sont supprimees
+ou exportees lorsqu'un utilisateur exerce ses droits RGPD.
+
+Elle repond a la perturbation J3-bis : l'equipe doit etre capable de traiter une
+demande d'acces aux donnees personnelles, de fournir un export lisible par
+machine, et de clarifier la retention des donnees.
+
+Principes retenus :
+
+* Minimisation : ne conserver que les donnees utiles au service.
+* Transparence : expliquer clairement ce qui est stocke.
+* Limitation de conservation : ne pas garder les donnees indefiniment.
+* Portabilite : permettre un export JSON et CSV.
+* Effacement : permettre la suppression des donnees utilisateur.
+* Audit trail : tracer les demandes RGPD sans exposer inutilement les donnees.
+
+================================================================================
+
+1. PERIMETRE DES DONNEES CONSERVEES
+   ================================================================================
+
+EduTutor IA traite les categories de donnees suivantes :
+
+1. Donnees de compte
+
+* email ;
+* identifiant utilisateur ;
+* mot de passe chiffre / hash ;
+* date de creation du compte ;
+* date de derniere connexion.
+
+2. Donnees de profil
+
+* nom ou pseudonyme si renseigne ;
+* role utilisateur : etudiant, enseignante, administrateur ;
+* preferences simples si disponibles.
+
+3. Donnees pedagogiques
+
+* cours saisis en texte ;
+* fichiers PDF uploades ou texte extrait du PDF ;
+* quiz generes ;
+* questions et propositions de reponse ;
+* bonnes reponses ;
+* reponses donnees par l'utilisateur ;
+* score obtenu ;
+* historique des quiz.
+
+4. Donnees de suivi enseignant
+
+* rattachement etudiant / classe / enseignante si mis en place ;
+* scores consultables par l'enseignante ;
+* indicateur simple de decrochage si developpe.
+
+5. Donnees techniques
+
+* logs applicatifs utiles au diagnostic ;
+* erreurs techniques ;
+* horodatage des actions importantes.
+
+6. Donnees RGPD / SAR
+
+* date de demande d'export ;
+* date de demande de suppression ;
+* statut de la demande ;
+* identifiant de l'utilisateur concerne ;
+* trace d'execution de la demande.
+
+================================================================================
+2. TABLEAU DE RETENTION DES DONNEES
+===================================
+
++-----------------------------+----------------------------------+-------------------------+----------------------------------------------+
+| Type de donnee              | Finalite                         | Duree de conservation   | Regle de suppression                         |
++-----------------------------+----------------------------------+-------------------------+----------------------------------------------+
+| Compte utilisateur          | Authentification                 | Tant que le compte existe | Supprime lors de la suppression du compte    |
+| Email utilisateur           | Connexion et notification        | Tant que le compte existe | Supprime ou anonymise apres suppression      |
+| Mot de passe hash           | Securite de connexion            | Tant que le compte existe | Supprime avec le compte                      |
+| Profil utilisateur          | Personnalisation du service      | Tant que le compte existe | Supprime avec le compte                      |
+| Cours texte saisi           | Generation de quiz               | 12 mois apres creation   | Supprime automatiquement ou sur demande      |
+| PDF uploades                | Generation de quiz               | 30 jours maximum         | Supprime apres extraction ou sur demande     |
+| Texte extrait des PDF       | Generation et tracabilite quiz   | 12 mois apres creation   | Supprime automatiquement ou sur demande      |
+| Quiz generes                | Revision et historique           | 12 mois apres creation   | Supprime automatiquement ou sur demande      |
+| Reponses utilisateur        | Correction et progression        | 12 mois apres creation   | Supprime automatiquement ou sur demande      |
+| Scores                      | Suivi de progression             | 12 mois apres creation   | Supprime automatiquement ou sur demande      |
+| Historique des quiz         | Suivi utilisateur                | 12 mois apres creation   | Supprime automatiquement ou sur demande      |
+| Rattachement classe         | Suivi enseignant                 | Annee scolaire en cours  | Supprime ou archive en fin d'annee scolaire |
+| Logs applicatifs            | Diagnostic et securite           | 30 jours                 | Rotation automatique                         |
+| Audit trail SAR             | Preuve de traitement RGPD        | 3 ans                    | Conservation minimale sans donnees sensibles |
++-----------------------------+----------------------------------+-------------------------+----------------------------------------------+
+
+================================================================================
+3. REGLES DE RETENTION DETAILLEES
+=================================
+
+3.1. Donnees de compte
+
+Les donnees de compte sont conservees tant que l'utilisateur dispose d'un compte
+actif. Elles sont necessaires au fonctionnement du service.
+
+En cas de suppression du compte :
+
+* le compte est supprime ;
+* l'email est supprime ou anonymise ;
+* les sessions actives sont invalidees ;
+* les donnees pedagogiques associees sont supprimees ou anonymisees selon le cas.
+
+3.2. PDF uploades
+
+Les fichiers PDF uploades ne doivent pas etre conserves indefiniment.
+
+Regle retenue :
+
+* le PDF original est conserve 30 jours maximum ;
+* si le texte extrait suffit au fonctionnement du service, le PDF peut etre
+  supprime plus tot ;
+* l'utilisateur peut demander la suppression immediate de ses fichiers.
+
+Justification :
+Le PDF peut contenir des donnees personnelles ou des informations sensibles.
+Sa conservation doit donc etre limitee.
+
+3.3. Cours, quiz, reponses et scores
+
+Les cours, quiz, reponses et scores sont utiles pour l'historique utilisateur et
+le suivi de progression.
+
+Regle retenue :
+
+* conservation 12 mois apres creation ;
+* suppression automatique ou anonymisation apres expiration ;
+* suppression immediate possible sur demande utilisateur.
+
+Justification :
+Cette duree couvre un cycle raisonnable de revision et d'annee scolaire sans
+conserver les donnees inutilement.
+
+3.4. Donnees de suivi enseignant
+
+Les donnees liees a une classe ou a une enseignante sont conservees uniquement
+pour l'annee scolaire ou la periode d'utilisation active.
+
+Regle retenue :
+
+* conservation pendant l'annee scolaire en cours ;
+* suppression ou anonymisation en fin de periode ;
+* l'enseignante ne voit que les donnees des etudiants rattaches a sa classe.
+
+Point d'attention :
+Si un etudiant exerce son droit a l'effacement, ses donnees personnelles ne
+doivent plus apparaitre dans les vues enseignantes.
+
+3.5. Logs applicatifs
+
+Les logs techniques sont conserves pour diagnostiquer les erreurs et securiser
+l'application.
+
+Regle retenue :
+
+* conservation 30 jours ;
+* pas de conservation de contenu complet de cours dans les logs ;
+* pas de stockage de mot de passe, token ou donnee sensible en clair.
+
+3.6. Audit trail SAR
+
+Les demandes RGPD doivent etre tracees pour prouver que l'equipe a repondu a la
+demande.
+
+Regle retenue :
+
+* conservation 3 ans ;
+* stockage minimal : type de demande, date, statut, utilisateur concerne ;
+* ne pas recopier toutes les donnees personnelles dans l'audit trail.
+
+================================================================================
+4. EXPORT DES DONNEES
+=====================
+
+L'utilisateur doit pouvoir recuperer ses donnees dans un format lisible par
+machine.
+
+Formats retenus :
+
+* JSON : export complet structure.
+* CSV : export simplifie des donnees principales.
+
+Donnees exportables :
+
+* informations du compte ;
+* profil ;
+* quiz crees ou passes ;
+* scores ;
+* reponses ;
+* historique ;
+* demandes RGPD associees.
+
+Endpoint cible :
+GET /api/accounts/me/export/
+
+Critere de conformite :
+L'export doit etre comprehensible, reutilisable et limite aux donnees de
+l'utilisateur authentifie.
+
+================================================================================
+5. SUPPRESSION DES DONNEES
 ==========================
-Equipe n    : 19
-Perturbation: J3bis P4 - RGPD
-Redacteur   : Ismael CEREZO
-Fichier     : docs/perturbations/j3bis/p3bis-politique-retention.txt
 
+L'utilisateur doit pouvoir demander la suppression de ses donnees.
 
-================================================================================
-1. DONNEES COLLECTEES ET DUREES DE CONSERVATION
-================================================================================
+Regles :
 
-  Type de donnee          | Finalite                  | Duree conservation
-  ------------------------+---------------------------+----------------------
-  Email + mot de passe    | Authentification          | Duree du compte + 30j
-  Cours fournis (texte)   | Generation QCM            | Non stockes (transit)
-  Questions generees      | Affichage quiz            | Duree du compte
-  Reponses utilisateur    | Score + corrections       | Duree du compte
-  Score et historique     | Suivi progression         | Duree du compte
-  Logs techniques         | Securite + debogage       | 90 jours glissants
-  Donnees agregees classe | Dashboard enseignant      | Duree du compte prof
+* supprimer ou anonymiser le compte ;
+* supprimer les cours, PDF, quiz, reponses et scores associes ;
+* supprimer les rattachements classe si l'utilisateur est etudiant ;
+* conserver uniquement une trace minimale de la demande dans l'audit trail SAR ;
+* ne pas supprimer les donnees necessaires a la preuve de traitement RGPD, mais
+  les limiter au strict minimum.
 
-Note : Les cours fournis (PDF ou texte) ne sont pas persistes en base.
-Ils transitent uniquement pour la generation du quiz (traitement en memoire).
-
+Point d'attention :
+Si certaines donnees sont visibles par une enseignante, la suppression d'un
+etudiant doit retirer ses donnees personnelles des vues enseignantes.
 
 ================================================================================
-2. DROITS DES UTILISATEURS (RGPD Art. 15-22)
-================================================================================
+6. SECURITE ET ACCES AUX DONNEES
+================================
 
-  Droit                  | Modalite dans EduTutor IA
-  -----------------------+------------------------------------------
-  Acces (Art. 15)        | Export JSON depuis /profile (US-18)
-  Rectification (Art. 16)| Modification profil depuis /profile (US-04)
-  Effacement (Art. 17)   | Suppression compte depuis /profile (US-05)
-  Portabilite (Art. 20)  | Export JSON depuis /profile (US-18)
-  Opposition (Art. 21)   | Suppression compte (US-05) + opt-out emails
+Principes :
 
+* un utilisateur ne peut exporter que ses propres donnees ;
+* une enseignante ne peut consulter que les donnees des etudiants rattaches a
+  sa classe ;
+* un administrateur ne doit pas pouvoir lire inutilement les contenus de cours ;
+* les exports doivent etre generes a la demande, pas stockes publiquement ;
+* les exports ne doivent jamais contenir de mot de passe, token ou secret.
 
-================================================================================
-3. SOUS-TRAITANTS ET TRANSFERTS
-================================================================================
+Mesures minimales :
 
-  Fournisseur     | Service          | Localisation | Base legale
-  ----------------+------------------+--------------+--------------------
-  Mistral AI      | Generation LLM   | France (EU)  | Interet legitime
-  OVH             | Hebergement VPS  | France (EU)  | Execution contrat
-  PostgreSQL      | Base de donnees  | Local / OVH  | Execution contrat
-
-Aucun transfert de donnees hors UE. Les cours fournis par les utilisateurs
-transitent vers Mistral AI (France) uniquement pour la generation des QCM.
-
+* authentification obligatoire ;
+* verification du proprietaire des donnees ;
+* journalisation de la demande ;
+* limitation des donnees exportees au strict necessaire.
 
 ================================================================================
-4. MESURES DE SECURITE
+7. IMPACT SUR LE MVP
+====================
+
+La conformite RGPD devient une exigence non-fonctionnelle critique.
+
+Ce qui doit etre integre rapidement :
+
+* page mentions legales ;
+* politique de retention ;
+* endpoint d'export utilisateur ;
+* bouton export dans l'interface ;
+* suppression des donnees ou droit a l'effacement ;
+* modele DataRequest pour l'audit trail SAR.
+
+Ce qui peut etre differe :
+
+* interface avancee d'administration des demandes RGPD ;
+* automatisation complete de purge planifiee ;
+* exports avances par classe ou etablissement ;
+* tableau de bord juridique complet.
+
 ================================================================================
+8. SYNTHESE DE LA DECISION
+==========================
 
-  - Mots de passe haches (Django bcrypt/argon2)
-  - HTTPS obligatoire en production (cf. docs/11-deploiement-vps-ovh.md)
-  - Tokens JWT expires (24h)
-  - Prompt guard contre les injections (P3)
-  - Logs d'acces conserves 90 jours
+L'equipe retient une politique de retention simple et defendable :
 
+* PDF originaux : 30 jours maximum.
+* Logs techniques : 30 jours.
+* Cours, quiz, reponses, scores : 12 mois.
+* Donnees de classe : annee scolaire en cours.
+* Audit trail SAR : 3 ans avec donnees minimales.
+
+Cette politique permet de respecter les principes de minimisation, limitation de
+conservation, portabilite et effacement, tout en conservant un MVP realiste pour
+la livraison.
+
+================================================================================
+GRILLE D'AUTO-EVALUATION - POLITIQUE DE RETENTION
+=================================================
+
+Categories de donnees identifiees                         : [X] Oui
+Durees de conservation definies                            : [X] Oui
+Regles de suppression precisees                            : [X] Oui
+Export JSON / CSV mentionne                                : [X] Oui
+Droit a l'effacement pris en compte                         : [X] Oui
+Audit trail SAR defini                                     : [X] Oui
+Impact MVP identifie                                       : [X] Oui
+Document relu et valide par l'equipe complete              : [ ] A valider
 
 Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

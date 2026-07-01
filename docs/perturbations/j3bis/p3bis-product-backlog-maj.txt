@@ -1,102 +1,365 @@
-﻿APOCAL'IPSSI - PERTURBATION J3bis (P4 SUR 5) - RGPD
-Product Backlog actualise - EduTutor IA
+APOCAL'IPSSI - PERTURBATION J3-BIS - RGPD / SAR
+Product Backlog MAJ - Nouvelles user stories RGPD - EduTutor IA
 
 Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
 Auteur du modele : Mohamed Amine EL AFRIT - Licence CC BY-NC-SA 4.0
 
+# IDENTIFICATION DU DOCUMENT
 
-IDENTIFICATION DU DOCUMENT
-==========================
 Equipe n         : 19
 Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
-                   Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
-Perturbation     : J3bis P4 - RGPD (pages legales + donnees personnelles)
-Date             : 01/07/2026
-Redacteur        : Ismael CEREZO
+Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
+Perturbation     : J3-bis - RGPD / demande SAR / droit d'acces
+Version          : v1.0
+Date de remise   : 01/07/2026
+Statut           : Draft
+Redacteur        : Aboubacar COUMARE
 Fichier          : docs/perturbations/j3bis/p3bis-product-backlog-maj.txt
 Reference        : complete docs/cadrage/artefact-6-product-backlog.csv
-                   voir aussi p3bis-decision-moscow.txt · p3bis-sprint-backlog-maj.txt
-
-
-================================================================================
-1. MODIFICATIONS DU PRODUCT BACKLOG (Art. RGPD)
-================================================================================
-
-US-05 — Supprimer son compte
-  Avant P4 : Should Have  |  2 pts
-  Apres P4 : MUST HAVE    |  2 pts
-  Motif    : Art. 17 RGPD (droit a l'effacement) — obligatoire Release 1
-  Criteres d'acceptation COMPLETES :
-    - Bouton "Supprimer mon compte" accessible depuis /profile
-    - Confirmation par mot de passe avant suppression
-    - Suppression en cascade de TOUTES les donnees (compte + historique + scores)
-    - Deconnexion automatique apres suppression
-    - Email de confirmation de suppression envoye (optional si logge)
-    - Donnees supprimees en base sous 30 jours (conforme Art. 17 al. 3)
-  Note : bouton deja present (valide TASK-10). Suppression en cascade a verifier.
-
-  ---
-
-US-18 — Exporter ses donnees
-  Avant P4 : Could Have   |  3 pts
-  Apres P4 : MUST HAVE    |  3 pts
-  Motif    : Art. 20 RGPD (droit a la portabilite) — obligatoire Release 1
-  Criteres d'acceptation COMPLETES :
-    - Bouton "Telecharger mes donnees (JSON)" depuis /profile
-    - Le JSON contient : email, date inscription, historique quiz, scores, reponses
-    - Format lisible par machine (JSON standard)
-    - Telechargement instantane (pas d'email asynchrone)
-    - Fichier nomme : edututor_mes_donnees_<date>.json
-  Note : necessite implementation backend TASK-27 (endpoint /api/users/export/)
-
-  ---
-
-NOUVELLE TACHE — Pages legales (Art. 13 RGPD)
-  US    : Pas de US existante (tache technique transverse)
-  Motif : Art. 13 RGPD — information des personnes lors de la collecte
-  Pages a creer :
-    - /mentions-legales (responsable traitement, SIRET, hebergeur)
-    - /politique-confidentialite (donnees collectees, durees, droits)
-    - /cgu (conditions generales d'utilisation)
-    - /cookies (politique cookies — EduTutor n'utilise pas de cookies tiers)
-  Lien depuis le footer de toutes les pages
-  Note : squelettes HTML a completer (TASK-26)
-
+complete docs/perturbations/j1/p1-product-backlog-maj.txt
 
 ================================================================================
-2. TABLEAU DE SYNTHESE MOSCOW POST-P4
-================================================================================
+0. CONTEXTE DE LA MISE A JOUR
+=============================
 
-  Categorie  | Avant P4 | Apres P4 | Delta
-  -----------+----------+----------+-------
-  Must Have  |    8 US  |   10 US  |  +2 (US-05 et US-18 promues)
-  Should Have|    6 US  |    5 US  |  -1 (US-05 promue Must)
-  Could Have |    5 US  |    4 US  |  -1 (US-18 promue Must)
-  Won't Have |    2 US  |    2 US  |   0
+La perturbation J3-bis introduit une contrainte RGPD forte : l'application doit
+etre capable de repondre a une demande d'acces aux donnees personnelles et de
+permettre a l'utilisateur d'exercer ses droits.
 
+Le Product Backlog doit donc etre actualise avec de nouvelles user stories RGPD.
 
-================================================================================
-3. IMPACT SUR LA RELEASE 1 (mercredi 17h45)
-================================================================================
+Objectifs :
 
-Release 1 doit contenir :
-  - [X] US-05 Must Have (bouton present, suppression cascade a valider)
-  - [ ] US-18 Must Have (a implementer en Sprint 5 — TASK-27)
-  - [ ] Pages legales (4 pages a completer en Sprint 5 — TASK-26)
+* permettre a un utilisateur de recuperer ses donnees ;
+* permettre a un utilisateur de supprimer ses donnees ;
+* tracer les demandes RGPD dans un audit trail ;
+* rendre visible la politique de retention et les mentions legales ;
+* maintenir le MVP livrable sans faire exploser le perimetre.
 
-Si US-18 ou pages legales non terminees avant 17h45 :
-  Solution de repli : afficher une page "/coming-soon-rgpd" avec message
-  "Fonctionnalite disponible sous 72h — conformite RGPD en cours."
-
+Decision produit :
+Les stories RGPD liees aux droits fondamentaux de l'utilisateur passent en MUST.
+Les fonctionnalites plus avancees d'administration ou d'automatisation passent
+en SHOULD ou COULD.
 
 ================================================================================
-GRILLE D'AUTO-EVALUATION
+
+1. NOUVELLES USER STORIES RGPD
+   ================================================================================
+
+---
+
+## US-RGPD-01 - Exporter ses donnees personnelles
+
+Epic :
+EPIC RGPD - Droits utilisateur
+
+User story :
+En tant qu'utilisateur authentifie,
+je veux recuperer mes donnees personnelles au format JSON et CSV,
+afin d'exercer mon droit d'acces et de portabilite.
+
+Analyse INVEST :
+
+* Independante : peut etre developpee via un endpoint dedie.
+* Negociable   : le premier export peut contenir les donnees principales.
+* Valuable     : repond directement au droit d'acces et de portabilite.
+* Estimable    : les donnees exportees sont identifiables dans les modeles.
+* Small        : premiere version limitee a l'utilisateur connecte.
+* Testable     : on peut verifier le contenu du JSON et du CSV.
+
+Priorite MoSCoW :
+MUST
+
+Justification MoSCoW :
+Cette story est indispensable car elle repond a une exigence RGPD centrale.
+L'utilisateur doit pouvoir recuperer ses donnees dans un format lisible par
+machine. Elle doit etre integree au MVP ou documentee comme contrainte critique
+a livrer immediatement.
+
+Criteres d'acceptation :
+
+* L'utilisateur authentifie peut acceder a un export de ses donnees.
+* L'export contient uniquement ses propres donnees.
+* L'export est disponible en JSON.
+* L'export est disponible en CSV ou dans un format tabulaire equivalent.
+* L'export ne contient aucun mot de passe, token ou secret technique.
+* Une trace de la demande est creee dans l'audit trail SAR.
+
+Impact DoR / DoD :
+DoR :
+* Lister les donnees exportables.
+* Valider le format JSON et CSV attendu.
+* Verifier les droits d'acces de l'utilisateur.
+
+DoD :
+* Endpoint GET /api/accounts/me/export/ fonctionnel.
+* Export limite a l'utilisateur connecte.
+* Tests effectues sur le contenu de l'export.
+* Audit trail cree apres demande.
+
+---
+
+## US-RGPD-02 - Supprimer ses donnees personnelles
+
+Epic :
+EPIC RGPD - Droits utilisateur
+
+User story :
+En tant qu'utilisateur authentifie,
+je veux supprimer mon compte et mes donnees personnelles,
+afin d'exercer mon droit a l'effacement.
+
+Analyse INVEST :
+
+* Independante : peut etre developpee comme action compte separee.
+* Negociable   : la premiere version peut supprimer ou anonymiser selon le cas.
+* Valuable     : repond a un droit utilisateur fondamental.
+* Estimable    : les donnees a supprimer sont liees au compte utilisateur.
+* Small        : premiere version limitee aux donnees personnelles directes.
+* Testable     : on peut verifier que les donnees ne sont plus accessibles.
+
+Priorite MoSCoW :
+MUST
+
+Justification MoSCoW :
+Cette story est prioritaire car elle repond au droit a l'effacement. Elle est
+critique pour la conformite et pour la confiance utilisateur. Elle doit couvrir
+au minimum le compte, les cours, les quiz, les reponses, les scores et
+l'historique.
+
+Criteres d'acceptation :
+
+* L'utilisateur peut demander la suppression de ses donnees.
+* Une confirmation explicite est demandee avant suppression.
+* Le compte utilisateur est supprime ou desactive.
+* Les cours, quiz, reponses, scores et historiques associes sont supprimes ou
+  anonymises.
+* Les donnees de l'utilisateur ne sont plus visibles dans les vues enseignantes.
+* Une trace minimale de la demande est conservee dans l'audit trail SAR.
+
+Impact DoR / DoD :
+DoR :
+* Definir les tables impactees par la suppression.
+* Definir ce qui est supprime et ce qui est anonymise.
+* Valider la conservation minimale de l'audit trail SAR.
+
+DoD :
+* Suppression testee sur un compte de test.
+* Les donnees ne sont plus accessibles via l'API.
+* Les donnees ne sont plus visibles cote frontend.
+* Audit trail SAR cree sans recopier les donnees supprimees.
+
+---
+
+## US-RGPD-03 - Tracer les demandes RGPD
+
+Epic :
+EPIC RGPD - Audit trail SAR
+
+User story :
+En tant qu'administrateur,
+je veux conserver une trace minimale des demandes RGPD,
+afin de prouver que l'equipe a traite les demandes d'acces ou d'effacement.
+
+Analyse INVEST :
+
+* Independante : peut etre implementee avec un modele DataRequest.
+* Negociable   : premiere version limitee a type, statut, date et utilisateur.
+* Valuable     : permet de prouver le traitement d'une demande.
+* Estimable    : necessite un modele simple et quelques statuts.
+* Small        : pas besoin d'un back-office complet pour le MVP.
+* Testable     : on peut verifier qu'une demande cree une entree en base.
+
+Priorite MoSCoW :
+MUST
+
+Justification MoSCoW :
+Cette story est liee a la capacite de repondre proprement aux demandes SAR.
+Elle est en MUST car l'equipe doit pouvoir demontrer que la demande a ete prise
+en compte, sans stocker inutilement toutes les donnees personnelles.
+
+Criteres d'acceptation :
+
+* Un modele DataRequest existe.
+* Une demande d'export cree une entree d'audit.
+* Une demande de suppression cree une entree d'audit.
+* L'entree contient au minimum : utilisateur, type de demande, date, statut.
+* L'audit trail ne contient pas les donnees personnelles exportees en clair.
+
+Impact DoR / DoD :
+DoR :
+* Definir les statuts possibles : pending, completed, failed.
+* Definir les types de demande : export, delete.
+
+DoD :
+* DataRequest cree en base.
+* Creation automatique d'une trace lors d'un export ou d'une suppression.
+* Verification que les donnees sensibles ne sont pas dupliquees inutilement.
+
+---
+
+## US-RGPD-04 - Consulter les mentions legales et la politique de retention
+
+Epic :
+EPIC RGPD - Transparence
+
+User story :
+En tant qu'utilisateur,
+je veux consulter les mentions legales et la politique de retention des donnees,
+afin de comprendre comment EduTutor IA traite mes donnees personnelles.
+
+Analyse INVEST :
+
+* Independante : peut etre developpee comme page statique.
+* Negociable   : contenu minimal acceptable pour le MVP.
+* Valuable     : renforce la transparence et la confiance.
+* Estimable    : faible complexite technique.
+* Small        : une page simple suffit pour la premiere version.
+* Testable     : on peut verifier que la page est accessible.
+
+Priorite MoSCoW :
+SHOULD
+
+Justification MoSCoW :
+Cette story est importante pour la transparence RGPD, mais elle peut etre livree
+sous forme simple. Elle accompagne les stories MUST d'export, de suppression et
+d'audit trail.
+
+Criteres d'acceptation :
+
+* Une page mentions legales est accessible depuis l'application.
+* La politique de retention est visible ou referencee.
+* Les droits utilisateur sont expliques simplement.
+* Les formats d'export JSON / CSV sont mentionnes.
+* Le contact ou canal de demande RGPD est indique si disponible.
+
+Impact DoR / DoD :
+DoR :
+* Valider le contenu minimal avec le PO.
+* Verifier les liens vers les pages legales.
+
+DoD :
+* Page accessible depuis le frontend.
+* Contenu relu par l'equipe.
+* Aucun texte placeholder vide ne reste en production.
+
 ================================================================================
+2. PRIORISATION MOSCOW ACTUALISEE
+=================================
 
-  Modifications US-05 et US-18 avec justification RGPD            : [X] Oui
-  Criteres d'acceptation mis a jour                                : [X] Oui
-  Tableau MoSCoW delta documente                                   : [X] Oui
-  Impact Release 1 et solution de repli identifies                 : [X] Oui
+## MUST - Indispensable
 
+* US-RGPD-01 : exporter ses donnees personnelles en JSON / CSV.
+* US-RGPD-02 : supprimer ses donnees personnelles.
+* US-RGPD-03 : tracer les demandes RGPD avec un audit trail SAR.
+* Maintenir le parcours MVP : compte, upload, generation, correction, score,
+  historique.
+
+Justification :
+Ces stories repondent aux droits fondamentaux de l'utilisateur. Elles sont
+critiques pour eviter un MVP fonctionnel mais non conforme.
+
+## SHOULD - Important mais negociable
+
+* US-RGPD-04 : consulter les mentions legales et la politique de retention.
+* Ajouter un bouton export visible dans le frontend.
+* Ajouter une confirmation explicite avant suppression.
+* Documenter les limites de retention dans le depot.
+
+Justification :
+Ces elements renforcent la transparence et l'utilisabilite, mais une premiere
+version simple peut suffire pour le MVP.
+
+## COULD - Interessant mais reportable
+
+* Interface admin complete de suivi des demandes RGPD.
+* Purge automatique planifiee.
+* Export avance par periode ou par type de donnee.
+* Historique detaille des exports telecharges.
+
+Justification :
+Ces elements apportent de la maturite mais ne sont pas indispensables pour
+repondre a la perturbation dans le temps disponible.
+
+## WON'T HAVE - Hors perimetre immediat
+
+* Gestion juridique complete multi-etablissements.
+* Workflow avance de validation DPO.
+* Connecteurs externes pour exporter vers d'autres plateformes.
+* Anonymisation statistique avancee multi-classes.
+
+Justification :
+Ces fonctionnalites depassent le perimetre du MVP et risquent de faire exploser
+le scope de la livraison.
+
+================================================================================
+3. IMPACT SUR LE PRODUCT BACKLOG EXISTANT
+=========================================
+
+Stories existantes impactees :
+
+* Inscription / connexion : verifier que l'utilisateur authentifie est bien le
+  proprietaire des donnees exportees.
+* Profil utilisateur : ajouter un acces a l'export ou a la suppression.
+* Historique des quiz : rendre les donnees exportables.
+* Score et detail des corrections : inclure dans l'export.
+* Suivi enseignant : retirer ou anonymiser les donnees d'un etudiant supprime.
+
+Nouvelles dependances :
+
+* Endpoint REST GET /api/accounts/me/export/
+* Modele DataRequest pour audit trail SAR
+* Bouton export frontend
+* Action ou demande de suppression des donnees
+* Page mentions legales / politique de retention
+
+================================================================================
+4. CRITERES D'ACCEPTATION GLOBAUX
+=================================
+
+Le Product Backlog RGPD actualise est accepte si :
+
+* au moins une user story couvre l'export des donnees ;
+* au moins une user story couvre la suppression des donnees ;
+* les formats JSON et CSV sont mentionnes ;
+* les criteres d'acceptation sont testables ;
+* les priorites MoSCoW sont visibles et justifiees ;
+* les impacts DoR / DoD sont explicites ;
+* les stories ne cassent pas le MVP principal ;
+* les taches techniques correspondantes peuvent etre reprises dans le Sprint
+  Backlog.
+
+================================================================================
+5. SYNTHESE
+===========
+
+La perturbation J3-bis ajoute une exigence de conformite au Product Backlog.
+
+Le MVP ne peut pas seulement etre fonctionnel : il doit aussi permettre a
+l'utilisateur d'exercer ses droits sur ses donnees.
+
+Les stories d'export, de suppression et d'audit trail passent en MUST, car elles
+sont directement liees a la demande RGPD. Les pages legales et la politique de
+retention sont importantes et classees en SHOULD si elles sont livrees sous forme
+simple. Les fonctions avancees d'administration et d'automatisation sont repoussees
+en COULD ou WON'T HAVE.
+
+Cette mise a jour permet de traiter la perturbation sans remettre en cause le
+MVP, mais en ajoutant les exigences minimales de conformite et de transparence.
+
+================================================================================
+GRILLE D'AUTO-EVALUATION - PRODUCT BACKLOG RGPD
+===============================================
+
+Nouvelles user stories RGPD ajoutees                         : [X] Oui
+Story export des donnees presente                             : [X] Oui
+Story suppression / effacement presente                        : [X] Oui
+Audit trail SAR pris en compte                                : [X] Oui
+Format JSON / CSV mentionne                                   : [X] Oui
+Criteres d'acceptation ajoutes                                 : [X] Oui
+Priorisation MoSCoW visible                                    : [X] Oui
+Priorisation MoSCoW argumentee                                 : [X] Oui
+DoR / DoD mises a jour                                         : [X] Oui
+Document relu et valide par l'equipe complete                  : [ ] A valider
 
 Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

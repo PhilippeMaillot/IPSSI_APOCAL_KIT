@@ -17,7 +17,7 @@
 import { useState, type FormEvent } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
-import { changePassword, deleteAccount, updateProfile } from '@/api/auth';
+import { changePassword, deleteAccount, exportMyData, updateProfile } from '@/api/auth';
 import { getApiErrorMessage } from '@/api/errors';
 
 export default function ProfilePage() {
@@ -43,6 +43,22 @@ export default function ProfilePage() {
   // --- Zone 3 : suppression ---
   const [delPwd, setDelPwd] = useState('');
   const [delConfirm, setDelConfirm] = useState(false);
+
+  // --- RGPD (J3-bis) : export des données personnelles ---
+  const [exporting, setExporting] = useState<'json' | 'csv' | null>(null);
+  const [exportErr, setExportErr] = useState<string | null>(null);
+
+  async function handleExport(format: 'json' | 'csv') {
+    setExportErr(null);
+    setExporting(format);
+    try {
+      await exportMyData(format);
+    } catch (err) {
+      setExportErr(getApiErrorMessage(err));
+    } finally {
+      setExporting(null);
+    }
+  }
   const [delErr, setDelErr] = useState<string | null>(null);
   const [delLoading, setDelLoading] = useState(false);
 
@@ -220,20 +236,36 @@ export default function ProfilePage() {
         </form>
       </section>
 
-      {/* Placeholders RGPD / signalement (à compléter pendant la semaine) */}
+      {/* RGPD : export des données (J3-bis) — droit d'accès / portabilité */}
       <section className="card bg-slate-50">
         <h2 className="text-lg font-semibold text-slate-900 mb-2">Mes données</h2>
         <p className="text-sm text-slate-500 mb-4">
-          Fonctionnalités à construire pendant la semaine APOCAL'IPSSI.
+          Téléchargez l'ensemble de vos données personnelles (compte, quiz, réponses) —
+          droit d'accès et à la portabilité (RGPD).
         </p>
+        {exportErr && (
+          <div className="mb-4 p-3 bg-rose-50 border-l-4 border-rose-500 text-sm text-rose-900 rounded">
+            {exportErr}
+          </div>
+        )}
         <div className="flex flex-wrap gap-3">
           <button
             type="button"
-            disabled
-            title="À implémenter (J3-bis) — droit à la portabilité RGPD"
-            className="btn-secondary opacity-60 cursor-not-allowed"
+            onClick={() => handleExport('json')}
+            disabled={exporting !== null}
+            title="Exporter mes données au format JSON (RGPD)"
+            className="btn-secondary"
           >
-            Exporter mes données (bientôt)
+            {exporting === 'json' ? 'Export…' : 'Exporter (JSON)'}
+          </button>
+          <button
+            type="button"
+            onClick={() => handleExport('csv')}
+            disabled={exporting !== null}
+            title="Exporter mes données au format CSV (RGPD)"
+            className="btn-secondary"
+          >
+            {exporting === 'csv' ? 'Export…' : 'Exporter (CSV)'}
           </button>
           <button
             type="button"

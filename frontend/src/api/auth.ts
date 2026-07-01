@@ -126,3 +126,33 @@ export async function deleteAccount(password: string): Promise<void> {
   await api.delete('/accounts/profile/', { data: { password } });
   clearToken();
 }
+
+// ---------------------------------------------------------------------------
+// RGPD (J3-bis) : export des données personnelles (droit d'accès / portabilité)
+// ---------------------------------------------------------------------------
+
+/**
+ * Télécharge l'export des données personnelles de l'utilisateur connecté
+ * (RGPD art. 15/20). `format` = 'json' (défaut) ou 'csv'. Déclenche le
+ * téléchargement du fichier dans le navigateur.
+ */
+export async function exportMyData(format: 'json' | 'csv' = 'json'): Promise<void> {
+  const { data, headers } = await api.get('/accounts/me/export/', {
+    params: { format },
+    responseType: 'blob',
+  });
+  const blob = new Blob([data], {
+    type: headers['content-type'] ?? 'application/octet-stream',
+  });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  // Nom de fichier fourni par le backend (Content-Disposition), sinon fallback.
+  const disposition = (headers['content-disposition'] as string) ?? '';
+  const match = disposition.match(/filename="?([^"]+)"?/);
+  link.download = match ? match[1] : `edututor-mes-donnees.${format}`;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  URL.revokeObjectURL(url);
+}

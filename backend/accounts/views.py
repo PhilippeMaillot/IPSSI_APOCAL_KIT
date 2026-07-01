@@ -11,12 +11,15 @@ Endpoints d'authentification (Lot 3 : email-identifiant + validation + reset).
     POST /api/accounts/password-reset/confirm/   — définir le nouveau mot de passe
 """
 
+import csv
 import logging
 
 from django.contrib.auth import login as django_login
 from django.contrib.auth import logout as django_logout
 from django.contrib.auth.models import User
-from drf_spectacular.utils import OpenApiResponse, extend_schema
+from django.http import HttpResponse, JsonResponse
+from django.utils import timezone
+from drf_spectacular.utils import OpenApiParameter, OpenApiResponse, extend_schema
 from rest_framework import status
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import AllowAny, IsAuthenticated
@@ -24,7 +27,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from .emails import EmailError, send_password_reset_email, send_verification_email
-from .models import get_or_create_profile
+from .models import DataRequest, get_or_create_profile
 from .serializers import (
     ChangePasswordSerializer,
     DeleteAccountSerializer,
@@ -278,6 +281,151 @@ class ProfileView(APIView):
         django_logout(request)
         user.delete()  # supprime aussi le Profile (on_delete=CASCADE)
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+def _client_ip(request) -> str | None:
+    """IP appelante (gère un éventuel proxy via X-Forwarded-For)."""
+    xff = request.META.get("HTTP_X_FORWARDED_FOR")
+    if xff:
+        return xff.split(",")[0].strip()
+    return request.META.get("REMOTE_ADDR")
+
+
+def _collect_user_data(user) -> dict:
+    """Rassemble TOUTES les données personnelles de l'utilisateur (RGPD art. 15/20)."""
+    profile = get_or_create_profile(user)
+    quizzes = user.quizzes.prefetch_related("questions").all()
+    return {
+        "export_genere_le": timezone.now().isoformat(),
+        "compte": {
+            "id": user.id,
+            "email": user.email,
+            "prenom": user.first_name,
+            "nom": user.last_name,
+            "email_verifie": profile.email_verified,
+            "date_inscription": user.date_joined.isoformat(),
+            "derniere_connexion": user.last_login.isoformat() if user.last_login else None,
+        },
+        "quizzes": [
+            {
+                "id": q.id,
+                "titre": q.title,
+                "score_sur_10": q.score,
+                "cree_le": q.created_at.isoformat(),
+                "questions": [
+                    {
+                        "index": qu.index,
+                        "enonce": qu.prompt,
+                        "options": qu.options,
+                        "bonne_reponse_index": qu.correct_index,
+                        "votre_reponse_index": qu.selected_index,
+                    }
+                    for qu in q.questions.all()
+                ],
+            }
+            for q in quizzes
+        ],
+    }
+
+
+def _build_csv_response(data: dict) -> HttpResponse:
+    """Sérialise les données en CSV : bloc compte, puis table des questions."""
+    resp = HttpResponse(content_type="text/csv; charset=utf-8")
+    resp.write("﻿")  # BOM UTF-8 (accents corrects sous Excel)
+    writer = csv.writer(resp)
+
+    writer.writerow(["# EXPORT RGPD EduTutor IA", data["export_genere_le"]])
+    writer.writerow([])
+    writer.writerow(["COMPTE"])
+    for key, value in data["compte"].items():
+        writer.writerow([key, value])
+    writer.writerow([])
+
+    writer.writerow(
+        [
+            "quiz_id",
+            "quiz_titre",
+            "quiz_score_sur_10",
+            "quiz_cree_le",
+            "question_index",
+            "question_enonce",
+            "options",
+            "bonne_reponse_index",
+            "votre_reponse_index",
+        ]
+    )
+    for quiz in data["quizzes"]:
+        for qu in quiz["questions"]:
+            writer.writerow(
+                [
+                    quiz["id"],
+                    quiz["titre"],
+                    quiz["score_sur_10"],
+                    quiz["cree_le"],
+                    qu["index"],
+                    qu["enonce"],
+                    " | ".join(qu["options"]) if isinstance(qu["options"], list) else qu["options"],
+                    qu["bonne_reponse_index"],
+                    qu["votre_reponse_index"],
+                ]
+            )
+    return resp
+
+
+class ExportMyDataView(APIView):
+    """GET /api/accounts/me/export/ — export des données personnelles (RGPD J3-bis).
+
+    Droit d'accès (RGPD art. 15) et à la portabilité (art. 20). Les données sont
+    STRICTEMENT filtrées sur l'utilisateur connecté. Formats : `?format=json`
+    (défaut) ou `?format=csv`. Chaque demande est journalisée dans DataRequest
+    (audit trail SAR / redevabilité).
+    """
+
+    permission_classes = [IsAuthenticated]
+
+    @extend_schema(
+        parameters=[
+            OpenApiParameter(
+                name="format",
+                description="Format d'export : 'json' (défaut) ou 'csv'.",
+                required=False,
+                type=str,
+            )
+        ],
+        responses={200: OpenApiResponse(description="Fichier téléchargeable (JSON ou CSV)")},
+        description="Exporte toutes les données personnelles de l'utilisateur connecté (RGPD).",
+    )
+    def get(self, request):
+        fmt = (request.query_params.get("format") or "json").lower()
+        if fmt not in ("json", "csv"):
+            return Response(
+                {"detail": "Le paramètre 'format' doit valoir 'json' ou 'csv'."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+
+        user = request.user
+        # Audit trail SAR : on trace la demande AVANT de renvoyer les données.
+        DataRequest.objects.create(
+            user=user,
+            user_email=user.email or user.username,
+            request_type=DataRequest.RequestType.EXPORT,
+            export_format=fmt,
+            ip_address=_client_ip(request),
+        )
+        logger.info("Export RGPD demandé (user=%s, format=%s)", user.pk, fmt)
+
+        data = _collect_user_data(user)
+        stamp = timezone.now().strftime("%Y%m%d")
+        filename = f"edututor-mes-donnees-{user.username}-{stamp}.{fmt}"
+
+        if fmt == "json":
+            resp = JsonResponse(
+                data, json_dumps_params={"ensure_ascii": False, "indent": 2}
+            )
+        else:
+            resp = _build_csv_response(data)
+        resp["Content-Disposition"] = f'attachment; filename="{filename}"'
+        return resp
 
 
 class ChangePasswordView(APIView):

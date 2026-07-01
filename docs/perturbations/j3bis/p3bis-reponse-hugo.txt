@@ -1,5 +1,5 @@
-﻿APOCAL'IPSSI - PERTURBATION J3bis (P4) - RGPD
-Reponse a la demande utilisateur (Hugo) - EduTutor IA
+﻿APOCAL'IPSSI - PERTURBATION J3-BIS (P4) - RGPD / SAR
+Reponse ecrite a Hugo PETIT - EduTutor IA
 
 Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
 Auteur du modele : Mohamed Amine EL AFRIT - Licence CC BY-NC-SA 4.0
@@ -7,96 +7,249 @@ Auteur du modele : Mohamed Amine EL AFRIT - Licence CC BY-NC-SA 4.0
 
 IDENTIFICATION DU DOCUMENT
 ==========================
-Equipe n    : 19
-Perturbation: J3bis P4 - RGPD
-Redacteur   : Ismael CEREZO
-Fichier     : docs/perturbations/j3bis/p3bis-reponse-hugo.txt
-Contexte    : Hugo (utilisateur Etudiant) a demande la suppression de son
-              compte et l'export de ses donnees avant de quitter la plateforme.
+Equipe n         : 19
+Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
+                   Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
+Perturbation     : J3-bis P4 - RGPD / SAR (Art. 15)
+Reference SAR    : SAR-2026-07-01-HPETIT
+Redacteur        : Aboubacar COUMARE
+Fichier          : docs/perturbations/j3bis/p3bis-reponse-hugo.txt
+Reference        : p3bis-politique-retention.txt
+                   p3bis-product-backlog-maj.txt
+                   https://mohamedelafrit.com/teaching/APOCALIPSSI/pages/perturbations/j3bis-rgpd.php
 
 
 ================================================================================
-DEMANDE RECUE
+1. DEMANDE RECUE (COPIE INTEGRALE)
 ================================================================================
 
-De : Hugo MARTIN (hugo.martin@etudiant.fr)
-Objet : Demande de suppression de mon compte et export de mes donnees
-Date : 01/07/2026
+De      : Hugo PETIT <hugo.petit@test.local>
+Objet   : Demande d'acces a mes donnees personnelles (Art. 15 RGPD)
+Recue le: Mercredi 01/07/2026 — 10h30
+Compte  : hugo.petit@test.local
 
 "Bonjour,
 
-Je souhaitais utiliser EduTutor IA pour reviser mon examen mais j'ai finalement
-decide de ne pas continuer. Conformement au RGPD, je demande :
-1. La suppression definitive de mon compte et de toutes mes donnees
-2. Un export de mes donnees avant suppression (historique de quiz, scores)
+Je suis Hugo Petit, etudiant en M2 Droit numerique a Paris-Saclay, et j'ai
+teste votre plateforme EduTutor IA il y a deux semaines via le compte
+hugo.petit@test.local.
 
-Pouvez-vous me confirmer que c'est bien possible et comment proceder ?
+Conformement a l'article 15 du Reglement General sur la Protection des Donnees
+(RGPD), je vous demande de me communiquer l'integralite des donnees
+personnelles que vous detenez a mon sujet, dans un format structure,
+couramment utilise et lisible par machine (JSON ou CSV).
 
-Cordialement,
-Hugo MARTIN"
+Doivent figurer notamment :
+  - mes donnees de compte (email, dates, etc.) ;
+  - tous les cours / textes que j'ai uploades ;
+  - tous les quizz generes a partir de mes donnees ;
+  - mes reponses aux quizz et mes scores ;
+  - tout signalement que j'aurais emis ;
+  - les logs d'audit me concernant.
 
-
-================================================================================
-REPONSE EQUIPE EDUTUTOR IA
-================================================================================
-
-De : Equipe EduTutor IA (equipe19@edututor.local)
-Objet : Re: Demande de suppression de mon compte et export de mes donnees
-Date : 01/07/2026
-
-"Bonjour Hugo,
-
-Nous avons bien recu votre demande. Conformement au RGPD (Reglement UE 2016/679),
-vous beneficiez des droits suivants que nous respectons integralement :
-
---- DROIT A LA PORTABILITE (Art. 20) ---
-
-Vous pouvez telecharger l'integralite de vos donnees depuis votre profil :
-  1. Connectez-vous sur http://edututor.local
-  2. Cliquez sur votre avatar en haut a droite → 'Mon profil'
-  3. Cliquez sur le bouton 'Telecharger mes donnees (JSON)'
-  4. Un fichier JSON sera telecharge contenant :
-     - Vos informations de compte (email, date d'inscription)
-     - Votre historique de quiz (questions, reponses, scores)
-     - Vos statistiques de progression
-
---- DROIT A L'EFFACEMENT (Art. 17) ---
-
-Vous pouvez supprimer votre compte directement depuis votre profil :
-  1. Connectez-vous sur http://edututor.local
-  2. Cliquez sur votre avatar → 'Mon profil'
-  3. Section 'Zone de danger' → bouton 'Supprimer mon compte'
-  4. Confirmez la suppression (mot de passe requis)
-  5. Toutes vos donnees seront supprimees definitivement sous 30 jours
-
-Nous vous recommandons d'exporter vos donnees AVANT de supprimer votre compte.
-
---- DONNEES TIERCES ---
-
-Vos cours soumis pour generation de quiz ne sont pas stockes sur nos serveurs.
-Ils transitent uniquement lors de la generation (traitement en temps reel via
-Mistral AI, fournisseur francais, donnees en UE).
-
---- CONTACT ---
-
-Pour toute question sur le traitement de vos donnees :
-  Email : privacy@edututor.local
-  Politique de confidentialite : http://edututor.local/mentions-legales
+Je vous rappelle que la loi vous accorde 30 jours pour repondre, mais le
+sponsor m'a confirme que votre equipe repondrait sous 48 h pour demontrer la
+conformite de votre POC.
 
 Cordialement,
-L'equipe EduTutor IA - Equipe 19"
+Hugo Petit"
 
 
 ================================================================================
-TRACE DE TRAITEMENT (conformite Art. 5.2 — responsabilite)
+2. REPONSE ECRITE — EMAIL PROFESSIONNEL
 ================================================================================
 
-  Date de la demande    : 01/07/2026
-  Date de la reponse    : 01/07/2026 (< 1 mois, conforme Art. 12)
-  Actions disponibles   : Export JSON (US-18) + Suppression compte (US-05)
-  Statut US-18          : Must Have (repriorise P4) - a implementer TASK-27
-  Statut US-05          : Must Have (repriorise P4) - bouton present (TASK-10)
-  Responsable           : Mathieu PONNOU (Product Owner interne)
+De      : EduTutor IA — Equipe 19 <privacy@edututor.local>
+A       : Hugo PETIT <hugo.petit@test.local>
+Objet   : Re: Demande d'acces a vos donnees personnelles (RGPD Art. 15) —
+          Reference SAR-2026-07-01-HPETIT
+Date    : Mercredi 01/07/2026 — 16h45
+Delai   : < 48 h (conforme engagement sponsor ; delai legal Art. 12 : 1 mois)
+
+
+Bonjour Monsieur Petit,
+
+Nous accusons reception de votre demande d'acces aux donnees personnelles
+en date du 01/07/2026, reference SAR-2026-07-01-HPETIT, relative au compte
+hugo.petit@test.local.
+
+Conformement au Reglement (UE) 2016/679 (RGPD), notamment les articles 12
+(delai et modalites de reponse) et 15 (droit d'acces), nous vous confirmons
+que votre demande a ete enregistree, traitee et que vous pouvez recuperer
+vos donnees des maintenant par les moyens decrits ci-dessous.
+
+
+--- ACCUSE DE RECEPTION ---
+
+  Date de la demande        : 01/07/2026, 10h30
+  Date de notre reponse     : 01/07/2026, 16h45
+  Responsable du traitement : EduTutor IA — Equipe 19 (POC APOCAL'IPSSI 2026)
+  Statut                    : Demande traitee — export disponible
+  Trace interne             : entree journalisee dans notre registre SAR
+                              (modele DataRequest, conservation 3 ans)
+
+
+--- MODALITES DE TELECHARGEMENT DE VOS DONNEES ---
+
+Vous pouvez obtenir l'integralite de vos donnees personnelles detenues par
+EduTutor IA, au format lisible par machine, de deux manieres equivalentes :
+
+  A) Depuis l'interface web (recommande)
+     1. Connectez-vous sur http://localhost:3000 avec hugo.petit@test.local
+     2. Ouvrez « Mon profil » (menu utilisateur)
+     3. Section « Mes donnees personnelles (RGPD) »
+     4. Cliquez sur « Exporter (JSON) » ou « Exporter (CSV) »
+     5. Le fichier se telecharge automatiquement :
+        edututor-mes-donnees-hugo.petit@test.local-YYYYMMDD.json
+        (ou .csv selon le format choisi)
+
+  B) Via l'API REST (utilisateur authentifie uniquement)
+     GET http://localhost:8000/api/accounts/me/export/
+     GET http://localhost:8000/api/accounts/me/export/?format=csv
+     Header : Authorization: Token <votre_token>
+     Reponse : HTTP 200, Content-Disposition: attachment
+
+Les donnees exportees sont STRICTEMENT limitees a votre compte : aucune
+donnee d'un autre utilisateur n'est incluse (filtrage systematique sur
+l'utilisateur authentifie).
+
+
+--- CONTENU DE L'EXPORT — CORRESPONDANCE AVEC VOTRE DEMANDE ---
+
+Votre demande Art. 15                    | Present dans l'export
+-----------------------------------------+----------------------------------
+Donnees de compte (email, dates, etc.)   | OUI — section « compte » :
+                                         |   email, prenom, nom, email verifie,
+                                         |   date d'inscription, derniere connexion
+Cours / textes uploades                  | PARTIEL — pour chaque quiz :
+                                         |   titre du cours et contenu des QCM
+                                         |   (enonces, options, reponses).
+                                         |   Le texte source brut (collage / PDF
+                                         |   extrait) est conserve en base
+                                         |   12 mois (politique de retention)
+                                         |   et peut etre communique sur demande
+                                         |   complementaire au DPO.
+Quizz generes                            | OUI — section « quizzes » :
+                                         |   identifiant, titre, date, score /10
+Reponses aux quizz et scores             | OUI — pour chaque question :
+                                         |   enonce, options, bonne reponse,
+                                         |   votre reponse (selected_index)
+Signalements emis                        | AUCUN sur votre compte a ce jour.
+                                         | (fonctionnalite de signalement prevue
+                                         |   en Release 2 — aucune donnee stockee)
+Logs d'audit vous concernant             | OUI — votre demande d'export actuelle
+                                         |   est journalisee (date, type, format,
+                                         |   adresse IP). Historique consultable
+                                         |   sur demande aupres du DPO.
+
+Formats disponibles : JSON (structure complet) et CSV (tableau compte + questions).
+Aucun mot de passe, token d'authentification ou secret technique n'est inclus
+dans l'export.
+
+
+--- VOS AUTRES DROITS (ART. 16, 17, 18, 20) ---
+
+En complement du droit d'acces (Art. 15) que vous exercez aujourd'hui :
+
+  Art. 16 — Droit de rectification
+    Vous pouvez modifier votre email, nom ou mot de passe depuis « Mon profil ».
+
+  Art. 17 — Droit a l'effacement (« droit a l'oubli »)
+    Vous pouvez supprimer definitivement votre compte depuis « Mon profil »
+    > « Zone de danger » > « Supprimer mon compte » (confirmation par mot de
+    passe). Suppression en cascade : compte, quiz, reponses et scores.
+    Une trace minimale de la demande est conservee dans notre audit trail SAR
+    (3 ans, sans recopie de vos donnees personnelles).
+
+  Art. 18 — Droit a la limitation du traitement
+    Sur demande motivee, adressez-vous au DPO (coordonnees ci-dessous).
+    Nous evaluerons votre demande dans le delai legal d'un mois.
+
+  Art. 20 — Droit a la portabilite
+    Les exports JSON et CSV repondent a ce droit : formats structures,
+    couramment utilises et reutilisables par un autre systeme.
+
+  Art. 21 — Droit d'opposition
+    Exercice sur demande ecrite au DPO, dans les limites des traitements
+    fondes sur l'interet legitime.
+
+
+--- POLITIQUE DE RETENTION ---
+
+Les durees de conservation appliquees a vos donnees sont detaillees dans
+notre politique de retention (document interne + page Confidentialite) :
+
+  * Compte actif          : tant que vous utilisez le service
+  * Cours / quiz / scores : 12 mois apres creation
+  * PDF uploades          : 30 jours maximum
+  * Logs techniques       : 30 jours
+  * Audit trail SAR       : 3 ans (donnees minimales)
+
+Reference complete : docs/perturbations/j3bis/p3bis-politique-retention.txt
+Page web : http://localhost:3000/politique-confidentialite
+
+
+--- CONTACT DPO (FICTIF — POC FORMATION) ---
+
+Delegue a la Protection des Donnees (DPO) :
+  Mme Claire DUBOIS
+  Email : dpo@edututor.local
+  Courrier : EduTutor IA — DPO — Equipe 19 — POC APOCAL'IPSSI 2026
+
+Pour toute question relative a ce traitement ou pour exercer vos droits :
+  privacy@edututor.local
+
+En cas de desaccord persistant, vous pouvez introduire une reclamation aupres
+de la CNIL : https://www.cnil.fr/fr/plaintes
+
+
+--- PRECISION SUR LE TRAITEMENT IA ---
+
+Les cours soumis pour la generation de quiz sont traites via l'API Mistral AI
+(fournisseur europeen, donnees hebergees dans l'Union europeenne) uniquement
+au moment de la generation. Nous ne revendons pas vos donnees et ne les
+utilisons pas a des fins publicitaires.
+
+
+Nous restons a votre disposition pour toute precision complementaire.
+
+Cordialement,
+
+Philippe MAILLOT
+Referent RGPD — Equipe EduTutor IA (Equipe 19)
+privacy@edututor.local
+
+
+================================================================================
+3. TRACE DE TRAITEMENT INTERNE (ART. 5.2 — REDEVABILITE)
+================================================================================
+
+  Reference SAR           : SAR-2026-07-01-HPETIT
+  Demandeur               : Hugo PETIT (hugo.petit@test.local)
+  Type de demande         : Acces Art. 15 + portabilite Art. 20
+  Date reception          : 01/07/2026 10h30
+  Date reponse            : 01/07/2026 16h45 (< 48 h)
+  Delai legal Art. 12     : Respecte (reponse < 1 mois)
+  User story              : US-RGPD-05 / CA-J3B-7
+  Endpoint utilise        : GET /api/accounts/me/export/ (?format=json|csv)
+  Audit trail             : DataRequest cree a chaque export (US-RGPD-03)
+  Politique retention     : p3bis-politique-retention.txt (CA-J3B-5)
+  Responsable traitement  : Mathieu PONNOU (PO interne)
+
+
+================================================================================
+GRILLE D'AUTO-EVALUATION — CA-J3B-7
+================================================================================
+
+  Accuse de reception explicite (date, reference)              : [X] Oui
+  Procedure de telechargement (lien / profil / API)            : [X] Oui
+  Explication des 6 categories de donnees demandees            : [X] Oui
+  Formats JSON + CSV mentionnes                                : [X] Oui
+  Droits Art. 16 / 17 / 18 / 20 mentionnes                    : [X] Oui
+  Contact DPO fictif indique                                   : [X] Oui
+  Ton professionnel et structure claire                        : [X] Oui
+  Coherent avec Hugo PETIT (scenario officiel J3-bis)          : [X] Oui
+  Coherent avec l'implementation technique (export + DataRequest): [X] Oui
 
 
 Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

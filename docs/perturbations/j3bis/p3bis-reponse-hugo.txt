@@ -105,7 +105,7 @@ EduTutor IA, au format lisible par machine, de deux manieres equivalentes :
 
   B) Via l'API REST (utilisateur authentifie uniquement)
      GET http://localhost:8000/api/accounts/me/export/
-     GET http://localhost:8000/api/accounts/me/export/?format=csv
+     GET http://localhost:8000/api/accounts/me/export/?export_format=csv
      Header : Authorization: Token <votre_token>
      Reponse : HTTP 200, Content-Disposition: attachment
 
@@ -231,7 +231,7 @@ privacy@edututor.local
   Date reponse            : 01/07/2026 16h45 (< 48 h)
   Delai legal Art. 12     : Respecte (reponse < 1 mois)
   User story              : US-RGPD-05 / CA-J3B-7
-  Endpoint utilise        : GET /api/accounts/me/export/ (?format=json|csv)
+  Endpoint utilise        : GET /api/accounts/me/export/ (?export_format=json|csv)
   Audit trail             : DataRequest cree a chaque export (US-RGPD-03)
   Politique retention     : p3bis-politique-retention.txt (CA-J3B-5)
   Responsable traitement  : Mathieu PONNOU (PO interne)

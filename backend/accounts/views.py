@@ -376,9 +376,12 @@ class ExportMyDataView(APIView):
     """GET /api/accounts/me/export/ — export des données personnelles (RGPD J3-bis).
 
     Droit d'accès (RGPD art. 15) et à la portabilité (art. 20). Les données sont
-    STRICTEMENT filtrées sur l'utilisateur connecté. Formats : `?format=json`
-    (défaut) ou `?format=csv`. Chaque demande est journalisée dans DataRequest
+    STRICTEMENT filtrées sur l'utilisateur connecté. Formats : `?export_format=json`
+    (défaut) ou `?export_format=csv`. Chaque demande est journalisée dans DataRequest
     (audit trail SAR / redevabilité).
+
+    Note : on n'utilise PAS le query param `format` : DRF l'intercepte pour la
+    négociation de contenu (pas de CSVRenderer) et renvoie 404 avant la vue.
     """
 
     permission_classes = [IsAuthenticated]
@@ -386,7 +389,7 @@ class ExportMyDataView(APIView):
     @extend_schema(
         parameters=[
             OpenApiParameter(
-                name="format",
+                name="export_format",
                 description="Format d'export : 'json' (défaut) ou 'csv'.",
                 required=False,
                 type=str,
@@ -396,10 +399,10 @@ class ExportMyDataView(APIView):
         description="Exporte toutes les données personnelles de l'utilisateur connecté (RGPD).",
     )
     def get(self, request):
-        fmt = (request.query_params.get("format") or "json").lower()
+        fmt = (request.query_params.get("export_format") or "json").lower()
         if fmt not in ("json", "csv"):
             return Response(
-                {"detail": "Le paramètre 'format' doit valoir 'json' ou 'csv'."},
+                {"detail": "Le paramètre 'export_format' doit valoir 'json' ou 'csv'."},
                 status=status.HTTP_400_BAD_REQUEST,
             )
 

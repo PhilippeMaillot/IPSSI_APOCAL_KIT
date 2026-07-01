@@ -1,4 +1,4 @@
-﻿APOCAL'IPSSI - PERTURBATION J3bis (P4 SUR 5) - RGPD
+﻿APOCAL'IPSSI - PERTURBATION J3bis (P4 SUR 5) - RGPD / SAR
 Sprint Backlog actualise - EduTutor IA
 
 Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
@@ -10,13 +10,51 @@ IDENTIFICATION DU DOCUMENT
 Equipe n         : 19
 Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
                    Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
-Perturbation     : J3bis P4 - RGPD
-Date             : 01/07/2026
-Redacteur        : Ismael CEREZO
+Perturbation     : J3-bis P4 - RGPD / SAR (donnees personnelles)
+Version          : v2.0 (suite commits export SAR + MoSCoW actualise)
+Date de remise   : 01/07/2026
+Statut           : Draft
+Redacteur        : Milane MEHALEBI
 Fichier          : docs/perturbations/j3bis/p3bis-sprint-backlog-maj.txt
-Reference        : complete artefact-7-sprint-backlog.csv
+Reference        : complete et fait evoluer docs/cadrage/artefact-7-sprint-backlog.csv
                    (suite de p3-sprint-backlog-maj.txt — TASK-23/24/25 deja pris)
-                   voir aussi p3bis-product-backlog-maj.txt · p3bis-decision-moscow.txt
+                   Aligne avec : docs/perturbations/j3bis/p3bis-decision-moscow.txt
+                   docs/perturbations/j3bis/p3bis-product-backlog-maj.txt
+                   docs/perturbations/j3bis/p3bis-politique-retention.txt
+                   docs/perturbations/j3bis/p3bis-reponse-hugo.txt
+
+
+================================================================================
+0. DECISION DE CADRAGE - IMPACT SUR LE SPRINT BACKLOG
+================================================================================
+
+Suite a la perturbation P4 (RGPD / SAR Hugo Petit), la Release 1 (mercredi 17h45)
+exige une posture conformite minimale en plus du MVP F1-F6. Le Sprint Backlog
+initial (artefact-7) reste la reference ; ce document decrit les NOUVELLES TACHES
+et leur statut au 01/07/2026 apres les commits recents.
+
+Etat d'avancement constate sur le depot :
+
+  FAIT (commits recents) :
+  * PR #2 · 7a1a506 — feat(rgpd): export SAR JSON + CSV (US-RGPD-01 / US-18)
+  * 8772583 — fix export CSV
+  * Modele DataRequest + audit trail export (US-RGPD-03)
+  * Boutons « Exporter (JSON) » et « Exporter (CSV) » sur /profile
+  * GET /api/accounts/me/export/ (filtrage strict request.user)
+  * p3bis-reponse-hugo.txt — reponse SAR redigee (US-RGPD-05)
+  * p3bis-politique-retention.txt · p3bis-decision-moscow.txt actualises
+
+  A FAIRE :
+  * TASK-26 — 4 pages legales encore en modele vierge (LegalScaffold)
+  * TASK-28 — validation suppression cascade US-05
+  * TASK-29 — cloture livrables P4 + checklist Release 1
+
+Deux taches cles du Sprint 5 etaient INDEPENDANTES entre elles :
+
+  TASK-26 — Pages mentions legales     → frontend uniquement
+  TASK-27 — Bouton export des donnees    → backend + frontend
+
+TASK-27 est terminee ; TASK-26 peut continuer sans dependre de l'export.
 
 
 ================================================================================
@@ -24,93 +62,125 @@ Reference        : complete artefact-7-sprint-backlog.csv
 ================================================================================
 
   TASK ID     : TASK-26
-  User Story  : P4 - RGPD Art. 13
-  Titre       : Completer les pages legales (4 pages)
-  Description : Creer et completer les 4 pages RGPD dans le frontend React :
-                /mentions-legales, /politique-confidentialite, /cgu, /cookies
-                Ajouter les liens dans le footer de toutes les pages.
-                Contenu minimal conforme Art. 13 : responsable traitement,
-                donnees collectees, durees conservation, droits utilisateur.
+  User Story  : US-RGPD-04 · P4 Art. 13
+  Titre       : Completer la page mentions legales (+ 3 pages legales)
+  Description : Remplacer le contenu placeholder des 4 pages legales React :
+                /legal/mentions-legales, /legal/confidentialite, /legal/cgu,
+                /legal/cookies (fichiers frontend/src/pages/legal/*.tsx).
+                Supprimer le bandeau « Page a completer » (LegalScaffold).
+                Contenu minimal Art. 13 : responsable traitement, donnees
+                collectees, durees (cf. p3bis-politique-retention.txt), droits
+                utilisateur, formats export JSON/CSV, contact RGPD.
+                Liens footer deja presents dans Layout.tsx — verifier accessibilite.
   Type        : Dev frontend
   Assigne a   : Aboubacar COUMARE
   Estimation  : 45 min
   Statut      : A faire
-  DoD         : 4 pages accessibles et linkees depuis le footer · contenu
-                conforme Art. 13 · aucune regression navigation
+  Dependances : Aucune (independant de TASK-27 — deja livree)
+  DoD         : 4 pages sans placeholder vide · politique retention referencee ·
+                footer OK · contenu Art. 13 relu equipe · aucune regression nav
 
   ---
 
   TASK ID     : TASK-27
-  User Story  : US-18 Must Have (RGPD Art. 20)
-  Titre       : Implementer l'endpoint export donnees JSON
-  Description : Creer GET /api/users/export/ dans le backend Django.
-                Retourner un JSON avec : email, date inscription, historique
-                quiz (questions, reponses, scores), statistiques.
-                Ajouter le bouton "Telecharger mes donnees" dans /profile (frontend).
-                Fichier nomme : edututor_mes_donnees_<YYYY-MM-DD>.json
+  User Story  : US-18 · US-RGPD-01 · P4 Art. 15 + Art. 20
+  Titre       : Implementer le bouton export des donnees (JSON + CSV)
+  Description : Backend : GET /api/accounts/me/export/ (?export_format=json|csv)
+                Donnees : compte, quiz, reponses, scores — filtre request.user.
+                Frontend : boutons export sur /profile (section « Mes donnees »).
+                Audit trail : modele DataRequest a chaque export.
+                Commits : 7a1a506 (PR #2), 8772583 (fix CSV).
+                Fichiers : backend/accounts/views.py · models.py · ProfilePage.tsx
   Type        : Dev backend + frontend
   Assigne a   : Ndiasse MBEGUERE
   Estimation  : 60 min
-  Statut      : A faire
-  DoD         : Endpoint retourne JSON valide · bouton present sur /profile ·
-                telechargement declenche correctement · donnees completes
+  Statut      : Fait
+  Dependances : Aucune (independant de TASK-26)
+  DoD         : Endpoint JSON + CSV OK · boutons /profile fonctionnels ·
+                DataRequest journalise · filtrage strict utilisateur connecte ·
+                reponse SAR Hugo testable (cf. p3bis-reponse-hugo.txt)
 
   ---
 
   TASK ID     : TASK-28
-  User Story  : US-05 Must Have (RGPD Art. 17)
-  Titre       : Verifier la suppression en cascade du compte (US-05)
-  Description : Tester la suppression complète du compte depuis /profile.
-                Verifier que la suppression supprime en cascade : compte,
-                historique quiz, scores, reponses. Verifier que l'utilisateur
-                ne peut plus se reconnecte apres suppression.
-                Corriger si suppression partielle (orphelins en base).
+  User Story  : US-05 · US-RGPD-02 · P4 Art. 17
+  Titre       : Verifier la suppression en cascade du compte
+  Description : Tester suppression complete depuis /profile (deja codee kit).
+                Verifier cascade : compte, quiz, reponses, scores. Creer trace
+                DataRequest si suppression. Corriger orphelins en base si besoin.
   Type        : Test + correction si necessaire
   Assigne a   : Ismael CEREZO
   Estimation  : 30 min
   Statut      : A faire
-  DoD         : Suppression complete verifiee en base · aucun orphelin ·
-                reconnexion impossible apres suppression
+  Dependances : Aucune
+  DoD         : Suppression complete verifiee · aucun orphelin · reconnexion impossible
 
   ---
 
   TASK ID     : TASK-29
   User Story  : P4 - RGPD
-  Titre       : Deposer les livrables P4
-  Description : Versionner docs/perturbations/j3bis/ · s'assurer que
-                artefact-6 (MoSCoW) et artefact-7 (sprint backlog) sont mis
-                a jour · commit et push avant fin Sprint 5
+  Titre       : Cloturer les livrables P4 et checklist Release 1
+  Description : Verifier presence docs/perturbations/j3bis/ · valider checklist
+                Release 1 dans p3bis-decision-moscow.txt (export, suppression,
+                pages legales, politique retention, reponse Hugo). Commit final.
   Type        : Perturbation
   Assigne a   : Mathieu PONNOU (Scrum Master)
   Estimation  : 15 min
-  Statut      : A faire
-  DoD         : Fichiers j3bis/ presents sur repo · artefact-6 et artefact-7
-                mis a jour · commit pousse sur main
+  Statut      : En cours (partiel — export et reponse Hugo deposes)
+  Dependances : Apres TASK-26 et TASK-28
+  DoD         : Checklist Release 1 completee · docs j3bis/ a jour · push main
 
 
 ================================================================================
-2. SYNTHESE PRIORISATION SPRINT 5 POST-P4
+2. SYNTHESE — INDEPENDANCE ET STATUT AU 01/07/2026
 ================================================================================
 
-  Priorite | Taches                              | Statut Sprint 5
-  ---------+-------------------------------------+------------------------
-  Must     | TASK-26 (pages legales)             | A faire
-  Must     | TASK-27 (export donnees US-18)      | A faire
-  Must     | TASK-28 (test suppression US-05)    | A faire
-  Must     | TASK-29 (livrables P4)              | A faire
-  Must     | TASK-23 a 25 (securite P3)          | A faire (merge Sprint 5)
-  Should   | US-J1-01/02/03 (Mme Lefevre)        | A planifier Sprint 6+
+  Tache    | Perimetre                 | Indep. | Statut     | Commits / refs
+  ---------+---------------------------+--------+------------+---------------------------
+  TASK-26  | Pages mentions legales    | Oui    | A faire    | LegalScaffold a remplir
+  TASK-27  | Bouton export JSON/CSV    | Oui    | Fait       | 7a1a506 · 8772583 · PR #2
+  TASK-28  | Test suppression US-05    | Oui    | A faire    | —
+  TASK-29  | Livrables P4              | Non    | En cours   | reponse-hugo OK
+
+  Livrables documentaires deja deposes :
+  * p3bis-politique-retention.txt (9b6fc09)
+  * p3bis-product-backlog-maj.txt (9b6fc09 · 292186a)
+  * p3bis-decision-moscow.txt (292186a)
+  * p3bis-reponse-hugo.txt (713647b · 8772583)
+
+>>> INVESTISSEMENT PRIORITAIRE RESTANT : TASK-26 (pages legales) en parallele de
+    TASK-28 (suppression). TASK-27 deja livree — ne pas bloquer TASK-26 dessus.
+
+
+================================================================================
+3. PRIORISATION SPRINT 5 POST-P4
+================================================================================
+
+  Priorite | Taches / Stories                         | Statut Sprint 5
+  ---------+------------------------------------------+------------------------
+  Must     | TASK-27 (export SAR · Art. 15/20)        | Fait
+  Must     | TASK-26 (pages legales · Art. 13)        | A faire
+  Must     | TASK-28 (suppression · Art. 17)          | A faire
+  Must     | TASK-29 (livrables P4 + checklist R1)    | En cours
+  Must     | US-RGPD-05 (reponse Hugo)                | Fait (document)
+  Must     | US-12 · F6 (historique)                  | A continuer
+  Should   | TASK-23 a 25 (securite P3)               | Fait (4b1070b · 6f7d464)
+  Should   | US-J1-01/02/03 (Mme Lefevre)             | Sprint 6+
 
 
 ================================================================================
 GRILLE D'AUTO-EVALUATION
 ================================================================================
 
-  Nouvelles taches documentees (TASK-26 a 29)                     : [X] Oui
-  Numerotation coherente (TASK-19/22 pris J2, TASK-23/25 pris J3) : [X] Oui
-  Responsables et estimations assignes                             : [X] Oui
-  Alignement avec p3bis-product-backlog-maj.txt                    : [X] Oui
+  Document de modifications uniquement (artefact-7 conserve)       : [X] Oui
+  Tache pages mentions legales documentee (TASK-26)                : [X] Oui
+  Tache bouton export documentee (TASK-27)                         : [X] Oui
+  Statut TASK-27 aligne sur commits recents (PR #2)                : [X] Oui
+  Independance TASK-26 / TASK-27 explicitement indiquee          : [X] Oui
+  References commits et fichiers code a jour                       : [X] Oui
+  Alignement avec p3bis-decision-moscow.txt v2                     : [X] Oui
   DoD definie pour chaque tache                                    : [X] Oui
+  Document relu et valide par l'equipe complete                    : [ ] A valider
 
 
 Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

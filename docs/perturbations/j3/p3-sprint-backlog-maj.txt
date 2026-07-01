@@ -1,0 +1,91 @@
+APOCAL'IPSSI - PERTURBATION J3 (P3 SUR 5) - SECURITE
+Sprint Backlog actualise - EduTutor IA
+
+Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
+Auteur du modele : Mohamed Amine EL AFRIT - Licence CC BY-NC-SA 4.0
+
+
+IDENTIFICATION DU DOCUMENT
+==========================
+Equipe n         : 19
+Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
+                   Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
+Perturbation     : J3 P3 - Securite (prompt injection)
+Date             : 01/07/2026
+Redacteur        : Ismael CEREZO
+Fichier          : docs/perturbations/j3/p3-sprint-backlog-maj.txt
+Reference        : complete artefact-7-sprint-backlog.csv
+                   voir aussi p3-note-securite.txt · p3-adversarial-tests.txt
+
+
+================================================================================
+1. NOUVELLES TACHES - PERTURBATION P3
+================================================================================
+
+  TASK ID     : TASK-23
+  User Story  : Securite P3
+  Titre       : Implementer le prompt guard (Solution 2)
+  Description : Modifier backend/llm/providers.py pour encapsuler le contenu
+                utilisateur dans des balises <COURS>...</COURS> dans le prompt
+                systeme. Ajouter filtre regex pre-LLM sur patterns d'injection
+                connus. Logguer les tentatives detectees (sans exposer le payload).
+  Type        : Dev backend
+  Assigne a   : Ndiasse MBEGUERE
+  Estimation  : 60 min
+  Statut      : A faire
+  DoD         : Prompt template mis a jour · filtre regex actif · logs en place ·
+                aucune regression sur US-06/07/08
+
+  ---
+
+  TASK ID     : TASK-24
+  User Story  : Securite P3
+  Titre       : Executer les tests adversariaux (5 cas)
+  Description : Derouler les 5 cas de test du fichier p3-adversarial-tests.txt ·
+                noter les resultats (passe / echoue) · documenter les comportements
+                observes · corriger si un test echoue
+  Type        : Test securite
+  Assigne a   : Ismael CEREZO
+  Estimation  : 30 min
+  Statut      : A faire
+  DoD         : 5 tests passes · aucune fuite de reponses · resultats documentes
+                dans p3-adversarial-tests.txt
+
+  ---
+
+  TASK ID     : TASK-25
+  User Story  : Securite P3
+  Titre       : Deposer les livrables P3 + rediger ADR-0002
+  Description : Versionner docs/perturbations/j3/ · rediger docs/adr/ADR-0002-
+                prompt-injection.md · commit et push avant fin Sprint 4
+  Type        : Perturbation
+  Assigne a   : Mathieu PONNOU (Scrum Master)
+  Estimation  : 20 min
+  Statut      : A faire
+  DoD         : Fichiers presents dans docs/perturbations/j3/ · ADR-0002 redige ·
+                commit pousse sur main
+
+
+================================================================================
+2. SYNTHESE PRIORISATION SPRINT 4 POST-P3
+================================================================================
+
+  Priorite | Taches                         | Statut Sprint 4
+  ---------+--------------------------------+------------------------
+  Must     | TASK-23 (prompt guard)         | A faire
+  Must     | TASK-24 (tests adversariaux)   | A faire
+  Must     | TASK-25 (livrables P3 + ADR)   | A faire
+  Must     | US-12 · F6 (historique)        | A continuer
+
+
+================================================================================
+GRILLE D'AUTO-EVALUATION
+================================================================================
+
+  Nouvelles taches documentees (TASK-23/24/25)                    : [X] Oui
+  Responsables et estimations assignes                             : [X] Oui
+  Alignement avec p3-note-securite.txt                             : [X] Oui
+  DoD definie pour chaque tache                                    : [X] Oui
+
+
+Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

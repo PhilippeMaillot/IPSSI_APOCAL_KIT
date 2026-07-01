@@ -1,0 +1,116 @@
+﻿APOCAL'IPSSI - PERTURBATION J3bis (P4 SUR 5) - RGPD
+Sprint Backlog actualise - EduTutor IA
+
+Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
+Auteur du modele : Mohamed Amine EL AFRIT - Licence CC BY-NC-SA 4.0
+
+
+IDENTIFICATION DU DOCUMENT
+==========================
+Equipe n         : 19
+Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
+                   Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
+Perturbation     : J3bis P4 - RGPD
+Date             : 01/07/2026
+Redacteur        : Ismael CEREZO
+Fichier          : docs/perturbations/j3bis/p3bis-sprint-backlog-maj.txt
+Reference        : complete artefact-7-sprint-backlog.csv
+                   (suite de p3-sprint-backlog-maj.txt — TASK-23/24/25 deja pris)
+                   voir aussi p3bis-product-backlog-maj.txt · p3bis-decision-moscow.txt
+
+
+================================================================================
+1. NOUVELLES TACHES - PERTURBATION P4 (RGPD)
+================================================================================
+
+  TASK ID     : TASK-26
+  User Story  : P4 - RGPD Art. 13
+  Titre       : Completer les pages legales (4 pages)
+  Description : Creer et completer les 4 pages RGPD dans le frontend React :
+                /mentions-legales, /politique-confidentialite, /cgu, /cookies
+                Ajouter les liens dans le footer de toutes les pages.
+                Contenu minimal conforme Art. 13 : responsable traitement,
+                donnees collectees, durees conservation, droits utilisateur.
+  Type        : Dev frontend
+  Assigne a   : Aboubacar COUMARE
+  Estimation  : 45 min
+  Statut      : A faire
+  DoD         : 4 pages accessibles et linkees depuis le footer · contenu
+                conforme Art. 13 · aucune regression navigation
+
+  ---
+
+  TASK ID     : TASK-27
+  User Story  : US-18 Must Have (RGPD Art. 20)
+  Titre       : Implementer l'endpoint export donnees JSON
+  Description : Creer GET /api/users/export/ dans le backend Django.
+                Retourner un JSON avec : email, date inscription, historique
+                quiz (questions, reponses, scores), statistiques.
+                Ajouter le bouton "Telecharger mes donnees" dans /profile (frontend).
+                Fichier nomme : edututor_mes_donnees_<YYYY-MM-DD>.json
+  Type        : Dev backend + frontend
+  Assigne a   : Ndiasse MBEGUERE
+  Estimation  : 60 min
+  Statut      : A faire
+  DoD         : Endpoint retourne JSON valide · bouton present sur /profile ·
+                telechargement declenche correctement · donnees completes
+
+  ---
+
+  TASK ID     : TASK-28
+  User Story  : US-05 Must Have (RGPD Art. 17)
+  Titre       : Verifier la suppression en cascade du compte (US-05)
+  Description : Tester la suppression complète du compte depuis /profile.
+                Verifier que la suppression supprime en cascade : compte,
+                historique quiz, scores, reponses. Verifier que l'utilisateur
+                ne peut plus se reconnecte apres suppression.
+                Corriger si suppression partielle (orphelins en base).
+  Type        : Test + correction si necessaire
+  Assigne a   : Ismael CEREZO
+  Estimation  : 30 min
+  Statut      : A faire
+  DoD         : Suppression complete verifiee en base · aucun orphelin ·
+                reconnexion impossible apres suppression
+
+  ---
+
+  TASK ID     : TASK-29
+  User Story  : P4 - RGPD
+  Titre       : Deposer les livrables P4
+  Description : Versionner docs/perturbations/j3bis/ · s'assurer que
+                artefact-6 (MoSCoW) et artefact-7 (sprint backlog) sont mis
+                a jour · commit et push avant fin Sprint 5
+  Type        : Perturbation
+  Assigne a   : Mathieu PONNOU (Scrum Master)
+  Estimation  : 15 min
+  Statut      : A faire
+  DoD         : Fichiers j3bis/ presents sur repo · artefact-6 et artefact-7
+                mis a jour · commit pousse sur main
+
+
+================================================================================
+2. SYNTHESE PRIORISATION SPRINT 5 POST-P4
+================================================================================
+
+  Priorite | Taches                              | Statut Sprint 5
+  ---------+-------------------------------------+------------------------
+  Must     | TASK-26 (pages legales)             | A faire
+  Must     | TASK-27 (export donnees US-18)      | A faire
+  Must     | TASK-28 (test suppression US-05)    | A faire
+  Must     | TASK-29 (livrables P4)              | A faire
+  Must     | TASK-23 a 25 (securite P3)          | A faire (merge Sprint 5)
+  Should   | US-J1-01/02/03 (Mme Lefevre)        | A planifier Sprint 6+
+
+
+================================================================================
+GRILLE D'AUTO-EVALUATION
+================================================================================
+
+  Nouvelles taches documentees (TASK-26 a 29)                     : [X] Oui
+  Numerotation coherente (TASK-19/22 pris J2, TASK-23/25 pris J3) : [X] Oui
+  Responsables et estimations assignes                             : [X] Oui
+  Alignement avec p3bis-product-backlog-maj.txt                    : [X] Oui
+  DoD definie pour chaque tache                                    : [X] Oui
+
+
+Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

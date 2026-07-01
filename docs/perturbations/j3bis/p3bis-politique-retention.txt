@@ -1,0 +1,72 @@
+﻿APOCAL'IPSSI - PERTURBATION J3bis (P4) - RGPD
+Politique de retention des donnees - EduTutor IA
+
+Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
+Auteur du modele : Mohamed Amine EL AFRIT - Licence CC BY-NC-SA 4.0
+
+
+IDENTIFICATION DU DOCUMENT
+==========================
+Equipe n    : 19
+Perturbation: J3bis P4 - RGPD
+Redacteur   : Ismael CEREZO
+Fichier     : docs/perturbations/j3bis/p3bis-politique-retention.txt
+
+
+================================================================================
+1. DONNEES COLLECTEES ET DUREES DE CONSERVATION
+================================================================================
+
+  Type de donnee          | Finalite                  | Duree conservation
+  ------------------------+---------------------------+----------------------
+  Email + mot de passe    | Authentification          | Duree du compte + 30j
+  Cours fournis (texte)   | Generation QCM            | Non stockes (transit)
+  Questions generees      | Affichage quiz            | Duree du compte
+  Reponses utilisateur    | Score + corrections       | Duree du compte
+  Score et historique     | Suivi progression         | Duree du compte
+  Logs techniques         | Securite + debogage       | 90 jours glissants
+  Donnees agregees classe | Dashboard enseignant      | Duree du compte prof
+
+Note : Les cours fournis (PDF ou texte) ne sont pas persistes en base.
+Ils transitent uniquement pour la generation du quiz (traitement en memoire).
+
+
+================================================================================
+2. DROITS DES UTILISATEURS (RGPD Art. 15-22)
+================================================================================
+
+  Droit                  | Modalite dans EduTutor IA
+  -----------------------+------------------------------------------
+  Acces (Art. 15)        | Export JSON depuis /profile (US-18)
+  Rectification (Art. 16)| Modification profil depuis /profile (US-04)
+  Effacement (Art. 17)   | Suppression compte depuis /profile (US-05)
+  Portabilite (Art. 20)  | Export JSON depuis /profile (US-18)
+  Opposition (Art. 21)   | Suppression compte (US-05) + opt-out emails
+
+
+================================================================================
+3. SOUS-TRAITANTS ET TRANSFERTS
+================================================================================
+
+  Fournisseur     | Service          | Localisation | Base legale
+  ----------------+------------------+--------------+--------------------
+  Mistral AI      | Generation LLM   | France (EU)  | Interet legitime
+  OVH             | Hebergement VPS  | France (EU)  | Execution contrat
+  PostgreSQL      | Base de donnees  | Local / OVH  | Execution contrat
+
+Aucun transfert de donnees hors UE. Les cours fournis par les utilisateurs
+transitent vers Mistral AI (France) uniquement pour la generation des QCM.
+
+
+================================================================================
+4. MESURES DE SECURITE
+================================================================================
+
+  - Mots de passe haches (Django bcrypt/argon2)
+  - HTTPS obligatoire en production (cf. docs/11-deploiement-vps-ovh.md)
+  - Tokens JWT expires (24h)
+  - Prompt guard contre les injections (P3)
+  - Logs d'acces conserves 90 jours
+
+
+Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

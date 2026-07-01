@@ -28,6 +28,11 @@
 "TASK-16","Scrum","Sprint Review — démo au PO","Préparer une démo live de 5 min (inscription → upload cours → génération quiz → score) · présenter au PO · noter le feedback · vérifier que la DoD est atteinte pour US-01 et US-06/07","Scrum","Mathieu PONNOU (Scrum Master)","20","À faire","✓ Démo live sans coupure · ✓ PO a noté son feedback · ✓ US-01 et US-06/07 marquées Done ou partiellement Done · ✓ Product Backlog mis à jour"
 "TASK-17","Scrum","Sprint Retrospective (15 min)","Format Start/Stop/Continue · chaque membre donne 1 Start · 1 Stop · 1 Continue · le Scrum Master synthétise · 1 action concrète pour le Sprint 2 identifiée","Scrum","Mathieu PONNOU (Scrum Master)","15","À faire","✓ Chaque membre a participé · ✓ 1 action d'amélioration documentée pour Sprint 2 · ✓ Durée ≤15 min"
 ,,,,,,,,
+"TASK-26","P4 RGPD Art. 13","Compléter les pages légales (4 pages)","Créer et compléter les 4 pages RGPD dans le frontend React : /mentions-legales · /politique-confidentialite · /cgu · /cookies · Ajouter les liens dans le footer de toutes les pages · Contenu minimal conforme Art. 13 : responsable traitement · données collectées · durées conservation · droits utilisateur","Dev frontend","Aboubacar COUMARE","45","À faire","✓ 4 pages accessibles · ✓ Linkées depuis le footer · ✓ Contenu conforme Art. 13 · ✓ Aucune régression navigation"
+"TASK-27","US-18 Must (RGPD Art. 20)","Implémenter l'endpoint export données JSON","Créer GET /api/users/export/ dans le backend Django · Retourner JSON avec : email · date inscription · historique quiz · questions · réponses · scores · Ajouter bouton Télécharger mes données dans /profile frontend · Fichier nommé edututor_mes_donnees_<YYYY-MM-DD>.json","Dev backend + frontend","Ndiasse MBEGUERE","60","À faire","✓ Endpoint retourne JSON valide · ✓ Bouton présent sur /profile · ✓ Téléchargement déclenché correctement · ✓ Données complètes (user + quiz + réponses)"
+"TASK-28","US-05 Must (RGPD Art. 17)","Vérifier suppression en cascade du compte","Tester la suppression complète du compte depuis /profile · Vérifier suppression en cascade : compte + historique quiz + scores + réponses · Vérifier que l'utilisateur ne peut plus se reconnecter après suppression · Corriger si suppression partielle (orphelins en base)","Test + correction","Ismael CEREZO","30","À faire","✓ Suppression complète vérifiée en base · ✓ Aucun orphelin · ✓ Reconnexion impossible après suppression"
+"TASK-29","P4 RGPD","Déposer les livrables P4","Versionner docs/perturbations/j3bis/ · Vérifier artefact-6 (MoSCoW) et artefact-7 (sprint backlog) mis à jour · Commit et push avant fin Sprint 5","Perturbation","Mathieu PONNOU (Scrum Master)","15","À faire","✓ Fichiers j3bis/ présents sur repo · ✓ artefact-6 et artefact-7 mis à jour · ✓ Commit poussé sur main"
+,,,,,,,,
 "DEFINITION OF READY (DoR) — vérifiée avant Sprint Planning",,,,,,,,
 "✓ Chaque US a des critères d'acceptation testables · ✓ Dépendances identifiées (US-08 dépend US-06 ou US-07) · ✓ Estimée en points · ✓ Priorité MoSCoW assignée · ✓ Pas de question ouverte côté PO",,,,,,,,
 ,,,,,,,,
@@ -42,10 +47,11 @@
 "RÉCAPITULATIF TÂCHES PAR TYPE",,,,,,,,
 "Type","Nombre de tâches","Durée totale estimée",,,,,,
 "Setup","7 tâches (TASK-01 à 06 · 13)","~125 min",,,,,,
-"Test","6 tâches (TASK-07 à 12)","~100 min",,,,,,
-"Dev","2 tâches (TASK-14 · 15)","~60 min",,,,,,
+"Test","7 tâches (TASK-07 à 12 · 28)","~130 min",,,,,,
+"Dev","4 tâches (TASK-14 · 15 · 26 · 27)","~165 min",,,,,,
 "Scrum","2 tâches (TASK-16 · 17)","~35 min",,,,,,
-"TOTAL","17 tâches","~320 min (~5h20 — prévoir > 4h si setup long)",,,,,,
+"Perturbation","1 tâche (TASK-29)","~15 min",,,,,,
+"TOTAL","21 tâches (Sprint 1 + P4 RGPD)","~470 min",,,,,,
 ,,,,,,,,
 "NOTE : Si le setup (TASK-01 à 06) prend > 90 min (LLM lent · port en conflit · Windows make), utiliser LLM_BACKEND=mock pour ne pas bloquer le front. Documenter dans ADR-0001.",,,,,,,,
 ,,,,,,,,

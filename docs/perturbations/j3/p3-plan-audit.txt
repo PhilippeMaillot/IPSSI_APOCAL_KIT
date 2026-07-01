@@ -1,0 +1,63 @@
+APOCAL'IPSSI - PERTURBATION J3 (P3) - SECURITE
+Plan d'audit securite - EduTutor IA
+
+Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
+Auteur du modele : Mohamed Amine EL AFRIT - Licence CC BY-NC-SA 4.0
+
+
+IDENTIFICATION DU DOCUMENT
+==========================
+Equipe n    : 19
+Perturbation: J3 P3 - Securite
+Redacteur   : Ismael CEREZO
+Fichier     : docs/perturbations/j3/p3-plan-audit.txt
+
+
+================================================================================
+PERIMETRE DE L'AUDIT
+================================================================================
+
+Surface exposee :
+  - Endpoint POST /api/llm/generate-quiz/ (contenu utilisateur -> LLM)
+  - Champ texte /upload (saisie libre)
+  - Upload PDF /upload (contenu extrait par pypdf puis envoye au LLM)
+
+Vecteurs de risque identifies :
+  1. Prompt injection via champ texte
+  2. Prompt injection cachee dans un PDF
+  3. Exfiltration du prompt systeme
+  4. Manipulation des reponses generees
+
+
+================================================================================
+ACTIONS A MENER (Sprint 4)
+================================================================================
+
+ACTION 1 : Implementer le prompt guard (TASK-23)
+  - Modifier backend/llm/providers.py
+  - Encapsuler le contenu dans <COURS>...</COURS>
+  - Ajouter filtre regex pre-LLM sur patterns d'injection
+  - Logguer les tentatives detectees
+
+ACTION 2 : Executer les tests adversariaux (TASK-24)
+  - Derouler les 5 cas de p3-adversarial-tests.txt
+  - Documenter les resultats
+  - Corriger si un test echoue
+
+ACTION 3 : Rediger ADR-0002 (TASK-25)
+  - Documenter la decision : prompt guard retenu
+  - Inclure les resultats des tests adversariaux
+  - Deposer dans docs/adr/ADR-0002-prompt-injection.md
+
+
+================================================================================
+CRITERES DE VALIDATION (DoD P3)
+================================================================================
+
+  TEST-01 a TEST-05 passes sans fuite de reponses  : [ ] A valider
+  Prompt guard implemente et teste                 : [ ] A valider
+  ADR-0002 redige et depose                        : [ ] A valider
+  Aucune regression sur US-06, US-07, US-08        : [ ] A valider
+
+
+Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

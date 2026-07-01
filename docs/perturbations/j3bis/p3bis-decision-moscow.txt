@@ -1,0 +1,85 @@
+APOCAL'YNOV - PERTURBATION J3bis (P4 SUR 5) - RGPD
+Note de decision MoSCoW - EduTutor IA
+
+Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
+Auteur du modele : Mohamed Amine EL AFRIT - Licence CC BY-NC-SA 4.0
+
+
+IDENTIFICATION DU DOCUMENT
+==========================
+Equipe n         : 19
+Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
+                   Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
+Perturbation     : J3bis P4 - RGPD (pages legales + donnees personnelles)
+Heure annoncee   : Mercredi 01/07/2026 - 14h00
+Redacteur        : Ismael CEREZO
+Fichier          : docs/perturbations/j3bis/p3bis-decision-moscow.txt
+Reference        : p3bis-product-backlog-maj.txt · p3bis-sprint-backlog-maj.txt
+
+
+================================================================================
+1. CONTEXTE DE LA PERTURBATION
+================================================================================
+
+Le PO signale en debut de Sprint 5 que la Release 1 (17h45 mercredi) doit etre
+conforme RGPD avant demonstration. Deux droits utilisateur sont obligatoires
+(reglement UE 2016/679) :
+
+  - Art. 17 (droit a l'effacement) : l'utilisateur doit pouvoir supprimer
+    son compte et toutes ses donnees associees.
+  - Art. 20 (droit a la portabilite) : l'utilisateur doit pouvoir telecharger
+    ses donnees personnelles dans un format lisible.
+  - Art. 13 (obligation d'information) : des pages legales doivent etre
+    accessibles depuis le site (mentions legales, politique de confidentialite,
+    CGU, cookies).
+
+Ces obligations existaient deja dans le cadrage initial mais leur statut
+MoSCoW ne les rendait pas prioritaires. La perturbation P4 les rend MUST HAVE.
+
+
+================================================================================
+2. TABLEAU DE REPRIORISATION MOSCOW
+================================================================================
+
+User Story / Element         | Avant P4     | Apres P4    | Justification
+-----------------------------+--------------+-------------+------------------
+US-05 - Supprimer son compte | Should Have  | Must Have   | Art. 17 RGPD
+US-18 - Exporter ses donnees | Could Have   | Must Have   | Art. 20 RGPD
+Pages legales (taches)       | Non planifie | Must Have   | Art. 13 RGPD
+Politique de retention       | Non planifie | Must Have   | Bonne pratique
+
+
+================================================================================
+3. VERDICT POUR RELEASE 1 (mercredi 17h45 STRICT)
+================================================================================
+
+La Release 1 est invalide sans ces trois elements :
+  1. US-05 fonctionnel (suppression compte + donnees)
+  2. US-18 fonctionnel (bouton export JSON)
+  3. 4 pages legales completes et accessibles
+
+Note : US-05 est deja code dans le kit EduTutor IA (backend + frontend).
+Note : US-18 necessite un endpoint backend a implementer (TASK-27).
+Note : Les pages legales sont des squelettes vides dans le frontend (TASK-26).
+
+Validation equipe :
+  Mathieu PONNOU    - valide
+  Ndiasse MBEGUERE  - valide
+  Ismael CEREZO     - valide
+  Philippe MAILLOT  - valide
+  Aboubacar COUMARE - valide
+  Milane MEHALEBI   - valide
+
+
+================================================================================
+GRILLE D'AUTO-EVALUATION
+================================================================================
+
+  Contexte RGPD et articles de loi documentes                     : [X] Oui
+  Tableau MoSCoW avec avant/apres et justification                 : [X] Oui
+  Verdict Release 1 clair                                          : [X] Oui
+  Distinction code existant vs a implementer                       : [X] Oui
+  Document valide par l'equipe                                     : [X] Oui
+
+
+Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

@@ -1,0 +1,102 @@
+﻿APOCAL'IPSSI - PERTURBATION J3bis (P4) - RGPD
+Reponse a la demande utilisateur (Hugo) - EduTutor IA
+
+Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
+Auteur du modele : Mohamed Amine EL AFRIT - Licence CC BY-NC-SA 4.0
+
+
+IDENTIFICATION DU DOCUMENT
+==========================
+Equipe n    : 19
+Perturbation: J3bis P4 - RGPD
+Redacteur   : Ismael CEREZO
+Fichier     : docs/perturbations/j3bis/p3bis-reponse-hugo.txt
+Contexte    : Hugo (utilisateur Etudiant) a demande la suppression de son
+              compte et l'export de ses donnees avant de quitter la plateforme.
+
+
+================================================================================
+DEMANDE RECUE
+================================================================================
+
+De : Hugo MARTIN (hugo.martin@etudiant.fr)
+Objet : Demande de suppression de mon compte et export de mes donnees
+Date : 01/07/2026
+
+"Bonjour,
+
+Je souhaitais utiliser EduTutor IA pour reviser mon examen mais j'ai finalement
+decide de ne pas continuer. Conformement au RGPD, je demande :
+1. La suppression definitive de mon compte et de toutes mes donnees
+2. Un export de mes donnees avant suppression (historique de quiz, scores)
+
+Pouvez-vous me confirmer que c'est bien possible et comment proceder ?
+
+Cordialement,
+Hugo MARTIN"
+
+
+================================================================================
+REPONSE EQUIPE EDUTUTOR IA
+================================================================================
+
+De : Equipe EduTutor IA (equipe19@edututor.local)
+Objet : Re: Demande de suppression de mon compte et export de mes donnees
+Date : 01/07/2026
+
+"Bonjour Hugo,
+
+Nous avons bien recu votre demande. Conformement au RGPD (Reglement UE 2016/679),
+vous beneficiez des droits suivants que nous respectons integralement :
+
+--- DROIT A LA PORTABILITE (Art. 20) ---
+
+Vous pouvez telecharger l'integralite de vos donnees depuis votre profil :
+  1. Connectez-vous sur http://edututor.local
+  2. Cliquez sur votre avatar en haut a droite → 'Mon profil'
+  3. Cliquez sur le bouton 'Telecharger mes donnees (JSON)'
+  4. Un fichier JSON sera telecharge contenant :
+     - Vos informations de compte (email, date d'inscription)
+     - Votre historique de quiz (questions, reponses, scores)
+     - Vos statistiques de progression
+
+--- DROIT A L'EFFACEMENT (Art. 17) ---
+
+Vous pouvez supprimer votre compte directement depuis votre profil :
+  1. Connectez-vous sur http://edututor.local
+  2. Cliquez sur votre avatar → 'Mon profil'
+  3. Section 'Zone de danger' → bouton 'Supprimer mon compte'
+  4. Confirmez la suppression (mot de passe requis)
+  5. Toutes vos donnees seront supprimees definitivement sous 30 jours
+
+Nous vous recommandons d'exporter vos donnees AVANT de supprimer votre compte.
+
+--- DONNEES TIERCES ---
+
+Vos cours soumis pour generation de quiz ne sont pas stockes sur nos serveurs.
+Ils transitent uniquement lors de la generation (traitement en temps reel via
+Mistral AI, fournisseur francais, donnees en UE).
+
+--- CONTACT ---
+
+Pour toute question sur le traitement de vos donnees :
+  Email : privacy@edututor.local
+  Politique de confidentialite : http://edututor.local/mentions-legales
+
+Cordialement,
+L'equipe EduTutor IA - Equipe 19"
+
+
+================================================================================
+TRACE DE TRAITEMENT (conformite Art. 5.2 — responsabilite)
+================================================================================
+
+  Date de la demande    : 01/07/2026
+  Date de la reponse    : 01/07/2026 (< 1 mois, conforme Art. 12)
+  Actions disponibles   : Export JSON (US-18) + Suppression compte (US-05)
+  Statut US-18          : Must Have (repriorise P4) - a implementer TASK-27
+  Statut US-05          : Must Have (repriorise P4) - bouton present (TASK-10)
+  Responsable           : Mathieu PONNOU (Product Owner interne)
+
+
+Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0

@@ -1,0 +1,102 @@
+﻿APOCAL'IPSSI - PERTURBATION J3bis (P4 SUR 5) - RGPD
+Product Backlog actualise - EduTutor IA
+
+Projet EduTutor IA - Edition 2026 - Semaine immersive Scrum
+Auteur du modele : Mohamed Amine EL AFRIT - Licence CC BY-NC-SA 4.0
+
+
+IDENTIFICATION DU DOCUMENT
+==========================
+Equipe n         : 19
+Membres          : Mathieu PONNOU, Ndiasse MBEGUERE, Ismael CEREZO,
+                   Philippe MAILLOT, Aboubacar COUMARE, Milane MEHALEBI
+Perturbation     : J3bis P4 - RGPD (pages legales + donnees personnelles)
+Date             : 01/07/2026
+Redacteur        : Ismael CEREZO
+Fichier          : docs/perturbations/j3bis/p3bis-product-backlog-maj.txt
+Reference        : complete docs/cadrage/artefact-6-product-backlog.csv
+                   voir aussi p3bis-decision-moscow.txt · p3bis-sprint-backlog-maj.txt
+
+
+================================================================================
+1. MODIFICATIONS DU PRODUCT BACKLOG (Art. RGPD)
+================================================================================
+
+US-05 — Supprimer son compte
+  Avant P4 : Should Have  |  2 pts
+  Apres P4 : MUST HAVE    |  2 pts
+  Motif    : Art. 17 RGPD (droit a l'effacement) — obligatoire Release 1
+  Criteres d'acceptation COMPLETES :
+    - Bouton "Supprimer mon compte" accessible depuis /profile
+    - Confirmation par mot de passe avant suppression
+    - Suppression en cascade de TOUTES les donnees (compte + historique + scores)
+    - Deconnexion automatique apres suppression
+    - Email de confirmation de suppression envoye (optional si logge)
+    - Donnees supprimees en base sous 30 jours (conforme Art. 17 al. 3)
+  Note : bouton deja present (valide TASK-10). Suppression en cascade a verifier.
+
+  ---
+
+US-18 — Exporter ses donnees
+  Avant P4 : Could Have   |  3 pts
+  Apres P4 : MUST HAVE    |  3 pts
+  Motif    : Art. 20 RGPD (droit a la portabilite) — obligatoire Release 1
+  Criteres d'acceptation COMPLETES :
+    - Bouton "Telecharger mes donnees (JSON)" depuis /profile
+    - Le JSON contient : email, date inscription, historique quiz, scores, reponses
+    - Format lisible par machine (JSON standard)
+    - Telechargement instantane (pas d'email asynchrone)
+    - Fichier nomme : edututor_mes_donnees_<date>.json
+  Note : necessite implementation backend TASK-27 (endpoint /api/users/export/)
+
+  ---
+
+NOUVELLE TACHE — Pages legales (Art. 13 RGPD)
+  US    : Pas de US existante (tache technique transverse)
+  Motif : Art. 13 RGPD — information des personnes lors de la collecte
+  Pages a creer :
+    - /mentions-legales (responsable traitement, SIRET, hebergeur)
+    - /politique-confidentialite (donnees collectees, durees, droits)
+    - /cgu (conditions generales d'utilisation)
+    - /cookies (politique cookies — EduTutor n'utilise pas de cookies tiers)
+  Lien depuis le footer de toutes les pages
+  Note : squelettes HTML a completer (TASK-26)
+
+
+================================================================================
+2. TABLEAU DE SYNTHESE MOSCOW POST-P4
+================================================================================
+
+  Categorie  | Avant P4 | Apres P4 | Delta
+  -----------+----------+----------+-------
+  Must Have  |    8 US  |   10 US  |  +2 (US-05 et US-18 promues)
+  Should Have|    6 US  |    5 US  |  -1 (US-05 promue Must)
+  Could Have |    5 US  |    4 US  |  -1 (US-18 promue Must)
+  Won't Have |    2 US  |    2 US  |   0
+
+
+================================================================================
+3. IMPACT SUR LA RELEASE 1 (mercredi 17h45)
+================================================================================
+
+Release 1 doit contenir :
+  - [X] US-05 Must Have (bouton present, suppression cascade a valider)
+  - [ ] US-18 Must Have (a implementer en Sprint 5 — TASK-27)
+  - [ ] Pages legales (4 pages a completer en Sprint 5 — TASK-26)
+
+Si US-18 ou pages legales non terminees avant 17h45 :
+  Solution de repli : afficher une page "/coming-soon-rgpd" avec message
+  "Fonctionnalite disponible sous 72h — conformite RGPD en cours."
+
+
+================================================================================
+GRILLE D'AUTO-EVALUATION
+================================================================================
+
+  Modifications US-05 et US-18 avec justification RGPD            : [X] Oui
+  Criteres d'acceptation mis a jour                                : [X] Oui
+  Tableau MoSCoW delta documente                                   : [X] Oui
+  Impact Release 1 et solution de repli identifies                 : [X] Oui
+
+
+Mohamed Amine EL AFRIT - APOCAL'IPSSI 2026 - CC BY-NC-SA 4.0
